@@ -1,0 +1,26 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            MrDekk
+tagline:          'mrdekk personal blog'
+description:      'Время - лучший учитель! Жаль, что оно убивает своих учеников...'
+url:              http://mrdekk.ru
+
+author:
+  name:           'MrDekk'
+  url:            https://twitter.com/mrdekk
+
+paginate:         5
+
+# Custom vars
+version:          2.0.0
+
+github:
+  repo:           https://github.com/mrdekk/mrdekk.github.io
+
+gems:             [jekyll-paginate]
