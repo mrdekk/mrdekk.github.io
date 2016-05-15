@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Одна проблемка и ее решение &middot; MrDekk
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/mrdekk.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic'>
+  <link rel="stylesheet" href="/public/css/font-awesome.min.css" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>MrDekk</h1>
+      <p class="lead">Время - лучший учитель! Жаль, что оно убивает своих учеников...</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+        <a href="/"><i class="fa fa-home" ></i></a>
+      </li>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/about/">Кто здесь?</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </ul>
+
+    <p>&copy; 2016. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Одна проблемка и ее решение</h1>
+  <span class="post-date">08 Oct 2010</span>
+  <p>Задача простая – есть поле в базе данных MySql. Требуется сделать чтобы значение этого поля начиналось с большой буквы, весь остальной текст остался таким каков есть.</p>
+
+<p>запрос такой</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">SELECT</span>
+ <span class="n">concat</span><span class="p">(</span><span class="k">upper</span><span class="p">(</span><span class="k">LEFT</span><span class="p">(</span><span class="n">description_short</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span><span class="k">substring</span><span class="p">(</span><span class="n">description_short</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="k">char_length</span><span class="p">(</span><span class="n">description_short</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="k">AS</span> <span class="n">x</span>
+ <span class="k">FROM</span> <span class="n">am_product_lang</span>
+ <span class="k">WHERE</span> <span class="n">description_short</span> <span class="o">&gt;</span> <span class="s1">''</span>
+ <span class="k">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<p>По мотивам этого запроса можно написать любой нужный update.</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2016/05/11/symbolicate-crash-log/">
+            Символификация crash-дампа iOS
+            <small>11 May 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2010/10/20/red5-eclipse-simple-project/">
+            Простой проект red5+eclipse
+            <small>20 Oct 2010</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2010/09/28/nodejs-advanced-setup/">
+            node.js дополнительная настройка
+            <small>28 Sep 2010</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+  </body>
+</html>

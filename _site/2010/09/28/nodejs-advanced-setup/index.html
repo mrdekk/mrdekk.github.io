@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      node.js дополнительная настройка &middot; MrDekk
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/mrdekk.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic'>
+  <link rel="stylesheet" href="/public/css/font-awesome.min.css" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>MrDekk</h1>
+      <p class="lead">Время - лучший учитель! Жаль, что оно убивает своих учеников...</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+        <a href="/"><i class="fa fa-home" ></i></a>
+      </li>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/about/">Кто здесь?</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </ul>
+
+    <p>&copy; 2016. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">node.js дополнительная настройка</h1>
+  <span class="post-date">28 Sep 2010</span>
+  <p>Для дальнейшей работы с node.js нам потребуется еще несколько библиотек. Для того чтобы поставить эти библиотеки нам потребуется пакетный менеджер для node.js – npm.</p>
+
+<p>Для выполнения всех действий делаем следующие шаги:</p>
+
+<ol>
+  <li>
+    <p>Ставим последнюю версию node.js</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>fetch <span class="s1">'http://nodejs.org/dist/node-v0.2.2.tar.gz'</span>
+<span class="gp">$ </span>tar -xvf node-v0.2.2.tar.gz
+<span class="gp">$ </span><span class="nb">cd </span>node-v0.2.2.tar.gz
+<span class="gp">$ </span>./configure
+<span class="gp">$ </span>make
+<span class="gp">$ </span>make install
+<span class="gp">$ </span>rehash
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Ставим пакетный менеджер npm</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>fetch <span class="s1">'http://download.github.com/isaacs-npm-v0.2.2-0-g00adb09.tar.gz'</span>
+<span class="gp">$ </span>tar -xvf isaacs-npm-v0.2.2-0-g00adb09.tar.gz
+<span class="gp">$ </span><span class="nb">cd </span>isaacs-npm-6acdb76
+<span class="gp">$ </span>make
+<span class="gp">$ </span>rehash
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Ставим библиотеку htmlparser</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm install htmlparser
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Ставим библиотеку jsdom</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm install jsdom
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Ставим библиотеку http-agent</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>npm install http-agent
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<p>Далее можно подключать jQuery и делать паука. Но об этом в следующих статьях</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2016/05/11/symbolicate-crash-log/">
+            Символификация crash-дампа iOS
+            <small>11 May 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2010/10/20/red5-eclipse-simple-project/">
+            Простой проект red5+eclipse
+            <small>20 Oct 2010</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2010/10/08/mysql-upper-first-letter/">
+            Одна проблемка и ее решение
+            <small>08 Oct 2010</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+  </body>
+</html>

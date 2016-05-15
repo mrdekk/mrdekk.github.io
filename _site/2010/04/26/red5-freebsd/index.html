@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Установка red5 на FreeBSD 8.0 &middot; MrDekk
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/mrdekk.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic'>
+  <link rel="stylesheet" href="/public/css/font-awesome.min.css" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>MrDekk</h1>
+      <p class="lead">Время - лучший учитель! Жаль, что оно убивает своих учеников...</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+        <a href="/"><i class="fa fa-home" ></i></a>
+      </li>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/about/">Кто здесь?</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </ul>
+
+    <p>&copy; 2016. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Установка red5 на FreeBSD 8.0</h1>
+  <span class="post-date">26 Apr 2010</span>
+  <p>Считаю что Java у Вас уже установлена. В противном случае – это тема отдельной статьи, которую вскорости может быть напишу. У меня Java установлена тут</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>/usr/local/diablo-jdk1.6.0
+</code></pre>
+</div>
+
+<p>Для сборки сервера red5 нам потребуется Apache Ant, который можно легко поставить из портов:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> /usr/ports/devel/apache-ant
+<span class="gp">$ </span>make install clean
+</code></pre>
+</div>
+
+<p>Теперь нам нужны исходники red5, чекаутим их с официального сайта примерно следующим образом:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mkdir /home/red5
+<span class="gp">$ </span>svn co http://red5.googlecode.com/svn/java/server/trunk /home/red5
+</code></pre>
+</div>
+
+<p>Теперь соберем его</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span><span class="nb">cd</span> /home/red5
+<span class="gp">$ </span>ant
+</code></pre>
+</div>
+
+<p>Процесс на 2-3 минуты. Должны поставиться всякие там jar, а те которых нет, подкачаться и также поставиться. Создадим рабочую директорию Red5 и перенесем туда только что собраный сервер:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>mkdir /usr/share/red5
+<span class="gp">$ </span>cp -R /home/red5/dist/<span class="k">*</span> /usr/share/red5
+</code></pre>
+</div>
+
+<p>На всякий случай:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>chmod 755 /usr/share/red5/red5.sh
+</code></pre>
+</div>
+
+<p>Исправляем shell:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>ee /usr/share/red5/red5.sh
+ /bin/bash -&gt; /bin/sh
+</code></pre>
+</div>
+<p>Делаем пускач:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>touch /usr/local/etc/rc.d/red5.sh
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="nv">RED5_DIR</span><span class="o">=</span>/usr/share/red5
+<span class="nb">test</span> -x <span class="nv">$RED5_DIR</span>/red5.sh <span class="o">||</span> <span class="nb">exit </span>5
+
+<span class="k">case</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="k">in
+    </span>start<span class="p">)</span>
+        <span class="nb">cd</span> <span class="s2">"</span><span class="nv">$RED5_DIR</span><span class="s2">"</span>
+        <span class="s2">"</span><span class="nv">$RED5_DIR</span><span class="s2">"</span>/red5.sh &amp;
+        sleep 2
+        <span class="p">;;</span>
+    stop<span class="p">)</span>
+        <span class="nb">echo </span>Shutting down Red5
+        killall java
+        sleep 2
+        <span class="p">;;</span>
+    restart<span class="p">)</span>
+        <span class="nv">$0</span> stop
+        <span class="nv">$0</span> start
+        <span class="p">;;</span>
+<span class="k">esac</span>
+</code></pre>
+</div>
+
+<p>Запускаем Red5 и проверяем открытость портов:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>/usr/local/etc/rc.d/red5.sh start
+<span class="gp">$ </span>netstat -ant
+ ...
+ tcp4       0      0 <span class="k">*</span>.5080                 <span class="k">*</span>.<span class="k">*</span>                    LISTEN
+ tcp4       0      0 <span class="k">*</span>.1935                 <span class="k">*</span>.<span class="k">*</span>                    LISTEN
+ tcp4       0      0 <span class="k">*</span>.51724                <span class="k">*</span>.<span class="k">*</span>                    LISTEN
+ tcp4       0      0 <span class="k">*</span>.9999                 <span class="k">*</span>.<span class="k">*</span>                    LISTEN
+ ...
+</code></pre>
+</div>
+
+<p>Все гуд. Контрольный выстрел:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>telnet name-server 5080 или http://name-server:5080
+</code></pre>
+</div>
+
+<p>Вот вроде и все – сервер собран, установлен и запущен (дефолтные настройки). Вам осталось накрутить конфиги Red5 под свои нужды (не забываем после этого сделать /usr/local/etc/rc.d/red5.sh restart).</p>
+
+<p>ЗЫ: Правда надо еще поправить пускач, чтобы он стартовал Red5 при старте системы. Ну это на досуге как-нибудь</p>
+
+<h3 id="section">Комментарии</h3>
+
+<blockquote>
+  <p>mandarin80:
+01.02.2011 в 19:42
+установил, но не запускается, в чем может быть проблема?</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>MrDekk:
+01.02.2011 в 23:09
+Добрый день!
+Проблема может быть во многих вещах. Для того, чтобы я Вам мог подсказать по делу надо бы посмотреть логи.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Тайланд:
+03.03.2011 в 00:05
+У меня проблема в том, что red зависает, проблема решается только перезагрузкой, удалением файла red5.pid и запуском заново, что за фигня, кто знает?</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>MrDekk:
+03.03.2011 в 18:14
+Ну, вообще, выключать его правильно. Там есть скриптик, для Windows вроде stop.bat или shutdown.bat, для Unix: stop.sh или shutdown.sh – я не помню точно как называется. Если же это не помогает, то можно написать свой файлик, или скрипт запуска пополнить функцией анализа наличия pid и либо не делать дальше действий и просто сообщать, либо удалять его и проводить нормальный процесс запуска.</p>
+</blockquote>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2016/05/11/symbolicate-crash-log/">
+            Символификация crash-дампа iOS
+            <small>11 May 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2010/10/20/red5-eclipse-simple-project/">
+            Простой проект red5+eclipse
+            <small>20 Oct 2010</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2010/10/08/mysql-upper-first-letter/">
+            Одна проблемка и ее решение
+            <small>08 Oct 2010</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+  </body>
+</html>
