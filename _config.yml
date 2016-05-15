@@ -1,8 +1,8 @@
 # Dependencies
-#markdown:         kramdown
-#highlighter:      rouge
-#kramdown:
-#  input: GFM
+markdown:         kramdown
+highlighter:      rouge
+kramdown:
+  input: GFM
 
 # Permalinks
 permalink:        pretty
