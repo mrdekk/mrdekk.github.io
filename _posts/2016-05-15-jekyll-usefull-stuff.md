@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Полезное для jekyll
+tags:
+ - jekyll
+ - stuff
 ---
 
  * [список доступных подсветок синтаксиса для rouge](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers)
