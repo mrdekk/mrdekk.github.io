@@ -1,8 +1,8 @@
 # Dependencies
-markdown:         kramdown
-highlighter:      rouge
-kramdown:
-  input: GFM
+#markdown:         kramdown
+#highlighter:      rouge
+#kramdown:
+#  input: GFM
 
 # Permalinks
 permalink:        pretty
@@ -25,4 +25,4 @@ version:          2.0.0
 github:
   repo:           https://github.com/mrdekk/mrdekk.github.io
 
-#gems:             [jekyll-paginate]
+gems:             [jekyll-paginate]
