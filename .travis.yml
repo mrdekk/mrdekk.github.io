@@ -1,0 +1,11 @@
+sudo: false
+language: ruby
+rvm:
+- 2.2
+script:
+- bundle exec jekyll build
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+  - GH_REF: github.com/mrdekk/mrdekk.github.io.git
+  - TARGET_BRANCH: master
