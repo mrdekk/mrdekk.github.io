@@ -26,3 +26,5 @@ github:
   repo:           https://github.com/mrdekk/mrdekk.github.io
 
 gems:             [jekyll-paginate]
+
+exclude:          [vendor]
