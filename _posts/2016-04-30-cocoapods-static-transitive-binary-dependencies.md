@@ -61,10 +61,12 @@ fi
 
 echo "Creating $FWNAME.framework"
 mkdir -p $FWNAME.framework/Headers
-libtool -no_warning_for_no_symbols $LIBTOOL_FLAGS -o $FWNAME.framework/$FWNAME lib/libcrypto.a lib/libssl.a
+libtool -no_warning_for_no_symbols $LIBTOOL_FLAGS -o $FWNAME.framework/$FWNAME -install_name @rpath/$FWNAME.framework/$FWNAME lib/libcrypto.a lib/libssl.a
 cp -r include/$FWNAME/* $FWNAME.framework/Headers/
 echo "Created $FWNAME.framework"
 ```
+
+**ВАЖНО:** чтобы имелся параметр -install_name ... так как без него у вас все соберется, но при запуске будет Library not loaded: Image not found
 
 Сам же podspec файл будет выглядеть примерно следующим образом
 
