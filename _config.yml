@@ -29,6 +29,7 @@ github:
 gems:
   - jekyll-coffeescript
   - jekyll-paginate
+  - jekyll-sitemap
 
 exclude:
   - vendor
