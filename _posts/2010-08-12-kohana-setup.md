@@ -1,6 +1,9 @@
 ---
 layout: post
 title: "Kohana: настройка"
+tags:
+ - php
+ - kohana
 ---
 
 ![kohana logo](/media/images/kohana-300x119.png)

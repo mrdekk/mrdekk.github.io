@@ -1,6 +1,10 @@
 ---
 layout: post
 title: "Проблема Subversion+Apache2"
+tags:
+ - svn
+ - apache
+ - http
 ---
 
 Сегодня появилась необходимость установить Subversion с доступом через Apache2. Установку Apache2 в данной статье рассматривать не буду. Subversion ставим следующим образом:

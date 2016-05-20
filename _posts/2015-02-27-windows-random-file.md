@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Windows создать рандомный тестовый файл
+tags:
+ - windows
 ---
 
 ``` bash

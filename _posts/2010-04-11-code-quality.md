@@ -1,6 +1,9 @@
 ---
 layout: post
 title: О Качестве кода
+tags:
+ - QA
+ - WTF
 ---
 
 О Качестве кода

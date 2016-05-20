@@ -1,6 +1,10 @@
 ---
 layout: post
 title: "node.js+nginx на freebsd"
+tags:
+ - freebsd
+ - js
+ - nodejs
 ---
 
 Доброго всем дня!

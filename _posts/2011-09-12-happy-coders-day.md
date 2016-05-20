@@ -1,6 +1,8 @@
 ---
 layout: post
 title: С Днем Программиста! Ура!
+tags:
+ - holidays
 ---
 
 ![happy coders day](/media/images/happy-coders-day.gif)

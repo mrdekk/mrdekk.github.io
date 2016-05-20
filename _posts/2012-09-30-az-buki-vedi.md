@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Аз буки веди
+tags:
+ - holidays
 ---
 
 ![az buki vedi](/media/images/az-buki-vedi.jpg)

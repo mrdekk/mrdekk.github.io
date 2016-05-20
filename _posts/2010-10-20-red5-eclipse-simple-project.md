@@ -1,6 +1,10 @@
 ---
 layout: post
 title: Простой проект red5+eclipse
+tags:
+ - java
+ - red5
+ - eclipse
 ---
 
 Сегодня займемся создание простого проекта для red5 под eclipse. Будем считать, что red5, eclipse, flashdevelope, flex sdk вы уже поставили, поэтому сразу перейдем к делу.

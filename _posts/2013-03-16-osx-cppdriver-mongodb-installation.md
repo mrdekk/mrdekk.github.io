@@ -1,6 +1,10 @@
 ---
 layout: post
 title: Устанавливаем C++ драйвер для MongoDB на Mac OS X Mountain Lion
+tags:
+ - c++
+ - osx
+ - mongodb
 ---
 
 Потребовался мне вдруг С++ драйвер для MongoDB на Mac OS X, так как писать для FreeBSD софт на С++ лучше всего под Mac OS X в xCode, вот такой уж винегрет.

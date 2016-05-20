@@ -12,7 +12,15 @@ title: Главная
       </a>
     </h1>
 
-    <span class="post-date">{{ post.date | date: "%d.%m.%Y" }}</span>
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">{{ post.date | date: "%d.%m.%Y" }}</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	{% for tag in post.tags %}
+  	  <div class="label bg-success">
+  	    <a href="{{ site.url }}{{ site.baseurl }}/tags/#{{ tag | cgi_escape }}" title="Pages tagged {{ tag }}" rel="tag" class="text-success">{{ tag }}</a>
+        </div>
+        {% unless forloop.last %}&nbsp;{% endunless %}
+      {% endfor %}
+    </p>
 
     {{ post.content }}
   </div>

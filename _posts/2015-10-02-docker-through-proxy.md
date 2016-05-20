@@ -1,6 +1,9 @@
 ---
 layout: post
 title: docker в Ubuntu через прокси
+tags:
+ - ubuntu
+ - docker
 ---
 
 Чтобы в свою очередь docker мог в ubuntu работать через proxy редактируем файл /etc/default/docker в самый конец добавляем

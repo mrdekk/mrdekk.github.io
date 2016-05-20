@@ -1,6 +1,11 @@
 ---
 layout: post
 title: Eclipse RCP (4.3) приложение с использованием maven. Часть 2. Фича!
+tags:
+ - eclipse
+ - rcp
+ - maven
+ - java
 ---
 
 Добрый день, читатели!

@@ -1,6 +1,10 @@
 ---
 layout: post
 title: "Kohana: Требования к серверу"
+tag:
+ - php
+ - kohana
+ - server
 ---
 
 ### Основные требования:

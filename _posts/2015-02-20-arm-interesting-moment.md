@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Интересный момент
+tags:
+ - c++
+ - arm
 ---
 
 Сразу скажу – не моё – взял [тут](https://closedcircles.com/) тут для того, чтоб не забыть.

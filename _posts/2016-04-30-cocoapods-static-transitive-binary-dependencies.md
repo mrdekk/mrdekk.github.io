@@ -1,6 +1,10 @@
 ---
 layout: post
 title: Боремся с The ‘Pods...’ target has transitive dependencies that include static binaries
+tags:
+ - ios
+ - osx
+ - cocoapods
 ---
 
 Суть проблемы следующаяя

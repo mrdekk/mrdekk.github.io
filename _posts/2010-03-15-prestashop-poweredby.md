@@ -1,6 +1,9 @@
 ---
 layout: post
 title: "Убираем надпись «Powered By…» в PrestaShop"
+tags:
+ - php
+ - prestashop
 ---
 
 Сие конечно делать не хорошо, но если уж вам очень надо.

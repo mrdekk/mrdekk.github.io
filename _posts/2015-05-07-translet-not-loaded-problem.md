@@ -1,6 +1,10 @@
 ---
 layout: post
 title: Боремся с «Translet class loaded, but unable to create translet instance.»
+tags:
+ - java
+ - javaee
+ - maven
 ---
 
 При работе с XSLT преобразованиями на сервере приложений WildFly возникает такой Exception

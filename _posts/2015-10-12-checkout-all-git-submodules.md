@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Зачекаутить все submodules в проекте git
+tags:
+ - git
 ---
 
 ``` bash

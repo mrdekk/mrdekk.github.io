@@ -1,6 +1,10 @@
 ---
 layout: post
 title: FreeBSD gnome2 русификация
+tags:
+ - freebsd
+ - gnome
+ - i18n
 ---
 
 Для начала идем в /etc/login.conf и добавляем туда профиль пользователя для UTF-8

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Работа apt-get в Ubuntu через прокси
+tags:
+ - ubuntu
 ---
 
 Чтобы apt-get в Ubuntu заработал через прокси, необходимо создать или добавить в файл
