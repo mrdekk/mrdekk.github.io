@@ -21,6 +21,12 @@ tags:
 /Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/Versions/A/Resources
 {% endhighlight %}
 
+Для xCode 7.3 путь меняется
+
+{% highlight bash %}
+/Applications/Xcode7.3.1.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources
+{% endhighlight %}
+
 где лежит symbolicatecrash. Берем его и копируем вместе с \*.crash файлом и \*.ipa файлом (предварительно выключив опцию Strip Debug Symbols During Copy) после этого выполняем нехитрый скрипт
 
 {% highlight bash %}
