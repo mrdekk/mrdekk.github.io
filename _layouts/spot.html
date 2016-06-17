@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	{% include spot/head.html %}
+
+	<body>
+
+		<div class="bg-image" style="background-image: url(/media/{{page.bg}})"></div>
+
+		<div class="bg-colors hidden" data-colors="#568CD3,#D3744C,#389E86,#9356D3,#D35D56,#587EA0,#518E7E"></div>
+
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+						<span class="sr-only"> </span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="{{page.permalink}}#section_welcome">{{page.title}}</a>
+				</div>
+
+				<div id="navbar" class="collapse navbar-collapse">
+
+					<a href="{{page.permalink}}#section_download" class="btn btn-lg navbar-right navbar-btn">
+						<i class="fa fa-cloud-download"></i> {{page.download_i18n}}
+					</a>
+
+					<ul class="nav navbar-nav navbar-right menu">
+						{% for section in page.sections %}
+							{% for shash in section %}
+								<li data-menuanchor="section_{{shash[0]}}">
+									<a href="{{page.permalink}}#section_{{shash[0]}}">{{shash[1]}}</a>
+								</li>
+							{% endfor %}
+						{% endfor %}
+						<li>
+							<a href="{{page.policy}}" >{{page.policy_i18n}}</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</nav>
+
+		<div class="side-menu hidden-xs hidden-sm">
+			<ul class="menu">
+				{% for section in page.sections %}
+					{% for shash in section %}
+						<li data-menuanchor="section_{{shash[0]}}">
+							<a href="{{page.permalink}}#section_{{shash[0]}}"></a>
+						</li>
+					{% endfor %}
+				{% endfor %}
+			</ul>
+		</div>
+
+		<!-- TODO: -->
+		<div class="social-links hidden-xs hidden-sm">
+			<ul>
+				{% for socials in page.socials %}
+					{% for soc in socials %}
+						<li>
+							<a href="{{soc[1]}}" ><i class="fa fa-{{soc[0]}}" ></i></a>
+						</li>
+					{% endfor %}
+				{% endfor %}
+			</ul>
+		</div>
+
+		<div class="device__container hidden-xs">
+			<div class="iphone__container black">
+
+				<div class="iphone__screen">
+					<div class="device__slides">
+
+						{% for slide in page.slides %}
+							{% for shash in slide %}
+								<img src="media/{{shash[1]}}" alt="...">
+							{% endfor %}
+						{% endfor %}
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="fullpage">
+
+			{{ content }}
+
+		</div>
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="public/spot/js/bootstrap.min.js"></script>
+
+		<script src="public/spot/js/jquery.fullpage.min.js"></script>
+
+		<script src="public/spot/js/custom.js"></script>
+
+	</body>
+</html>
