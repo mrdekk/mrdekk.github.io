@@ -91,3 +91,12 @@ tags:
 
 To be continue...
 (Статья будет пополняться, можете принять в этом участие)
+
+// INFO
+
+Storyboard as DI container
+
+- NSObject heir
+- KVC-complaint
+- initWithCoder
+- IBOutlet
