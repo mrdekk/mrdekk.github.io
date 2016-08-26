@@ -231,6 +231,34 @@ class IdentityMap<T: Identifiable> {
 
 Барьерная часть ```dispatch_barrier_async``` означает, что блок не будет выполнен до тех пор, пока каждый блок в очереди не закончит свое выполнение. Другие блоки будут размещены после барьерного и выполняться после того, как выполнится барьерный.
 
+## Таймер на GCD
+
+Иногда требуется периодическое выполнение какой-то функциональности и как правило для этого используют NSTimer. Однако таймер можно сделать и на GCD примерно вот так:
+
+``` swift
+var timer: dispatch_source_t?
+
+func createTimer() {
+  dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+  double secondsToFire = 1.000f;
+  
+  self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
+  if let timer = self.timer {
+    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, secondsToFire * NSEC_PER_SEC, (1ull * NSEC_PER_SEC) / 10)
+    dispatch_source_set_event_handler(timer) {
+      // do something useful
+    }
+    dispatch_resume(timer)
+  }
+}
+
+func releaseTimer() {
+  guard let timer = self.timer else { return }
+  dispatch_source_cancel(timer)
+  timer = nil
+}
+```
+
 ## Post Scriptum
 
 Фреймворк GCD содержит много низкоуровневых примитивов. С их помощью мы смогли построить высокоуровневые конструкции. Если вам известны какие-то другие высокоуровневые конструкции не упомянутые здесь, будут рад их услышать _(вы можете сделать PR тут или отправить напрямую автору. прим. переводчика)_
