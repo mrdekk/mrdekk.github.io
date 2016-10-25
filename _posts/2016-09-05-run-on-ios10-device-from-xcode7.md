@@ -15,3 +15,11 @@ sudo ln -s /Applications/Xcode8beta4.app/Contents/Developer/Platforms/iPhoneOS.p
 ```
 
 После этого можно отлаживаться в обычном режиме.
+
+Аналогичным образом можно подцепить к Xcode 8 девайс с iOS 7.1 например
+
+``` bash
+sudo ln -s /Applications/Xcode7.3.1.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport/7.1 /Applications/Xcode8GM.app/Contents/Developer/Platforms/iPhoneOS.platform/DeviceSupport
+```
+
+Но это уже на ваш страх и риск - никто работоспособность такого хака не гарантирует
