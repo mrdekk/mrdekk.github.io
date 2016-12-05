@@ -16,3 +16,10 @@ tags:
 4. В него для требуемой настройки сборки (например Debug) добавляем такой флаг "-Wpartial-availability"
 
 После этого Xcode начинает отображать такие места как #warning
+
+Для того, чтобы Xcode не писал #warning'и для тех мест где вы делаете это намерянно, можно переопределить (где-нибудь в pre-compile заголовках) такие макро:
+
+``` objc
+#define START_IGNORE_PARTIAL _Pragma("clang diagnostic push") _Pragma("clang diagnostic ignored \"-Wpartial-availability\"")
+#define END_IGNORE_PARTIAL _Pragma("clang diagnostic pop")
+```
