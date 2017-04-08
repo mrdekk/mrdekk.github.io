@@ -23,7 +23,8 @@ tags:
 Разные полезные штуки при работе с LLDB
 
 - Показать историю аллокаций по адресу в памяти, надо в консоли отладчика сделать так
-```
-(lldb) command script import lldb.macosx.heap
-(lldb) malloc_info --stack-history 0x10010d680
-```
+
+    ```
+    (lldb) command script import lldb.macosx.heap
+    (lldb) malloc_info --stack-history 0x10010d680
+    ```
