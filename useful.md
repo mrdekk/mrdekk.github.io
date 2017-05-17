@@ -10,4 +10,5 @@ title: Полезное
 
 ### Интересные блоки
 
-* [appventure.me (англ.)](https://appventure.me)
+* [appventure.me (англ.)](https://appventure.me) - много интересных вещей с разбором про Swift
+* [mikeash.com (англ.)](https://mikeash.com/pyblog/) - много интересных вещей про то, как вещи работают в iOS и т.д.
