@@ -1,4 +1,4 @@
-FROM ruby:2.2
+FROM ruby:2.2.7
 MAINTAINER mrdekk
 
 RUN apt-get update -y && \
