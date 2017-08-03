@@ -24,3 +24,9 @@ git push REMOTE --all
 
 git push REMOTE --tags
 ```
+
+## Поудалять все теги по маске
+
+``` bash
+git tag -l | grep _clog | while read remote; do git tag -d $remote; git push origin :refs/tags/$remote; done
+```
