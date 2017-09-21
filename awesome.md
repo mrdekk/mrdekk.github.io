@@ -22,7 +22,6 @@
   - [Lua](#lua)
   - [Makefile](#makefile)
   - [Mathematica](#mathematica)
-  - [Metal](#metal)
   - [Nginx](#nginx)
   - [Objective-C](#objective-c)
   - [Others](#others)
@@ -37,6 +36,7 @@
   - [Shell](#shell)
   - [Swift](#swift)
   - [TeX](#tex)
+  - [Vue](#vue)
 
 ## Assembly 
 
@@ -45,6 +45,7 @@
 
 ## C 
 
+- [openresty](https://github.com/openresty/openresty) - Turning Nginx into a Full-Fledged Scriptable Web Platform
 - [sokol](https://github.com/floooh/sokol) - minimal 3D API wrapper as header-only C library
 - [herebedragons](https://github.com/kosua20/herebedragons) - A basic 3D scene implemented with various engines, frameworks or APIs.
 - [wrk](https://github.com/wg/wrk) - Modern HTTP benchmarking tool
@@ -106,6 +107,11 @@
 
 ## C++ 
 
+- [onnx](https://github.com/onnx/onnx) - Open Neural Network Exchange
+- [avalon](https://github.com/hovergames/avalon) - Various extensions, helper and functions for cocos2d-x
+- [WickedEngine](https://github.com/turanszkij/WickedEngine) - Game engine written in C++, with Bullet physics, Lua scripting, input and sound. Featuring Forward, Deferred, Tiled Forward and Tiled Deferred render paths, voxel GI and more.
+- [MTuner](https://github.com/milostosic/MTuner) - MTuner is a C/C++ memory profiler and memory leak finder for Windows, PS4, PS3, etc.
+- [GameSharing](https://github.com/dwd31415/GameSharing) - A C++ bridge to the Java Google Play Games Services SDK and Apple's  Game Center for cocos2d-X.
 - [gl](https://github.com/acdemiralp/gl) - Complete OpenGL 4.6 Core Profile Wrapper for C++11.
 - [Granite](https://github.com/Themaister/Granite) - My personal Vulkan renderer
 - [catboost](https://github.com/catboost/catboost) - CatBoost is an open-source gradient boosting on decision trees library with categorical features support out of the box for Python, R
@@ -143,7 +149,7 @@
 - [cocos2d-x](https://github.com/cocos2d/cocos2d-x) - Cocos2d-x is a suite of open-source, cross-platform, game-development tools used by millions of developers all over the world.
 - [spdlog](https://github.com/gabime/spdlog) - Super fast C++ logging library.
 - [date](https://github.com/HowardHinnant/date) - A date and time library based on the C++11/14/17 &lt;chrono&gt; header
-- [rapidjson](https://github.com/miloyip/rapidjson) - A fast JSON parser/generator for C++ with both SAX/DOM style API
+- [rapidjson](https://github.com/Tencent/rapidjson) - A fast JSON parser/generator for C++ with both SAX/DOM style API
 - [AtomicGameEngine](https://github.com/AtomicGameEngine/AtomicGameEngine) - The Atomic Game Engine is a multi-platform 2D and 3D engine with a consistent API in C++, C#, JavaScript, and TypeScript
 - [ceph](https://github.com/ceph/ceph) - Ceph is a distributed object, block, and file storage platform
 - [arrayfire](https://github.com/arrayfire/arrayfire) - ArrayFire: a general purpose GPU library.
@@ -183,7 +189,7 @@
 - [Natron](https://github.com/MrKepzie/Natron) - Open-source compositing software. Node-graph based. Similar in functionalities to Adobe After Effects and Nuke by The Foundry.
 - [BansheeEngine](https://github.com/BearishSun/BansheeEngine) - Modern C++14 game engine with Vulkan support, fully featured editor and C# scripting
 - [origin](https://github.com/asutton/origin) - Origin C++11 Libraries
-- [bandit](https://github.com/banditcpp/bandit) - Human friendly unit testing for C++11
+- [bandit](https://github.com/banditcpp/bandit) - Human-friendly unit testing for C++11
 - [libbf](https://github.com/mavam/libbf) - :dart: Bloom filters for C++11
 - [libprocess](https://github.com/3rdparty/libprocess) - Library that provides an actor style message-passing programming model (in C++).
 - [stout](https://github.com/3rdparty/stout) - A C++ library for building sturdy software.
@@ -264,7 +270,7 @@
 
 ## Erlang 
 
-- [awesomo](https://github.com/lk-geimfari/awesomo) - An extensive list of interesting open source projects written in С, C++, Clojure, Lisp (Common/Emacs), Elixir, Erlang, Elm, Golang, Haskell, JavaScript, Lua, OCaml, Python, R, Ruby, Rust, Scala etc.
+- [awesomo](https://github.com/lk-geimfari/awesomo) - An extensive list of interesting open source projects written in С, C++, Clojure, Lisp, Elixir, Erlang, Elm, Golang, Haskell, JavaScript, Lua, OCaml, Python, R, Ruby, Rust, Scala etc.
 
 ## GLSL 
 
@@ -275,12 +281,14 @@
 - [github-review-bot](https://github.com/kiasaki/github-review-bot) - GitHub bot helping you pick reviewers for Pull Requests
 - [tidb](https://github.com/pingcap/tidb) - TiDB is a distributed NewSQL database compatible with MySQL protocol
 - [ctop](https://github.com/bcicen/ctop) - Top-like interface for container metrics
+- [mattermost-server](https://github.com/mattermost/mattermost-server) - Open source Slack-alternative in Golang and React - Mattermost
 - [vault](https://github.com/hashicorp/vault) - A tool for managing secrets.
 - [syncthing](https://github.com/syncthing/syncthing) - Open Source Continuous File Synchronization
 - [nsq](https://github.com/nsqio/nsq) - A realtime distributed messaging platform
 
 ## HTML 
 
+- [Awesome-CoreML-Models](https://github.com/likedan/Awesome-CoreML-Models) - Largest list of models for Core ML (for iOS 11+)
 - [side-project-marketing](https://github.com/karllhughes/side-project-marketing) - A checklist of tactics for marketing your side projects.
 - [awesome-mac](https://github.com/jaywcjlove/awesome-mac) -  This repo is a collection of awesome Mac applications and tools for developers and designers.
 - [awesome-modern-cpp](https://github.com/rigtorp/awesome-modern-cpp) - A collection of resources on modern C++
@@ -298,11 +306,14 @@
 
 ## Java 
 
+- [interviews](https://github.com/kdn251/interviews) - Everything you need to know to get the job.
+- [Melophile](https://github.com/vpaliyX/Melophile) - Music App built using RxJava2, Retrofit2, Dagger2 and clean architecture.
+- [iosched](https://github.com/google/iosched) - The Google I/O 2017 Android App
 - [UberUX](https://github.com/mohak1712/UberUX) - Project that demonstrates the entire animation stack present in the Uber app (android)
 - [thingsboard](https://github.com/thingsboard/thingsboard) - Open-source IoT Platform - Device management, data collection, processing and visualization.
 - [react-native-image-picker](https://github.com/react-community/react-native-image-picker) - A React Native module that allows you to use native UI to select media from the device library or directly from the camera
 - [java8-tutorial](https://github.com/winterbe/java8-tutorial) - Modern Java - A Guide to Java 8
-- [ta4j](https://github.com/mdeverdelhan/ta4j) - A Java library for technical analysis
+- [ta4j-origins](https://github.com/mdeverdelhan/ta4j-origins) - A Java library for technical analysis ***Not maintained anymore, kept for archival purposes, see #192***
 - [feather](https://github.com/zsoltherpai/feather) - Lightweight dependency injection for Java and Android (JSR-330)
 - [OpenRTS](https://github.com/methusalah/OpenRTS) - Real-Time Strategy game 3D engine coded in java 7
 - [Chronicle-Queue](https://github.com/OpenHFT/Chronicle-Queue) - Micro second messaging that stores everything to disk
@@ -348,6 +359,9 @@
 
 ## JavaScript 
 
+- [feather](https://github.com/colebemis/feather) - Simply beautiful open source icons
+- [free-programming-books-zh_CN](https://github.com/justjavac/free-programming-books-zh_CN) - :books: 免费的计算机编程类中文书籍，欢迎投稿
+- [makegirlsmoe_web](https://github.com/makegirlsmoe/makegirlsmoe_web) - Create Anime Characters with MakeGirlsMoe
 - [react-express](https://github.com/dabbott/react-express) - The all-in-one beginner's guide to modern React application development!
 - [docker-compose-starter](https://github.com/maqpie/docker-compose-starter) - An example docker-compose project stucture
 - [peer-review-bot](https://github.com/felixrieseberg/peer-review-bot) - A little bot checking GitHub pull requests for peer reviews
@@ -368,11 +382,10 @@
 - [d3](https://github.com/d3/d3) - Bring data to life with SVG, Canvas and HTML. :bar_chart::chart_with_upwards_trend::tada:
 - [goojs](https://github.com/GooTechnologies/goojs) - 3D WebGL engine.
 - [plotly.js](https://github.com/plotly/plotly.js) - The open source JavaScript graphing library that powers plotly
-- [Ghost](https://github.com/TryGhost/Ghost) - A simple, powerful publishing platform
+- [Ghost](https://github.com/TryGhost/Ghost) - The platform for professional publishers
 - [quill](https://github.com/quilljs/quill) - Quill is a modern rich text editor built for compatibility and extensibility.
 - [nylas-mail](https://github.com/nylas/nylas-mail) - :love_letter: An extensible desktop mail app built on the modern web.  Forks welcome!
 - [web-design-standards](https://github.com/18F/web-design-standards) - Open source UI components and visual style guide for U.S. government websites.
-- [platform](https://github.com/mattermost/platform) - Open source Slack-alternative in Golang and React - Mattermost
 - [neural-network-papers](https://github.com/robertsdionne/neural-network-papers) - 
 - [StarCraft](https://github.com/gloomyson/StarCraft) - HTML5 version of StarCraft game
 - [streama](https://github.com/dularion/streama) - It's like Netflix, but self-hosted! http://dularion.github.io/streama/
@@ -419,15 +432,11 @@
 
 ## Makefile 
 
-- [awesome-web-scraping](https://github.com/lorien/awesome-web-scraping) - List of libraries, tools and APIs for web scraping and data processing. The project is moved to http://opendir.io
+- [awesome-web-scraping](https://github.com/lorien/awesome-web-scraping) - List of libraries, tools and APIs for web scraping and data processing.
 
 ## Mathematica 
 
 - [NASA-3D-Resources](https://github.com/nasa/NASA-3D-Resources) - Here you'll find a growing collection of 3D models, textures, and images from inside NASA.
-
-## Metal 
-
-- [makegirls.moe_web](https://github.com/makegirlsmoe/makegirls.moe_web) - Create Anime Characters with MakeGirls.moe
 
 ## Nginx 
 
@@ -435,6 +444,8 @@
 
 ## Objective-C 
 
+- [DrawKit](https://github.com/DrawKit/DrawKit) - Vector and illustration framework for macOS
+- [Alpha](https://github.com/Legoless/Alpha) - Next generation debugging framework for iOS
 - [bluepill](https://github.com/linkedin/bluepill) - Bluepill is a reliable iOS testing tool that runs UI tests using multiple simulators on a single machine
 - [ios-snapshot-test-case](https://github.com/facebook/ios-snapshot-test-case) - Snapshot view unit tests for iOS
 - [Vesper](https://github.com/brentsimmons/Vesper) - Vesper is a note-taking app for iOS by Q Branch.
@@ -468,16 +479,22 @@
 
 ## Others 
 
+- [Marketing-for-Engineers](https://github.com/LisaDziuba/Marketing-for-Engineers) - :bowtie: A curated collection of articles & tools, which will help you grow your product.
+- [awesome-coins](https://github.com/kennethreitz/awesome-coins) - ₿ A guide (for humans!) to cryto-currencies and their algos.
+- [every-programmer-should-know](https://github.com/mr-mig/every-programmer-should-know) - A collection of (mostly) technical things every software developer should know
+- [DockerCheatSheet](https://github.com/eon01/DockerCheatSheet) - 🐋 Docker Cheat Sheet 🐋
+- [iOS-App-Performance-Cheatsheet](https://github.com/danielamitay/iOS-App-Performance-Cheatsheet) - A collection of code substitutions and configurations that can improve Objective-C code performance on iOS.
+- [machine-learning-mindmap](https://github.com/dformoso/machine-learning-mindmap) - A mindmap summarising Machine Learning concepts, from Data Analysis to Deep Learning.
+- [EffectiveTensorflow](https://github.com/vahidk/EffectiveTensorflow) - TensorFlow tutorials and best practices.
 - [awesome-guidelines](https://github.com/Kristories/awesome-guidelines) - A curated list of high quality coding style conventions and standards.
 - [CocoaAI](https://github.com/cocoa-ai/CocoaAI) - 🤖 The Cocoa Artificial Intelligence Lab
 - [game-developer-roadmap](https://github.com/utilForever/game-developer-roadmap) - Roadmap to becoming a game developer in 2017
-- [The-Terrible-Deep-Learning-List](https://github.com/samdeeplearning/The-Terrible-Deep-Learning-List) - 15 working examples to get you started with Deep Learning without learning any of the math.
+- [The-Terrible-Deep-Learning-List](https://github.com/SamDeepLearning/The-Terrible-Deep-Learning-List) - 15 working examples to get you started with Deep Learning without learning any of the math.
 - [spellbook-of-modern-webdev](https://github.com/dexteryy/spellbook-of-modern-webdev) - A Big Picture, Thesaurus, and Taxonomy of Modern JavaScript Web Development
 - [awesome-design-systems](https://github.com/alexpate/awesome-design-systems) - 💅🏻 ⚒ A collection of awesome design systems
 - [Best-websites-a-programmer-should-visit](https://github.com/sdmg15/Best-websites-a-programmer-should-visit) - :link: Some useful websites for programmers.
 - [cheatsheets-ai](https://github.com/kailashahirwar/cheatsheets-ai) - Essential Cheat Sheets for deep learning and machine learning researchers
 - [awesome-graphql](https://github.com/chentsulin/awesome-graphql) - Awesome list of GraphQL & Relay
-- [pix2code](https://github.com/tonybeltramelli/pix2code) - pix2code: Generating Code from a Graphical User Interface Screenshot
 - [awesome-tensorflow](https://github.com/jtoy/awesome-tensorflow) - TensorFlow - A curated list of dedicated resources http://tensorflow.org
 - [SwiftTips](https://github.com/JohnSundell/SwiftTips) - A collection of Swift tips & tricks that I've shared on Twitter
 - [guide](https://github.com/hobby-kube/guide) - Kubernetes clusters for the hobbyist.
@@ -515,9 +532,9 @@
 - [bad-data-guide](https://github.com/Quartz/bad-data-guide) - An exhaustive reference to problems seen in real-world data along with suggestions on how to resolve them.
 - [awesome-interview-questions](https://github.com/MaximAbramchuck/awesome-interview-questions) - :octocat: A curated awesome list of lists of interview questions. Feel free to contribute! :mortar_board:
 - [awesome-stock-resources](https://github.com/neutraltone/awesome-stock-resources) - :city_sunrise: A collection of links for free stock photography, video and Illustration websites
-- [remote-jobs](https://github.com/jessicard/remote-jobs) - A list of semi to fully remote-friendly companies in tech
+- [remote-jobs](https://github.com/remoteintech/remote-jobs) - A list of semi to fully remote-friendly companies in tech
 - [raml-spec](https://github.com/raml-org/raml-spec) - RAML Specification
-- [computer-science](https://github.com/open-source-society/computer-science) - :mortar_board: Path to a free self-taught education in Computer Science!
+- [computer-science](https://github.com/ossu/computer-science) - :mortar_board: Path to a free self-taught education in Computer Science!
 - [awesome-opensource-documents](https://github.com/hubtee/awesome-opensource-documents) - :blue_book: A curated list of awesome open source or open source licensed documents, guides, books.
 - [games](https://github.com/leereilly/games) - :video_game: A list of popular/awesome videos games, add-ons, maps, etc. hosted on GitHub. Any genre. Any platform. Any engine.
 - [cscs](https://github.com/SalGnt/cscs) - A curated list of Coding Style Conventions and Standards.
@@ -533,7 +550,7 @@
 - [awesome-sysadmin](https://github.com/n1trux/awesome-sysadmin) - A curated list of amazingly awesome open source sysadmin resources.
 - [free-for-dev](https://github.com/ripienaar/free-for-dev) - A list of SaaS, PaaS and IaaS offerings that have free tiers of interest to devops and infradev
 - [frontend-guidelines](https://github.com/bendc/frontend-guidelines) - Some HTML, CSS and JS best practices.
-- [frontend-stuff](https://github.com/moklick/frontend-stuff) - A continuously expanded list of framework/libraries and tools I used/want to use when building things on the web. Mostly Javascript stuff.
+- [frontend-stuff](https://github.com/moklick/frontend-stuff) - A continuously expanded list of framework/libraries and tools I used/want to use when building things on the web. Mostly JavaScript.
 - [htaccess](https://github.com/phanan/htaccess) - A collection of useful .htaccess snippets.
 - [linux-insides](https://github.com/0xAX/linux-insides) - A little bit about a linux kernel
 - [awesome-android-ui](https://github.com/wasabeef/awesome-android-ui) - A curated list of awesome Android UI/UX libraries
@@ -577,12 +594,14 @@
 
 ## Python 
 
+- [ML-From-Scratch](https://github.com/eriklindernoren/ML-From-Scratch) - Bare bones Python implementations of Machine Learning models and algorithms. Aims to cover everything from Data Mining techniques to Deep Learning.
+- [sru](https://github.com/taolei87/sru) - Training RNNs as Fast as CNNs (https://arxiv.org/abs/1709.02755)
 - [starred](https://github.com/maguowei/starred) - creating your own Awesome List used GitHub stars!
-- [EffectiveTensorflow](https://github.com/vahidk/EffectiveTensorflow) - TensorFlow tutorials and best practices.
 - [DrQA](https://github.com/facebookresearch/DrQA) - Reading Wikipedia to Answer Open-Domain Questions
 - [tensor2tensor](https://github.com/tensorflow/tensor2tensor) - A library for generalized sequence to sequence models
 - [reinforcement-learning](https://github.com/rlcode/reinforcement-learning) - Minimal and Clean Reinforcement Learning Examples
 - [TensorFlow-World](https://github.com/astorfi/TensorFlow-World) - :earth_americas: Simple and ready-to-use tutorials for TensorFlow
+- [pix2code](https://github.com/tonybeltramelli/pix2code) - pix2code: Generating Code from a Graphical User Interface Screenshot
 - [youtube-dl](https://github.com/rg3/youtube-dl) - Command-line program to download videos from YouTube.com and other video sites
 - [awesome-machine-learning](https://github.com/josephmisiti/awesome-machine-learning) - A curated list of awesome Machine Learning frameworks, libraries and software.
 - [models](https://github.com/tensorflow/models) - Models built with TensorFlow
@@ -653,6 +672,7 @@
 
 ## Shell 
 
+- [kubermesh](https://github.com/kubermesh/kubermesh) - Bare metal, self-hosted, self-healing/provisioning, mesh network kubernetes cluster
 - [Swish](https://github.com/thomaspaulmann/Swish) - 👷Build Swift Projects on a Remote Machine within Xcode.
 - [docker-node](https://github.com/nodejs/docker-node) - Official Docker Image for Node.js :whale: :turtle: :rocket:
 - [buildstatic](https://github.com/aliceatlas/buildstatic) - build Swift modules as static libraries, include them about as easily as normal frameworks. [• STATUS: still working last time I checked but possibly a bit outdated – should hopefully be fully obsolete when there's more Swift Package Manager + Xcode integration •]
@@ -666,10 +686,13 @@
 
 ## Swift 
 
+- [CoreML-in-ARKit](https://github.com/hanleyweng/CoreML-in-ARKit) - Simple project to detect objects and display 3D labels above them in AR. This serves as a basic template for an ARKit project to use CoreML.
+- [ShellOut](https://github.com/JohnSundell/ShellOut) - Easily run shell commands from a Swift script or command line tool
+- [AudioKit](https://github.com/AudioKit/AudioKit) - Swift audio synthesis, processing, & analysis platform for iOS, macOS and tvOS
 - [Measure](https://github.com/levantAJ/Measure) - Using ARKit to make calculate distance of real world objects
 - [ARKit-CoreLocation](https://github.com/ProjectDent/ARKit-CoreLocation) - Combines the high accuracy of AR with the scale of GPS data.
 - [ARPaint](https://github.com/oabdelkarim/ARPaint) - Draw with bare fingers in the air using ARKit
-- [awesome-arkit](https://github.com/olucurious/awesome-arkit) - A curated list of awesome ARKit projects and resources. Feel free to contribute!
+- [Awesome-ARKit](https://github.com/olucurious/Awesome-ARKit) - A curated list of awesome ARKit projects and resources. Feel free to contribute!
 - [Neural-Network-Playground](https://github.com/hetelek/Neural-Network-Playground) - A neural network Swift playground, with no third party dependencies.
 - [ARBrush](https://github.com/laanlabs/ARBrush) - Quick demo of 3d drawing in ARKit using metal + SceneKit. NOTE: This is experimental code!
 - [SlackKit](https://github.com/SlackKit/SlackKit) - Build Slack apps, in Swift
@@ -709,7 +732,7 @@
 - [Whisper](https://github.com/hyperoslo/Whisper) - :mega: Whisper is a component that will make the task of display messages and in-app notifications simple. It has three different views inside
 - [FontAwesome.swift](https://github.com/thii/FontAwesome.swift) - Use FontAwesome in your Swift projects
 - [UI-Testing-Cheat-Sheet](https://github.com/joemasilotti/UI-Testing-Cheat-Sheet) - How do I test this with UI Testing?
-- [vapor](https://github.com/vapor/vapor) - A server-side Swift web framework.
+- [vapor](https://github.com/vapor/vapor) - 💧 A server-side Swift web framework.
 - [awesome-swift](https://github.com/matteocrippa/awesome-swift) - A collaborative list of awesome swift resources. Feel free to contribute!
 - [Kitura](https://github.com/IBM-Swift/Kitura) - A Swift web framework and HTTP server.
 - [open-source-ios-apps](https://github.com/dkhamsing/open-source-ios-apps) - :iphone: Collaborative List of Open-Source iOS Apps
@@ -718,8 +741,13 @@
 
 ## TeX 
 
+- [Technical_Book_DL](https://github.com/tomepel/Technical_Book_DL) - This note presents in a technical though hopefully pedagogical way the three most common forms of neural network architectures: Feedforward, Convolutional and Recurrent.
 - [stat-cookbook](https://github.com/mavam/stat-cookbook) - :orange_book: The probability and statistics cookbook
 - [AlgoXY](https://github.com/liuxinyu95/AlgoXY) - Book of Elementary Algorithms and Data structures
+
+## Vue 
+
+- [best-resume-ever](https://github.com/salomonelli/best-resume-ever) - :necktie: :briefcase: Build fast :rocket: and easy multiple beautiful resumes and create your best CV ever! Made with Vue and LESS.
 
 
 ## License
