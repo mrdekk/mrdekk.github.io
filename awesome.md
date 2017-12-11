@@ -26,7 +26,6 @@
   - [Objective-C](#objective-c)
   - [Others](#others)
   - [PHP](#php)
-  - [Protocol Buffer](#protocol buffer)
   - [Python](#python)
   - [Racket](#racket)
   - [Ruby](#ruby)
@@ -45,9 +44,14 @@
 
 ## C 
 
+- [baresip](https://github.com/alfredh/baresip) - Baresip is a modular SIP User-Agent with audio and video support
+- [re](https://github.com/creytiv/re) - Generic library for real-time communications with async IO support
+- [leetcode](https://github.com/begeekmyfriend/leetcode) - LeetCode in pure C
+- [t1ha](https://github.com/leo-yuriev/t1ha) - Fast Positive Hash, aka "Позитивный Хэш" - just the fastest portable hash function.
 - [openresty](https://github.com/openresty/openresty) - Turning Nginx into a Full-Fledged Scriptable Web Platform
 - [sokol](https://github.com/floooh/sokol) - minimal 3D API wrapper as header-only C library
 - [herebedragons](https://github.com/kosua20/herebedragons) - A basic 3D scene implemented with various engines, frameworks or APIs.
+- [volta](https://github.com/yandex-load/volta) - a framework for mobile performance and energy efficiency analysis
 - [wrk](https://github.com/wg/wrk) - Modern HTTP benchmarking tool
 - [tinyheaders](https://github.com/RandyGaul/tinyheaders) - Collection of one-file C/C++ libraries with no dependencies, primarily used for games
 - [openpilot](https://github.com/commaai/openpilot) - open source driving agent
@@ -62,7 +66,7 @@
 - [zlib](https://github.com/cloudflare/zlib) - Cloudflare fork of zlib with massive performance improvements
 - [Hercules](https://github.com/HerculesWS/Hercules) - Hercules is a collaborative software development project revolving around the creation of a robust massively multiplayer online role playing game (MMORPG) server package. Written in C, the program is very versatile and provides NPCs, warps and modifications. The project is jointly managed by a group of volunteers located around the world as well as a tremendous community providing QA and support. Hercules is a continuation of the original Athena project.
 - [disque](https://github.com/antirez/disque) - Disque is a distributed message broker
-- [ck](https://github.com/concurrencykit/ck) - Concurrency primitives, safe memory reclamation mechanisms and non-blocking (including lock-free) data structures designed to aid in the research, design and implementation of high performance concurrent systems.
+- [ck](https://github.com/concurrencykit/ck) - Concurrency primitives, safe memory reclamation mechanisms and non-blocking (including lock-free) data structures designed to aid in the research, design and implementation of high performance concurrent systems developed in C99+.
 - [sophia](https://github.com/pmwkaa/sophia) - Modern transactional key-value/row storage library.
 - [libsodium](https://github.com/jedisct1/libsodium) - A modern and easy-to-use crypto library.
 - [density](https://github.com/centaurean/density) - Superfast compression library
@@ -99,7 +103,9 @@
 
 ## C# # 
 
+- [blockchain](https://github.com/dvf/blockchain) - A simple Blockchain in Python
 - [NoahGameFrame](https://github.com/ketoo/NoahGameFrame) - A fast, scalable, distributed game server framework for C++, include actor library, network library,can be used as a  real time multiplayer game engine ( MMO RPG/MOBA ), which support C#/Lua script/ Unity3d, Cocos2dx and plan to support Unreal. https://github.com/ketoo/NFClient
+- [sea3d](https://github.com/sunag/sea3d) - An open-source format and tools for game developers :video_game:
 - [OpenRA](https://github.com/OpenRA/OpenRA) - Open Source real-time strategy game engine for early Westwood games such as Command & Conquer: Red Alert written in C# using SDL and OpenGL. Runs on Windows, Linux, *BSD and Mac OS X.
 - [Minimal-Bitcoin-Miner](https://github.com/lithander/Minimal-Bitcoin-Miner) - A very simple, fully functional CPU based Bitcoin Miner in C#. Uses the GETWORK protocol to connect to pool. A great reference implementation if you are trying to understand how Bitcoin mining works. (Edit 2017: Not actually fit for mining - the GETWORK protocol isn't supported anymore by most pools)
 - [KOIB](https://github.com/podshumok/KOIB) - Код КОИБов, извлечённый из доступной документации
@@ -107,15 +113,19 @@
 
 ## C++ 
 
+- [al-go-rithms](https://github.com/ZoranPandovski/al-go-rithms) - :musical_note: Algorithms written in different programming languages -  https://zoranpandovski.github.io/al-go-rithms/
+- [caffe2](https://github.com/caffe2/caffe2) - Caffe2 is a lightweight, modular, and scalable deep learning framework.
+- [cosmos](https://github.com/OpenGenus/cosmos) - Algorithms that run our universe | Your personal library of every algorithm and data structure code that you will ever encounter
+- [abseil-cpp](https://github.com/abseil/abseil-cpp) - Abseil Common Libraries (C++)
 - [onnx](https://github.com/onnx/onnx) - Open Neural Network Exchange
 - [avalon](https://github.com/hovergames/avalon) - Various extensions, helper and functions for cocos2d-x
-- [WickedEngine](https://github.com/turanszkij/WickedEngine) - Game engine written in C++, with Bullet physics, Lua scripting, input and sound. Featuring Forward, Deferred, Tiled Forward and Tiled Deferred render paths, voxel GI and more.
-- [MTuner](https://github.com/milostosic/MTuner) - MTuner is a C/C++ memory profiler and memory leak finder for Windows, PS4, PS3, etc.
+- [WickedEngine](https://github.com/turanszkij/WickedEngine) - C++ game engine focusing on modern rendering techniques. With Bullet Physics, Lua scripting, and more.
+- [MTuner](https://github.com/milostosic/MTuner) - MTuner is a C/C++ memory profiler and memory leak finder for Windows, PlayStation 4, PlayStation 3, etc.
 - [GameSharing](https://github.com/dwd31415/GameSharing) - A C++ bridge to the Java Google Play Games Services SDK and Apple's  Game Center for cocos2d-X.
-- [gl](https://github.com/acdemiralp/gl) - Complete OpenGL 4.6 Core Profile Wrapper for C++11.
+- [gl](https://github.com/acdemiralp/gl) - C++11 Wrapper for OpenGL 4.6 Core Profile.
 - [Granite](https://github.com/Themaister/Granite) - My personal Vulkan renderer
 - [catboost](https://github.com/catboost/catboost) - CatBoost is an open-source gradient boosting on decision trees library with categorical features support out of the box for Python, R
-- [iaito](https://github.com/hteso/iaito) - A Qt and C++ GUI for radare2 reverse engineering framework
+- [iaito](https://github.com/hteso/iaito) - This project has been moved to:
 - [flat_hash_map](https://github.com/skarupke/flat_hash_map) - A very fast hashtable
 - [concurrentqueue](https://github.com/cameron314/concurrentqueue) - A fast multi-producer, multi-consumer lock-free concurrent queue for C++11
 - [godot](https://github.com/godotengine/godot) - Godot Engine – Multi-platform 2D and 3D game engine
@@ -136,7 +146,7 @@
 - [jucipp](https://github.com/cppit/jucipp) - juCi++: a lightweight, cross-platform C++-IDE  supporting C++11, C++14, and experimental C++17 features
 - [annabell](https://github.com/golosio/annabell) - A cognitive neural architecture able to learn and communicate through natural language
 - [tensorflow](https://github.com/tensorflow/tensorflow) - Computation using data flow graphs for scalable machine learning
-- [hyperscan](https://github.com/01org/hyperscan) - High-performance regular expression matching library
+- [hyperscan](https://github.com/intel/hyperscan) - High-performance regular expression matching library
 - [CppCon2015](https://github.com/CppCon/CppCon2015) - Presentation Materials from CppCon 2015
 - [Impala](https://github.com/cloudera/Impala) - Real-time Query for Hadoop; mirror of Apache Impala
 - [dex-ui](https://github.com/seenaburns/dex-ui) - A science fiction desktop running on Linux. Awesome.
@@ -154,7 +164,6 @@
 - [ceph](https://github.com/ceph/ceph) - Ceph is a distributed object, block, and file storage platform
 - [arrayfire](https://github.com/arrayfire/arrayfire) - ArrayFire: a general purpose GPU library.
 - [deepdetect](https://github.com/beniz/deepdetect) - Deep Learning API and Server in C++11 with Python bindings and support for Caffe, Tensorflow, XGBoost and TSNE
-- [sea3d](https://github.com/sunag/sea3d) - An open-source format and tools for game developers :video_game:
 - [snowman](https://github.com/yegord/snowman) - Snowman decompiler
 - [cuberite](https://github.com/cuberite/cuberite) - A lightweight, fast and extensible game server for Minecraft
 - [seastar](https://github.com/scylladb/seastar) - High performance server-side application framework
@@ -167,7 +176,7 @@
 - [Plasma](https://github.com/H-uru/Plasma) - Cyan Worlds's Plasma game engine
 - [Helium](https://github.com/HeliumProject/Helium) - C++ Frameworks and Game Engine
 - [fann](https://github.com/libfann/fann) - Official github repository for Fast Artificial Neural Network Library (FANN)
-- [CppSamples-Samples](https://github.com/sftrabbit/CppSamples-Samples) - A repository of modern C++ samples curated by the community.
+- [CppPatterns-Patterns](https://github.com/sftrabbit/CppPatterns-Patterns) - A repository of modern C++ patterns curated by the community.
 - [LightQ](https://github.com/LightIO/LightQ) - 
 - [json](https://github.com/nlohmann/json) - JSON for Modern C++
 - [algos](https://github.com/ADJA/algos) - Collection of different algorithms, used for programming competitions (like ACM ICPC).
@@ -179,7 +188,7 @@
 - [rdestl](https://github.com/msinilo/rdestl) - RDESTL is library providing small subset of STL functionality, aimed at games development.
 - [forestdb](https://github.com/couchbase/forestdb) - A Fast Key-Value Storage Engine Based on Hierarchical B+-Tree Trie
 - [gkEngine](https://github.com/gameknife/gkEngine) - A cross-platform game engine with cutting-edge real-time rendering tech & fantastic speed.
-- [Catch](https://github.com/philsquared/Catch) - A modern, C++-native, header-only, test framework for unit-tests, TDD and BDD - using C++98, C++03, C++11, C++14 and later
+- [Catch2](https://github.com/catchorg/Catch2) - A modern, C++-native, header-only, test framework for unit-tests, TDD and BDD - using C++11, C++14, C++17 and later (or C++03 on the Catch1.x branch)
 - [AwesomeBump](https://github.com/kmkolasinski/AwesomeBump) - AwesomeBump is a free program written using Qt library designed to generate normal, height, specular or ambient occlusion textures from a single image. Since the image processing is done in 99% on GPU  the program runs very fast and all the parameters can be changed in real time. AB was made to be a new alternative to known gimp plugin called Insane Bump.
 - [nanogui](https://github.com/wjakob/nanogui) - Minimalistic GUI library for OpenGL
 - [rapidxml_ns](https://github.com/svgpp/rapidxml_ns) - RapidXML NS library - RapidXML with added XML namespaces support
@@ -238,7 +247,7 @@
 - [HappyDevelopersDay](https://github.com/silvansky/HappyDevelopersDay) - Something special for 0xFF day
 - [halflife](https://github.com/ValveSoftware/halflife) - Half-Life 1 engine based games
 - [bgfx](https://github.com/bkaradzic/bgfx) - Cross-platform, graphics API agnostic, "Bring Your Own Engine/Framework" style rendering library.
-- [open-source-search-engine](https://github.com/gigablast/open-source-search-engine) - A distributed open source search engine and spider/crawler written in C/C++ for Linux on Intel/AMD. From gigablast dot com, which has binaries for download. See the README.md file at the very bottom of this page for instructions.
+- [open-source-search-engine](https://github.com/gigablast/open-source-search-engine) - Nov 20 2017 -- A distributed open source search engine and spider/crawler written in C/C++ for Linux on Intel/AMD. From gigablast dot com, which has binaries for download. See the README.md file at the very bottom of this page for instructions.
 - [mapreduce](https://github.com/cdmh/mapreduce) - C++ MapReduce Library for efficient multi-threading on single-machine
 - [muduo](https://github.com/chenshuo/muduo) - A C++ non-blocking network library for multi-threaded server in Linux
 - [elliptics](https://github.com/reverbrain/elliptics) - Distributed storage for medium and large objects with streaming support
@@ -263,6 +272,7 @@
 - [slack-archivist](https://github.com/plexus/slack-archivist) - 
 - [jekyll-now](https://github.com/barryclark/jekyll-now) - Build a Jekyll blog in minutes, without touching the command line.
 - [loading](https://github.com/jxnblk/loading) - This could take a while
+- [bootstrap](https://github.com/twbs/bootstrap) - The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web.
 
 ## CoffeeScript 
 
@@ -279,17 +289,17 @@
 ## Go 
 
 - [github-review-bot](https://github.com/kiasaki/github-review-bot) - GitHub bot helping you pick reviewers for Pull Requests
-- [tidb](https://github.com/pingcap/tidb) - TiDB is a distributed NewSQL database compatible with MySQL protocol
+- [tidb](https://github.com/pingcap/tidb) - TiDB is a distributed HTAP database compatible with MySQL protocol
 - [ctop](https://github.com/bcicen/ctop) - Top-like interface for container metrics
 - [mattermost-server](https://github.com/mattermost/mattermost-server) - Open source Slack-alternative in Golang and React - Mattermost
-- [vault](https://github.com/hashicorp/vault) - A tool for managing secrets.
+- [vault](https://github.com/hashicorp/vault) - A tool for secrets management, encryption as a service, and privileged access management
 - [syncthing](https://github.com/syncthing/syncthing) - Open Source Continuous File Synchronization
 - [nsq](https://github.com/nsqio/nsq) - A realtime distributed messaging platform
 
 ## HTML 
 
+- [design-blocks](https://github.com/froala/design-blocks) - A set of 170+ Bootstrap based design blocks ready to be used to create clean modern websites.
 - [Awesome-CoreML-Models](https://github.com/likedan/Awesome-CoreML-Models) - Largest list of models for Core ML (for iOS 11+)
-- [side-project-marketing](https://github.com/karllhughes/side-project-marketing) - A checklist of tactics for marketing your side projects.
 - [awesome-mac](https://github.com/jaywcjlove/awesome-mac) -  This repo is a collection of awesome Mac applications and tools for developers and designers.
 - [awesome-modern-cpp](https://github.com/rigtorp/awesome-modern-cpp) - A collection of resources on modern C++
 - [mildronize.github.io](https://github.com/mildronize/mildronize.github.io) - My blog
@@ -301,11 +311,13 @@
 - [docs.geteventstore.com](https://github.com/EventStore/docs.geteventstore.com) - Event Store documentation
 - [CsQuery](https://github.com/jamietre/CsQuery) - CsQuery is a complete CSS selector engine, HTML parser, and jQuery port for C# and .NET 4.
 - [DIGITS](https://github.com/NVIDIA/DIGITS) - Deep Learning GPU Training System
+- [fonts](https://github.com/google/fonts) - Font files available from Google Fonts
 - [awesome-courses](https://github.com/prakhar1989/awesome-courses) - :books: List of awesome university courses for learning Computer Science!
 - [dashboards](https://github.com/keen/dashboards) - Responsive dashboard templates for Bootstrap 📊✨
 
 ## Java 
 
+- [Java](https://github.com/TheAlgorithms/Java) - All Algorithms implemented in Java
 - [interviews](https://github.com/kdn251/interviews) - Everything you need to know to get the job.
 - [Melophile](https://github.com/vpaliyX/Melophile) - Music App built using RxJava2, Retrofit2, Dagger2 and clean architecture.
 - [iosched](https://github.com/google/iosched) - The Google I/O 2017 Android App
@@ -315,7 +327,7 @@
 - [java8-tutorial](https://github.com/winterbe/java8-tutorial) - Modern Java - A Guide to Java 8
 - [ta4j-origins](https://github.com/mdeverdelhan/ta4j-origins) - A Java library for technical analysis ***Not maintained anymore, kept for archival purposes, see #192***
 - [feather](https://github.com/zsoltherpai/feather) - Lightweight dependency injection for Java and Android (JSR-330)
-- [OpenRTS](https://github.com/methusalah/OpenRTS) - Real-Time Strategy game 3D engine coded in java 7
+- [OpenRTS](https://github.com/methusalah/OpenRTS) - Real-Time Strategy game 3D engine coded in pure java
 - [Chronicle-Queue](https://github.com/OpenHFT/Chronicle-Queue) - Micro second messaging that stores everything to disk
 - [WashingMachineView](https://github.com/naman14/WashingMachineView) - An interactive view with water waves flowing like in a Washing machine
 - [subethasmtp](https://github.com/voodoodyne/subethasmtp) - SubEtha SMTP is a Java library for receiving SMTP mail
@@ -359,9 +371,14 @@
 
 ## JavaScript 
 
-- [feather](https://github.com/colebemis/feather) - Simply beautiful open source icons
+- [microservice-app-example](https://github.com/elgris/microservice-app-example) - Example of polyglot microservice app
+- [writing](https://github.com/josephernest/writing) - Writing is a lightweight distraction-free text editor, in the browser (Markdown and LaTeX supported).
+- [hackernews-react-graphql](https://github.com/clintonwoo/hackernews-react-graphql) - Hacker News clone rewritten with universal JavaScript, using React and GraphQL.
+- [tech-interview-handbook](https://github.com/yangshun/tech-interview-handbook) - 💯 Algorithms, front end and behavioral content for rocking your coding interview
+- [feather](https://github.com/feathericons/feather) - Simply beautiful open source icons
 - [free-programming-books-zh_CN](https://github.com/justjavac/free-programming-books-zh_CN) - :books: 免费的计算机编程类中文书籍，欢迎投稿
 - [makegirlsmoe_web](https://github.com/makegirlsmoe/makegirlsmoe_web) - Create Anime Characters with MakeGirlsMoe
+- [awesome-guidelines](https://github.com/Kristories/awesome-guidelines) - A curated list of high quality coding style conventions and standards.
 - [react-express](https://github.com/dabbott/react-express) - The all-in-one beginner's guide to modern React application development!
 - [docker-compose-starter](https://github.com/maqpie/docker-compose-starter) - An example docker-compose project stucture
 - [peer-review-bot](https://github.com/felixrieseberg/peer-review-bot) - A little bot checking GitHub pull requests for peer reviews
@@ -397,10 +414,10 @@
 - [Nestable](https://github.com/dbushell/Nestable) - Drag & drop hierarchical list with mouse and touch compatibility (jQuery plugin)
 - [bootstrap-validator](https://github.com/1000hz/bootstrap-validator) - A user-friendly HTML5 form validation jQuery plugin for Bootstrap 3
 - [markdown-plus](https://github.com/tylingsoft/markdown-plus) - Markdown editor with extra features.
-- [quickstart](https://github.com/wildfly/quickstart) - Holds all versioned docs & samples
+- [quickstart](https://github.com/wildfly/quickstart) - Holds all versioned WildFly quickstarts
 - [Swiper](https://github.com/nolimits4web/Swiper) - Most modern mobile touch slider with hardware accelerated transitions
 - [timesheet.js](https://github.com/sbstjn/timesheet.js) - JavaScript library for HTML5 & CSS3 time sheets
-- [Booktype](https://github.com/sourcefabric/Booktype) - Booktype is a free, open source platform that produces beautiful, engaging books formatted for print, Amazon, iBooks and almost any ereader within minutes.
+- [Booktype](https://github.com/booktype/Booktype) - Booktype is a free, open source platform that produces beautiful, engaging books formatted for print, Amazon, iBooks and almost any ereader within minutes.
 - [wiki-client](https://github.com/fedwiki/wiki-client) - Federated wiki client-side javascript as a npm module.
 - [wekan](https://github.com/wekan/wekan) - The open-source Trello-like kanban (built with Meteor)
 - [rcloud](https://github.com/att/rcloud) - Collaborative data analysis and visualization
@@ -410,12 +427,10 @@
 - [bootstrap-datepicker](https://github.com/uxsolutions/bootstrap-datepicker) - A datepicker for twitter bootstrap (@twbs)
 - [artoo](https://github.com/medialab/artoo) - artoo.js - the client-side scraping companion.
 - [p4wn](https://github.com/douglasbagnall/p4wn) - a smallish turn-of-the-century javascript chess engine
-- [bootstrap](https://github.com/twbs/bootstrap) - The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web.
 - [mongly](https://github.com/karlseguin/mongly) - The MongoDB Collection is a group of essays for mastering MongoDB
 
 ## Jupyter Notebook 
 
-- [volta](https://github.com/yandex-load/volta) - a framework for mobile performance and energy efficiency analysis
 - [tensorflow_cookbook](https://github.com/nfmcclure/tensorflow_cookbook) - Code for Tensorflow Machine Learning Cookbook
 - [Probabilistic-Programming-and-Bayesian-Methods-for-Hackers](https://github.com/CamDavidsonPilon/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers) - aka "Bayesian Methods for Hackers": An introduction to Bayesian methods + probabilistic programming with a computation/understanding-first, mathematics-second point of view. All in pure Python ;)
 
@@ -426,8 +441,8 @@
 ## Lua 
 
 - [grid-sdk](https://github.com/Planimeter/grid-sdk) - The Grid SDK - Game engine for Lua
-- [kong](https://github.com/Mashape/kong) - :monkey: The Microservice API Gateway
-- [ZeroBraneStudio](https://github.com/pkulchenko/ZeroBraneStudio) - Lightweight Lua-based IDE for Lua with code completion, syntax highlighting, live coding, remote debugger, and code analyzer; supports Lua 5.1, 5.2, 5.3, LuaJIT and other Lua interpreters on Windows, MacOS, and Linux
+- [kong](https://github.com/Kong/kong) - :monkey: The Microservice API Gateway
+- [ZeroBraneStudio](https://github.com/pkulchenko/ZeroBraneStudio) - Lightweight Lua-based IDE for Lua with code completion, syntax highlighting, live coding, remote debugger, and code analyzer; supports Lua 5.1, 5.2, 5.3, LuaJIT and other Lua interpreters on Windows, macOS, and Linux
 - [Algorithm-Implementations](https://github.com/kennyledet/Algorithm-Implementations) - Share, discuss and learn about algorithm implementations!
 
 ## Makefile 
@@ -447,7 +462,7 @@
 - [DrawKit](https://github.com/DrawKit/DrawKit) - Vector and illustration framework for macOS
 - [Alpha](https://github.com/Legoless/Alpha) - Next generation debugging framework for iOS
 - [bluepill](https://github.com/linkedin/bluepill) - Bluepill is a reliable iOS testing tool that runs UI tests using multiple simulators on a single machine
-- [ios-snapshot-test-case](https://github.com/facebook/ios-snapshot-test-case) - Snapshot view unit tests for iOS
+- [ios-snapshot-test-case](https://github.com/facebookarchive/ios-snapshot-test-case) - Snapshot view unit tests for iOS
 - [Vesper](https://github.com/brentsimmons/Vesper) - Vesper is a note-taking app for iOS by Q Branch.
 - [iOS-NBUCore](https://github.com/CyberAgent/iOS-NBUCore) - Convenience macros, functions and API availability checks for iOS projects.
 - [JAMSVGImage](https://github.com/jmenter/JAMSVGImage) - Display resolution independent SVGs in iOS.
@@ -479,14 +494,22 @@
 
 ## Others 
 
-- [Marketing-for-Engineers](https://github.com/LisaDziuba/Marketing-for-Engineers) - :bowtie: A curated collection of articles & tools, which will help you grow your product.
+- [it-ekb-events](https://github.com/leominov/it-ekb-events) - IT-события Екатеринбурга
+- [CocoaConferences](https://github.com/Lascorbe/CocoaConferences) - List of cocoa conferences for iOS & macOS developers.
+- [awesome-artificial-intelligence](https://github.com/owainlewis/awesome-artificial-intelligence) - A curated list of Artificial Intelligence (AI) courses, books, video lectures and papers
+- [state-of-the-art-result-for-machine-learning-problems](https://github.com/RedditSota/state-of-the-art-result-for-machine-learning-problems) - This repository provides state of the art (SoTA) results for all machine learning problems. We do our best to keep this repository up to date.  If you do find a problem's SoTA result is out of date or missing, please raise this as an issue or submit Google form (with this information: research paper name, dataset, metric, source code and year). We will fix it immediately.
+- [reverse-engineering](https://github.com/wtsxDev/reverse-engineering) - List of awesome reverse engineering resources
+- [api-standards](https://github.com/paypal/api-standards) - 
+- [nodebestpractices](https://github.com/i0natan/nodebestpractices) - The largest Node.JS best practices list. Curated from the top ranked articles and always updated
+- [mit-deep-learning-book-pdf](https://github.com/janishar/mit-deep-learning-book-pdf) - MIT Deep Learning Book in PDF format (complete and parts) by Ian Goodfellow, Yoshua Bengio and Aaron Courville
+- [Marketing-for-Engineers](https://github.com/LisaDziuba/Marketing-for-Engineers) - A curated collection of marketing articles & tools to grow your product.
 - [awesome-coins](https://github.com/kennethreitz/awesome-coins) - ₿ A guide (for humans!) to cryto-currencies and their algos.
-- [every-programmer-should-know](https://github.com/mr-mig/every-programmer-should-know) - A collection of (mostly) technical things every software developer should know
+- [every-programmer-should-know](https://github.com/mtdvio/every-programmer-should-know) - A collection of (mostly) technical things every software developer should know
 - [DockerCheatSheet](https://github.com/eon01/DockerCheatSheet) - 🐋 Docker Cheat Sheet 🐋
 - [iOS-App-Performance-Cheatsheet](https://github.com/danielamitay/iOS-App-Performance-Cheatsheet) - A collection of code substitutions and configurations that can improve Objective-C code performance on iOS.
 - [machine-learning-mindmap](https://github.com/dformoso/machine-learning-mindmap) - A mindmap summarising Machine Learning concepts, from Data Analysis to Deep Learning.
+- [side-project-marketing](https://github.com/karllhughes/side-project-marketing) - A checklist of tactics for marketing your side projects.
 - [EffectiveTensorflow](https://github.com/vahidk/EffectiveTensorflow) - TensorFlow tutorials and best practices.
-- [awesome-guidelines](https://github.com/Kristories/awesome-guidelines) - A curated list of high quality coding style conventions and standards.
 - [CocoaAI](https://github.com/cocoa-ai/CocoaAI) - 🤖 The Cocoa Artificial Intelligence Lab
 - [game-developer-roadmap](https://github.com/utilForever/game-developer-roadmap) - Roadmap to becoming a game developer in 2017
 - [The-Terrible-Deep-Learning-List](https://github.com/SamDeepLearning/The-Terrible-Deep-Learning-List) - 15 working examples to get you started with Deep Learning without learning any of the math.
@@ -502,7 +525,7 @@
 - [awesome-indie](https://github.com/mezod/awesome-indie) - Resources for independent developers to make money
 - [deep-learning-papers](https://github.com/sbrugman/deep-learning-papers) - Papers about deep learning ordered by task, date. Current state-of-the-art papers are labelled.
 - [free-tech-ebooks-from-packtpub](https://github.com/tahmid-choyon/free-tech-ebooks-from-packtpub) - A collection of free ebooks from Packt Publishing [Regularly Updated]
-- [realworld](https://github.com/gothinkster/realworld) - TodoMVC for the RealWorld™ — Exemplary fullstack Medium.com clone powered by React, Angular, Node, Django, and many more 🏅
+- [realworld](https://github.com/gothinkster/realworld) - "The mother of all demo apps" — Exemplary fullstack Medium.com clone powered by React, Angular, Node, Django, and many more 🏅
 - [iOS-System-Symbols](https://github.com/Zuikyo/iOS-System-Symbols) - Share iOS system framework's symbol files. Useful for symbolicating iOS crash report.
 - [security-101-for-saas-startups](https://github.com/forter/security-101-for-saas-startups) - security tips for startups
 - [design-patterns-for-humans](https://github.com/kamranahmedse/design-patterns-for-humans) - Design Patterns for Humans™ - An ultra-simplified explanation
@@ -522,7 +545,6 @@
 - [icon-stamper](https://github.com/tylergaw/icon-stamper) - A Sketch Plugin for creating multiple sizes of iOS icons
 - [android-architecture](https://github.com/googlesamples/android-architecture) - A collection of samples to discuss and showcase different architectural tools and patterns for Android apps.
 - [awesome-cpp](https://github.com/3Hren/awesome-cpp) - A curated list of awesome C/C++ frameworks, libraries, resources, and shiny things. Inspired by awesome-... stuff.
-- [vkcpp](https://github.com/nvpro-pipeline/vkcpp) - C++ Vulkan API
 - [awesome-deep-vision](https://github.com/kjw0612/awesome-deep-vision) - A curated list of deep learning resources for computer vision
 - [Manual](https://github.com/Bloomberg-Beta/Manual) - You were probably looking for our website... this is it. We moved our website here, so you can see the insides of how we work.
 - [ParseAlternatives](https://github.com/relatedcode/ParseAlternatives) - A collaborative list of Parse alternative backend service providers.
@@ -588,13 +610,15 @@
 - [MangoDB](https://github.com/Wouterrr/MangoDB) - MongoDB for KO 3.3 (for 3.2, 3.1 and 3.0 check branches)
 - [workapp](https://github.com/Zazza/workapp) - helpdesk, servicedesk
 
-## Protocol Buffer 
-
-- [fonts](https://github.com/google/fonts) - Font files available from Google Fonts
-
 ## Python 
 
-- [ML-From-Scratch](https://github.com/eriklindernoren/ML-From-Scratch) - Bare bones Python implementations of Machine Learning models and algorithms. Aims to cover everything from Data Mining techniques to Deep Learning.
+- [deep_architecture_genealogy](https://github.com/hunkim/deep_architecture_genealogy) - Deep Learning Architecture  Genealogy Project
+- [deepo](https://github.com/ufoym/deepo) - A series of Docker images (and their generator) that allows you to quickly set up your deep learning research environment.
+- [GTSRB-caffe-model](https://github.com/magnusja/GTSRB-caffe-model) - German Traffic Sign Recognition Benchmark (GTSRB) AlexNet pycaffe model. http://benchmark.ini.rub.de/
+- [Mind-Expanding-Books](https://github.com/hackerkid/Mind-Expanding-Books) - :books: Books that will blow your mind
+- [home-assistant](https://github.com/home-assistant/home-assistant) - :house_with_garden: Open-source home automation platform running on Python 3
+- [Fabrik](https://github.com/Cloud-CV/Fabrik) - :factory: Fabrik – Collaboratively build, visualize, and design neural nets in browser
+- [ML-From-Scratch](https://github.com/eriklindernoren/ML-From-Scratch) - Python implementations of Machine Learning models and algorithms from scratch. Aims to cover everything from Data Mining techniques to Deep Learning.
 - [sru](https://github.com/taolei87/sru) - Training RNNs as Fast as CNNs (https://arxiv.org/abs/1709.02755)
 - [starred](https://github.com/maguowei/starred) - creating your own Awesome List used GitHub stars!
 - [DrQA](https://github.com/facebookresearch/DrQA) - Reading Wikipedia to Answer Open-Domain Questions
@@ -604,9 +628,9 @@
 - [pix2code](https://github.com/tonybeltramelli/pix2code) - pix2code: Generating Code from a Graphical User Interface Screenshot
 - [youtube-dl](https://github.com/rg3/youtube-dl) - Command-line program to download videos from YouTube.com and other video sites
 - [awesome-machine-learning](https://github.com/josephmisiti/awesome-machine-learning) - A curated list of awesome Machine Learning frameworks, libraries and software.
-- [models](https://github.com/tensorflow/models) - Models built with TensorFlow
+- [models](https://github.com/tensorflow/models) - Models and examples built with TensorFlow
 - [system-design-primer](https://github.com/donnemartin/system-design-primer) - Learn how to design large-scale systems. Prep for the system design interview.  Includes Anki flashcards.
-- [prophet](https://github.com/facebookincubator/prophet) - Tool for producing high quality forecasts for time series data that has multiple seasonality with linear or non-linear growth.
+- [prophet](https://github.com/facebook/prophet) - Tool for producing high quality forecasts for time series data that has multiple seasonality with linear or non-linear growth.
 - [game-programmer](https://github.com/miloyip/game-programmer) - A Study Path for Game Programmer
 - [MLAlgorithms](https://github.com/rushter/MLAlgorithms) - Minimal and clean examples of machine learning algorithms
 - [neural-enhance](https://github.com/alexjc/neural-enhance) - Super Resolution for images using deep learning.
@@ -637,13 +661,14 @@
 
 ## Ruby 
 
+- [awesome-blockchains](https://github.com/openblockchains/awesome-blockchains) - A collection about awesome blockchains - open distributed public databases w/ crypto hashes incl. git ;-).  Blockchains are the new tulips :tulip::tulip::tulip:. Distributed is the new centralized.
 - [cupertino](https://github.com/nomad/cupertino) - CLI for the Apple Dev Center
 - [cocoapods-amimono](https://github.com/Ruenzuo/cocoapods-amimono) - Move all dynamic frameworks symbols into the main executable.
 - [Accelerator](https://github.com/johnno1962/Accelerator) - Inline frameworks of Swift CocoaPods projects for faster launch
 - [synx](https://github.com/venmo/synx) - A command-line tool that reorganizes your Xcode project folder to match your Xcode groups
 - [xcknife](https://github.com/square/xcknife) - Simple tool for optimizing XCTest runs across machines
 - [fastlane](https://github.com/fastlane/fastlane) - 🚀 The easiest way to automate building and releasing your iOS and Android apps
-- [lobsters](https://github.com/jcs/lobsters) - Rails code running the Lobsters link aggregation site
+- [lobsters](https://github.com/lobsters/lobsters) - Rails code running the Lobsters link aggregation site
 - [engineering-blogs](https://github.com/kilimchoi/engineering-blogs) - A curated list of engineering blogs
 - [awesome-awesomeness](https://github.com/bayandin/awesome-awesomeness) - A curated list of awesome awesomeness
 - [homebrew-php](https://github.com/Homebrew/homebrew-php) - :elephant: PHP macOS formulae for the Homebrew package manager
@@ -686,6 +711,10 @@
 
 ## Swift 
 
+- [ImagineEngine](https://github.com/JohnSundell/ImagineEngine) - A project to create a blazingly fast Swift game engine that is a joy to use 🚀
+- [Optimizing-Swift-Build-Times](https://github.com/fastred/Optimizing-Swift-Build-Times) - Collection of advice on optimizing compile times of Swift projects.
+- [Attabench](https://github.com/attaswift/Attabench) - Microbenchmarking app for Swift with nice log-log plots
+- [http](https://github.com/swift-server/http) - Repository for the development of cross-platform HTTP APIs
 - [CoreML-in-ARKit](https://github.com/hanleyweng/CoreML-in-ARKit) - Simple project to detect objects and display 3D labels above them in AR. This serves as a basic template for an ARKit project to use CoreML.
 - [ShellOut](https://github.com/JohnSundell/ShellOut) - Easily run shell commands from a Swift script or command line tool
 - [AudioKit](https://github.com/AudioKit/AudioKit) - Swift audio synthesis, processing, & analysis platform for iOS, macOS and tvOS
@@ -712,7 +741,7 @@
 - [SwiftMonkey](https://github.com/zalando/SwiftMonkey) - A framework for doing randomised UI testing of iOS apps
 - [Design-Patterns-In-Swift](https://github.com/ochococo/Design-Patterns-In-Swift) - Design Patterns implemented in Swift
 - [BlueCap](https://github.com/troystribling/BlueCap) - iOS Bluetooth LE framework
-- [SwifterSwift](https://github.com/SwifterSwift/SwifterSwift) - A handy collection of more than 500 native Swift 3 extensions to boost your productivity.
+- [SwifterSwift](https://github.com/SwifterSwift/SwifterSwift) - A handy collection of more than 500 native Swift extensions to boost your productivity.
 - [pxctest](https://github.com/plu/pxctest) - Execute tests in parallel on multiple iOS Simulators
 - [Snowflake](https://github.com/onmyway133/Snowflake) - ❄️  SVG in Swift
 - [HGCircularSlider](https://github.com/HamzaGhazouani/HGCircularSlider) - A custom reusable circular/progress slider control for iOS application.
@@ -721,10 +750,10 @@
 - [Bezier](https://github.com/Ramshandilya/Bezier) - Algorithm to draw smooth bezier curves through a set of points
 - [SwiftActors](https://github.com/tomekc/SwiftActors) - Rudimentary Actor model library for Swift
 - [Datez](https://github.com/SwiftKitz/Datez) - 📆 Breeze through Date, DateComponents, and TimeInterval with Swift! .. http://kitz.io
-- [LeetCode_Swift](https://github.com/soapyigu/LeetCode_Swift) - Solutions to LeetCode by Swift
+- [LeetCode-Swift](https://github.com/soapyigu/LeetCode-Swift) - Solutions to LeetCode by Swift
 - [SwiftPasscodeLock](https://github.com/yankodimitrov/SwiftPasscodeLock) - An iOS passcode lock with TouchID authentication written in Swift.
 - [Phonograph](https://github.com/yarrcc/Phonograph) - Audio Queue Services with Swift
-- [Mockingjay](https://github.com/kylef-archive/Mockingjay) - An elegant library for stubbing HTTP requests with ease in Swift
+- [Mockingjay](https://github.com/kylef/Mockingjay) - An elegant library for stubbing HTTP requests with ease in Swift
 - [SideMenuController](https://github.com/teodorpatras/SideMenuController) - A side menu controller written in Swift for iOS
 - [Iconic](https://github.com/dzenbot/Iconic) - Auto-generated icon font library for iOS, watchOS and tvOS
 - [swift-algorithm-club](https://github.com/raywenderlich/swift-algorithm-club) - Algorithms and data structures in Swift, with explanations!
@@ -733,7 +762,7 @@
 - [FontAwesome.swift](https://github.com/thii/FontAwesome.swift) - Use FontAwesome in your Swift projects
 - [UI-Testing-Cheat-Sheet](https://github.com/joemasilotti/UI-Testing-Cheat-Sheet) - How do I test this with UI Testing?
 - [vapor](https://github.com/vapor/vapor) - 💧 A server-side Swift web framework.
-- [awesome-swift](https://github.com/matteocrippa/awesome-swift) - A collaborative list of awesome swift resources. Feel free to contribute!
+- [awesome-swift](https://github.com/matteocrippa/awesome-swift) - A collaborative list of awesome Swift libraries and resources. Feel free to contribute!
 - [Kitura](https://github.com/IBM-Swift/Kitura) - A Swift web framework and HTTP server.
 - [open-source-ios-apps](https://github.com/dkhamsing/open-source-ios-apps) - :iphone: Collaborative List of Open-Source iOS Apps
 - [Carthage](https://github.com/Carthage/Carthage) - A simple, decentralized dependency manager for Cocoa
