@@ -10,8 +10,6 @@ tags:
  - clang
 ---
 
-Теги еще надо поменять !!!
-
 # Crosstool-NG
 
 Для начала нам необходимо crosstool-ng для сборки toolchain'а для компиляции под Linux на базе OSX.
