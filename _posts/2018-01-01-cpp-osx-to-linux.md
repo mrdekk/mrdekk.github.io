@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Разрабатываем на С++ для Linux на OSX (macOS)
+title: Собираем toolchain для С++ разработки под Linux (Ubuntu) на OSX
 tags:
  - c++
  - osx
