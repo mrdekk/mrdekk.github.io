@@ -1,6 +1,7 @@
 ---
 layout: page
 permalink: runniest_policy_ru.html
+block: true
 ---
 
 ## Runniest - информация
