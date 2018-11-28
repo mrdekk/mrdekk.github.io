@@ -9,5 +9,5 @@ docker run \
 	-v ${cwd}:/src \
 	--label=mrdekk_blog \
 	mrdekk/blog \
-	bundle exec jekyll serve \
+	/src/run.sh \
 	--host 0.0.0.0

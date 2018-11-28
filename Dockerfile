@@ -9,6 +9,11 @@ WORKDIR /src
 ADD Gemfile /src/Gemfile
 ADD Gemfile.lock /src/Gemfile.lock
 
+RUN export LC_ALL=en_US.UTF-8
+RUN export LANG=en_US.UTF-8
+
+ADD run.sh /src/run.sh
+
 # Fix a problem following http://stackoverflow.com/questions/29020478/error-installing-nokogiri-on-bundle-install-but-already-installed
 RUN bundle config build.nokogiri --use-system-libraries && \
     bundle install
