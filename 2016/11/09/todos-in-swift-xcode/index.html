@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name='yandex-verification' content='4a3e9fdb2ed97f52' />
+
+  <title>
+    
+      TODO в swift в Xcode &middot; MrDekk
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/mrdekk.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic'>
+  <link rel="stylesheet" href="/public/css/font-awesome.min.css" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+	  <img class="profile" alt="my-profile" src="/media/images/brujo.jpg" width="120px">
+      <h1>MrDekk</h1>
+      <p class="description">Время - лучший учитель! Жаль, что оно убивает своих учеников...</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+        <a href="/"><i class="fa fa-home" ></i></a>
+      </li>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/about/">Кто здесь?</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/tags/">Метки</a>
+            </li>
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/useful/">Полезное</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/awesome/">Awesome Stars</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </ul>
+
+	<p class="social-icons">
+		<!-- <a href="/search"><i class="fa fa-search fa-2x"></i></a> -->
+		<a href="https://github.com/mrdekk"><i class="fa fa-github fa-2x"></i></a>
+		<a href="https://twitter.com/mrdekk"><i class="fa fa-twitter fa-2x"></i></a>
+		<a href="/atom.xml"><i class="fa fa-rss fa-2x"></i></a>
+	</p>
+
+    <p>&copy; 2019. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">TODO в swift в Xcode</h1>
+  <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">09.11.2016</span>
+  <i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+	
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#swift" title="Pages tagged swift" rel="tag" class="text-success">swift</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#ios" title="Pages tagged ios" rel="tag" class="text-success">ios</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#xcode" title="Pages tagged xcode" rel="tag" class="text-success">xcode</a>
+      </div>
+      
+    
+  </p>
+  <p>Очень часто в процессе разработки бывает, когда вместо некоторого кода пишется временная заглушка или некий временный код, или даже просто участок кода к которому необходимо вернуться чуть позже, например:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// TODO: we need to convert to float math for better precision</span>
+<span class="k">let</span> <span class="nv">sum</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="k">let</span> <span class="nv">avg</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="mi">2</span>
+</code></pre></div></div>
+
+<p>И хотелось бы, чтобы Xcode каким-либо образом это подсвечивал, например как это было в старом добром Objective-C</p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#warning we need to convert to float math for better precision
+</span><span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">avg</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Но в Xcode “из коробки” увы нет такой поддержки для Swift. Быть может она появится в будущем, сейчас же предлагаю применить черную магию и написать скрипт. Для этого идем в Build Phases и создаем “Run Script”, поместить его можно в конце. Содержание скрипта такое:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">TAGS</span><span class="o">=</span><span class="s2">"TODO:|FIXME:"</span>
+find <span class="s2">"</span><span class="k">${</span><span class="nv">SRCROOT</span><span class="k">}</span><span class="s2">"</span> <span class="se">\(</span> <span class="nt">-name</span> <span class="s2">"*.h"</span> <span class="nt">-or</span> <span class="nt">-name</span> <span class="s2">"*.m"</span> <span class="nt">-or</span> <span class="nt">-name</span> <span class="s2">"*.swift"</span> <span class="se">\)</span> <span class="nt">-print0</span> | xargs <span class="nt">-0</span> egrep <span class="nt">--with-filename</span> <span class="nt">--line-number</span> <span class="nt">--only-matching</span> <span class="s2">"(</span><span class="nv">$TAGS</span><span class="s2">).*</span><span class="se">\$</span><span class="s2">"</span> | perl <span class="nt">-p</span> <span class="nt">-e</span> <span class="s2">"s/(</span><span class="nv">$TAGS</span><span class="s2">)/ warning: </span><span class="se">\$</span><span class="s2">1/"</span>
+</code></pre></div></div>
+
+<p>Xcode после сборки начнет подсвечивать ваши TODO’шки так</p>
+
+<p><img src="/media/images/xcode_todos_1.png" alt="highlight todos" /></p>
+
+<p>Если вы хотите подсвечивать еще например // ERROR: как ошибки, можно скрипт сделать таким</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">TAGS</span><span class="o">=</span><span class="s2">"TODO:|FIXME:"</span>
+<span class="nv">ERRORTAG</span><span class="o">=</span><span class="s2">"ERROR:"</span>
+find <span class="s2">"</span><span class="k">${</span><span class="nv">SRCROOT</span><span class="k">}</span><span class="s2">"</span> <span class="se">\(</span> <span class="nt">-name</span> <span class="s2">"*.h"</span> <span class="nt">-or</span> <span class="nt">-name</span> <span class="s2">"*.m"</span> <span class="nt">-or</span> <span class="nt">-name</span> <span class="s2">"*.swift"</span> <span class="se">\)</span> <span class="nt">-print0</span> | xargs <span class="nt">-0</span> egrep <span class="nt">--with-filename</span> <span class="nt">--line-number</span> <span class="nt">--only-matching</span> <span class="s2">"(</span><span class="nv">$TAGS</span><span class="s2">).*</span><span class="se">\$</span><span class="s2">|(</span><span class="nv">$ERRORTAG</span><span class="s2">).*</span><span class="se">\$</span><span class="s2">"</span> | perl <span class="nt">-p</span> <span class="nt">-e</span> <span class="s2">"s/(</span><span class="nv">$TAGS</span><span class="s2">)/ warning: </span><span class="se">\$</span><span class="s2">1/"</span> | perl <span class="nt">-p</span> <span class="nt">-e</span> <span class="s2">"s/(</span><span class="nv">$ERRORTAG</span><span class="s2">)/ error: </span><span class="se">\$</span><span class="s2">1/"</span>
+</code></pre></div></div>
+
+<p>Xcode сделает так</p>
+
+<p><img src="/media/images/xcode_todos_2.png" alt="highlight errors" /></p>
+
+<p>Придумал не сам, нашел <a href="http://krakendev.io/blog/generating-warnings-in-xcode">тут</a> и перевел.</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2019/11/06/swift-dependency-injection/">
+            Внедрение зависимостей (dependency injection) в Swift 5.1
+            <small>06.11.2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2019/05/08/clang8-dev-vscode-ubuntu-docker/">
+            Разрабатываем и отлаживаем С++ в Docker с помощью VSCode (2019 edition - clang8 lldb)
+            <small>08.05.2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2018/11/28/swift-kotlin-comparison/">
+            Сравнение Swift vs Kotlin
+            <small>28.11.2018</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter13259782 = new Ya.Metrika({
+                    id:13259782,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/13259782" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16734363-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>
