@@ -15,16 +15,16 @@ tags:
 
 ```swift
 final class BooksRenderer {
-	let provider: BooksProvider = ... /* за это троеточие и будет вестись основная борьба */
+    let provider: BooksProvider = ... /* за это троеточие и будет вестись основная борьба */
 
-	func draw() {
-		let books = provider.books
-		/* тут каким-то образом рисуются книги из массива books */
-	}
+    func draw() {
+        let books = provider.books
+        /* тут каким-то образом рисуются книги из массива books */
+    }
 }
 
 protocol BooksProvider {
-	var books: [Book] { get }
+    var books: [Book] { get }
 }
 ```
 
@@ -32,12 +32,12 @@ protocol BooksProvider {
 
 ```swift
 final class NaiveBooksProvider: BooksProvider {
-	var books: [Book] {
-		return [
-		    Book(title: "Dune", author: "Frank Herbert"),
-		    Book(title: "Lord of the Rings", author: "John R.R. Tolkien")
-		]
-	}
+    var books: [Book] {
+        return [
+            Book(title: "Dune", author: "Frank Herbert"),
+            Book(title: "Lord of the Rings", author: "John R.R. Tolkien")
+        ]
+    }
 }
 ```
 
@@ -45,7 +45,7 @@ final class NaiveBooksProvider: BooksProvider {
 
 ```swift
 final class BooksRenderer {
-	let provider: BooksProvider = NaiveBooksProvider()
+    let provider: BooksProvider = NaiveBooksProvider()
 }
 ```
 
@@ -59,11 +59,11 @@ final class BooksRenderer {
 
 ```swift
 final class ServiceLocator {
-	let booksProvider: BooksProvider = NaiveBooksProvider()
+    let booksProvider: BooksProvider = NaiveBooksProvider()
 }
 
 final class BooksRenderer {
-	let provider: BooksProvider = ServiceLocator.booksProvider
+    let provider: BooksProvider = ServiceLocator.booksProvider
 }
 ```
 
@@ -78,11 +78,11 @@ final class BooksRenderer {
 
 ```swift
 final class ServiceLocator {
-	let booksProvider: BooksProvider = NaiveBooksProvider()
+    let booksProvider: BooksProvider = NaiveBooksProvider()
 
-	func bookUpdateOperation() -> Operation & BookUpdate {
-		return NaiveBookUpdateOperation(...)
-	}
+    func bookUpdateOperation() -> Operation & BookUpdate {
+        return NaiveBookUpdateOperation(...)
+    }
 }
 ```
 
@@ -91,31 +91,31 @@ final class ServiceLocator {
 
 Таким образом, можно сделать такой DI на базе initializer injection (оно лучше property injection, потому что компилятор в этом случае не даст вам озорничать, а с property injection легко забыть что-нибудь присвоить и грохнуться в рантайме):
 
-```
+```swift
 final class AppContainer {
-	let booksProvider: BooksProvider
+    let booksProvider: BooksProvider
 
-	init(with appDelegate: AppDelegate) {
-		booksProvider = NaiveBooksProvider(...)
-		appDelegate.booksRenderer = BooksRenderer(provider: booksProvider)
-	}
+    init(with appDelegate: AppDelegate) {
+        booksProvider = NaiveBooksProvider(...)
+        appDelegate.booksRenderer = BooksRenderer(provider: booksProvider)
+    }
 }
 
 @UIApplicationMain
 final class AppDelegate: UIResponder {
-	let container: AppContainer
-	var booksRenderer: BooksRenderer!
+    let container: AppContainer
+    var booksRenderer: BooksRenderer!
 
-	func applicationDidFinishLauncherWithOptions(...) {
-		container = AppContainer(with: self)
-	}
+    func applicationDidFinishLauncherWithOptions(...) {
+        container = AppContainer(with: self)
+    }
 }
 
 final class BooksRenderer {
-	let provider: BooksProvider
+    let provider: BooksProvider
 
-	init(provider: BooksProvider) {
-		self.provider = provider
+    init(provider: BooksProvider) {
+        self.provider = provider
 	}
 }
 ```
@@ -126,22 +126,22 @@ prootype зависимости в таком подходе можно офор
 
 ```swift
 final class SomeFactory {
-	let superDep: SuperDep
+    let superDep: SuperDep
 
-	init(superDep: SuperDep) {
-		self.superDep = superDep
-	}
+    init(superDep: SuperDep) {
+        self.superDep = superDep
+    }
 
-	func makeSomeDep(...) -> SomeDep {
-		return SomeDep(superDep, ...)
-	}
+    func makeSomeDep(...) -> SomeDep {
+        return SomeDep(superDep, ...)
+    }
 }
 ```
 
 и потом внедрять это фабрику как singleton зависимость туда где нужно генерить prototype'ные, или в виде замыкания
 
 ```swift
-typealias SomeFactory = (_ superDep: SuperDep, ...) -> SomeDep { SeomDep(superDep, ...) }
+typealias SomeFactory = (_ superDep: SuperDep, ...) -> SomeDep { SomeDep(superDep, ...) }
 ```
 
 и также ее внедрять как singleton зависимость.
@@ -153,7 +153,7 @@ typealias SomeFactory = (_ superDep: SuperDep, ...) -> SomeDep { SeomDep(superDe
 public class Inject<Dep> {
     private let name: String?
     private var kept: Dep?
-    
+
     public var wrappedValue: Dep {
         kept ?? {
             let dependency: Dep = ServiceLocator.resolve(for: name)
@@ -161,7 +161,7 @@ public class Inject<Dep> {
             return dependency
         }()
     }
-    
+
     public convenience init() {
         self.init(nil)
     }
@@ -172,17 +172,17 @@ public class Inject<Dep> {
 }
 
 final class ServiceLocator {
-	static func register<T>(for name: String, resolver: @escaping () -> T) {
-		// register
-	}
+    static func register<T>(for name: String, resolver: @escaping () -> T) {
+        // register
+    }
 
-	static func resolve<T>(for name: String) -> T {
-		// do some magic
-	}
+    static func resolve<T>(for name: String) -> T {
+        // do some magic
+    }
 }
 
 final class BooksRenderer {
-	@Inject private var provider: BooksProvider
+    @Inject private var provider: BooksProvider
 }
 ```
 
