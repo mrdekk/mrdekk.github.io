@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name='yandex-verification' content='4a3e9fdb2ed97f52' />
+
+  <title>
+    
+      Главная &middot; MrDekk
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/mrdekk.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic'>
+  <link rel="stylesheet" href="/public/css/font-awesome.min.css" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+	  <img class="profile" alt="my-profile" src="/media/images/brujo.jpg" width="120px">
+      <h1>MrDekk</h1>
+      <p class="description">Время - лучший учитель! Жаль, что оно убивает своих учеников...</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+        <a href="/"><i class="fa fa-home" ></i></a>
+      </li>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/about/">Кто здесь?</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/tags/">Метки</a>
+            </li>
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/useful/">Полезное</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/awesome/">Awesome Stars</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </ul>
+
+	<p class="social-icons">
+		<!-- <a href="/search"><i class="fa fa-search fa-2x"></i></a> -->
+		<a href="https://github.com/mrdekk"><i class="fa fa-github fa-2x"></i></a>
+		<a href="https://twitter.com/mrdekk"><i class="fa fa-twitter fa-2x"></i></a>
+		<a href="/atom.xml"><i class="fa fa-rss fa-2x"></i></a>
+	</p>
+
+    <p>&copy; 2019. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2010/04/26/red5-freebsd/">
+        Установка red5 на FreeBSD 8.0
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">26.04.2010</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#java" title="Pages tagged java" rel="tag" class="text-success">java</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#freebsd" title="Pages tagged freebsd" rel="tag" class="text-success">freebsd</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#red5" title="Pages tagged red5" rel="tag" class="text-success">red5</a>
+        </div>
+        
+      
+    </p>
+
+    <p>Считаю что Java у Вас уже установлена. В противном случае – это тема отдельной статьи, которую вскорости может быть напишу. У меня Java установлена тут</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>/usr/local/diablo-jdk1.6.0
+</code></pre></div></div>
+
+<p>Для сборки сервера red5 нам потребуется Apache Ant, который можно легко поставить из портов:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> /usr/ports/devel/apache-ant
+<span class="nv">$ </span>make install clean
+</code></pre></div></div>
+
+<p>Теперь нам нужны исходники red5, чекаутим их с официального сайта примерно следующим образом:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>mkdir /home/red5
+<span class="nv">$ </span>svn co http://red5.googlecode.com/svn/java/server/trunk /home/red5
+</code></pre></div></div>
+
+<p>Теперь соберем его</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> /home/red5
+<span class="nv">$ </span>ant
+</code></pre></div></div>
+
+<p>Процесс на 2-3 минуты. Должны поставиться всякие там jar, а те которых нет, подкачаться и также поставиться. Создадим рабочую директорию Red5 и перенесем туда только что собраный сервер:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>mkdir /usr/share/red5
+<span class="nv">$ </span>cp <span class="nt">-R</span> /home/red5/dist/<span class="k">*</span> /usr/share/red5
+</code></pre></div></div>
+
+<p>На всякий случай:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>chmod 755 /usr/share/red5/red5.sh
+</code></pre></div></div>
+
+<p>Исправляем shell:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ee /usr/share/red5/red5.sh
+ /bin/bash -&gt; /bin/sh
+</code></pre></div></div>
+<p>Делаем пускач:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>touch /usr/local/etc/rc.d/red5.sh
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="nv">RED5_DIR</span><span class="o">=</span>/usr/share/red5
+<span class="nb">test</span> <span class="nt">-x</span> <span class="nv">$RED5_DIR</span>/red5.sh <span class="o">||</span> <span class="nb">exit </span>5
+
+<span class="k">case</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="k">in
+    </span>start<span class="p">)</span>
+        <span class="nb">cd</span> <span class="s2">"</span><span class="nv">$RED5_DIR</span><span class="s2">"</span>
+        <span class="s2">"</span><span class="nv">$RED5_DIR</span><span class="s2">"</span>/red5.sh &amp;
+        sleep 2
+        <span class="p">;;</span>
+    stop<span class="p">)</span>
+        <span class="nb">echo </span>Shutting down Red5
+        killall java
+        sleep 2
+        <span class="p">;;</span>
+    restart<span class="p">)</span>
+        <span class="nv">$0</span> stop
+        <span class="nv">$0</span> start
+        <span class="p">;;</span>
+<span class="k">esac</span>
+</code></pre></div></div>
+
+<p>Запускаем Red5 и проверяем открытость портов:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>/usr/local/etc/rc.d/red5.sh start
+<span class="nv">$ </span>netstat <span class="nt">-ant</span>
+ ...
+ tcp4       0      0 <span class="k">*</span>.5080                 <span class="k">*</span>.<span class="k">*</span>                    LISTEN
+ tcp4       0      0 <span class="k">*</span>.1935                 <span class="k">*</span>.<span class="k">*</span>                    LISTEN
+ tcp4       0      0 <span class="k">*</span>.51724                <span class="k">*</span>.<span class="k">*</span>                    LISTEN
+ tcp4       0      0 <span class="k">*</span>.9999                 <span class="k">*</span>.<span class="k">*</span>                    LISTEN
+ ...
+</code></pre></div></div>
+
+<p>Все гуд. Контрольный выстрел:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>telnet name-server 5080 или http://name-server:5080
+</code></pre></div></div>
+
+<p>Вот вроде и все – сервер собран, установлен и запущен (дефолтные настройки). Вам осталось накрутить конфиги Red5 под свои нужды (не забываем после этого сделать /usr/local/etc/rc.d/red5.sh restart).</p>
+
+<p>ЗЫ: Правда надо еще поправить пускач, чтобы он стартовал Red5 при старте системы. Ну это на досуге как-нибудь</p>
+
+<h3 id="Комментарии">Комментарии</h3>
+
+<blockquote>
+  <p>mandarin80:
+01.02.2011 в 19:42
+установил, но не запускается, в чем может быть проблема?</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>MrDekk:
+01.02.2011 в 23:09
+Добрый день!
+Проблема может быть во многих вещах. Для того, чтобы я Вам мог подсказать по делу надо бы посмотреть логи.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Тайланд:
+03.03.2011 в 00:05
+У меня проблема в том, что red зависает, проблема решается только перезагрузкой, удалением файла red5.pid и запуском заново, что за фигня, кто знает?</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>MrDekk:
+03.03.2011 в 18:14
+Ну, вообще, выключать его правильно. Там есть скриптик, для Windows вроде stop.bat или shutdown.bat, для Unix: stop.sh или shutdown.sh – я не помню точно как называется. Если же это не помогает, то можно написать свой файлик, или скрипт запуска пополнить функцией анализа наличия pid и либо не делать дальше действий и просто сообщать, либо удалять его и проводить нормальный процесс запуска.</p>
+</blockquote>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2010/04/22/java-singleton/">
+        Java singleton
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">22.04.2010</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#java" title="Pages tagged java" rel="tag" class="text-success">java</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#patterns" title="Pages tagged patterns" rel="tag" class="text-success">patterns</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#singleton" title="Pages tagged singleton" rel="tag" class="text-success">singleton</a>
+        </div>
+        
+      
+    </p>
+
+    <p>Возникла у меня тут необходимость в паттерне Singleton для явы. После некоторого общения с гуглом нашел вот такую реализацию, которая мне понравилась, спешу поделиться ею с Вами уважаемые читатели:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kd">static</span> <span class="kd">volatile</span> <span class="n">NetworkController</span> <span class="n">controller</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">NetworkController</span> <span class="nf">getInstance</span><span class="o">(</span> <span class="o">)</span>
+<span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span> <span class="kc">null</span> <span class="o">==</span> <span class="n">controller</span> <span class="o">)</span>
+  <span class="o">{</span>
+    <span class="kd">synchronized</span><span class="o">(</span> <span class="n">NetworkController</span><span class="o">.</span><span class="na">class</span> <span class="o">)</span>
+    <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span> <span class="kc">null</span> <span class="o">==</span> <span class="n">controller</span> <span class="o">)</span>
+      <span class="o">{</span>
+        <span class="n">controller</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NetworkController</span><span class="o">(</span> <span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="k">return</span> <span class="n">controller</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="c1">// only private constructor! because of singleton</span>
+<span class="kd">private</span> <span class="nf">NetworkController</span><span class="o">(</span> <span class="o">)</span>
+<span class="o">{</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2010/04/11/simple-softphone-SIP/">
+        Простой софтфон на SIP
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">11.04.2010</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#c%23" title="Pages tagged c#" rel="tag" class="text-success">c#</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#sip" title="Pages tagged sip" rel="tag" class="text-success">sip</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#softphone" title="Pages tagged softphone" rel="tag" class="text-success">softphone</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#sipek" title="Pages tagged sipek" rel="tag" class="text-success">sipek</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#sdk" title="Pages tagged sdk" rel="tag" class="text-success">sdk</a>
+        </div>
+        
+      
+    </p>
+
+    <p>Попалась мне тут намендни сложная задачка. Надо к разрабатываемой программе прикрутить программный софтфон для SIP (VOIP). Несколько дней с гуглом ничего толком не дали, пока однажды не наткнулся (хвала опять же гуглу :) ) на один проект, который хостится опять же на гугле :) . Названием ему SipekSdk. О нем то и пойдет сегодня речь. Сегодня я покажу как написать свой софтфон.</p>
+
+<p>Для разработки будем ипользовать Visual Studio 2008 Express Edition. Почему именно EE – потому что он легальный. Впрочем Вы можете пользоваться той редакцией и версией студии, которая Вам по душе.</p>
+
+<p>Для начала создадим новый проект.</p>
+
+<ol>
+  <li>Откройте Visual Studio и выполните File/New/Project</li>
+  <li>Выберите тип проекта Visual C#/Windows Application</li>
+  <li>В поле имени введите какое-нибудь имя, например SoftPhone</li>
+  <li>Выберите место на диске где он у Вас будет сохранен</li>
+  <li>Нажмите ОК</li>
+</ol>
+
+<p>Проект создаться и Вы должны увидеть дизайнер окна Form1. Это хорошо. Если что-то не получилось – ищите ошибку или почитайте документацию по студии.</p>
+
+<p>Далее накидаем несколько компонентов на нашу форму. Нам потребуются</p>
+
+<ol>
+  <li>TextBox с именем cs_Phone для ввода номера телефона</li>
+  <li>TextBox с именем cs_RegState для вывода информации о регистрации</li>
+  <li>TextBox с именем cs_CallState для вывода информации о звонке</li>
+  <li>Две Label к cs_RegState и cs_CallState для пояснения</li>
+  <li>Кнопка MakeCall с именем cs_MakeCall для совершения звонка</li>
+  <li>Кнопка Release с именем cs_Release для того чтобы иметь возможность «Ложить трубку»</li>
+</ol>
+
+<p>Получилось что-то подобное</p>
+
+<p><img src="/media/images/softphone01.jpg" alt="Экран софтфона" /></p>
+
+<p>Далее необходимо подключить SipekSdk, для этого необходимо проделать следующие действия:</p>
+
+<ol>
+  <li>Скопируйте библиотеку SipekSdk.dll в папку проекта. Ее можно взять тут <a href="http://sipeksdk.googlecode.com/svn/trunk/SipekSdk/Lib">SipekSdk.dll</a></li>
+  <li>В SolutionExplorer студии выберите Add Reference…</li>
+  <li>В диалоге выберите закладку Browse, а в ней выберите файл SipekSdk.dll</li>
+  <li>Жмите ОК.</li>
+</ol>
+
+<p>Аналогичные действия надо проделать с библиотекой pjsipDll.dll, взять ее можно отсюдова <a href="http://sipeksdk.googlecode.com/svn/trunk/pjsipdll/Lib">pjsipDll.dll</a>.</p>
+
+<p>Кроме того, Вы можете собрать их самостоятельно.</p>
+
+<p>Теперь нам нужно сконфигурировать эти библиотеки. Вообще SipekSdk содержит в себе только интерфейсы, которые мы должны имплементировать. Нас в данном случае будут интересовать два интерфейса:</p>
+
+<ol>
+  <li>IConfigurationInterface. Насколько я понял – основной конфигурационный интерфейс.</li>
+  <li>IAccount. Настройки конкретного аккаунта.</li>
+</ol>
+
+<p>Итак</p>
+
+<ol>
+  <li>Создаем новый класс. Правый клик в SolutionExplorer/Add/New item…</li>
+  <li>Выберите Class и введите имя, например rc_PhoneCfg</li>
+  <li>Откроется новый файл. Вы можете удалить его содержание, если там оно присутствует и Вы этого хотите.</li>
+  <li>
+    <p>Добавьте включение</p>
+
+    <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">Sipek.Common</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Теперь определите интерфейс</p>
+
+    <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">internal</span> <span class="k">class</span> <span class="nc">rc_PhoneCfg</span> <span class="p">:</span> <span class="n">IConfigurationInterface</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Имплементируйте стандартные методы. Студия Вам в этом поможет.</li>
+  <li>
+    <p>Студия добавит Вам везде</p>
+
+    <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">throw</span> <span class="k">new</span> <span class="nf">Exception</span><span class="p">(</span><span class="s">"The method or operation is not implemented."</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Пока оставьте, исправим позже</li>
+  <li>Теперь аналогичным образом имплементируйте интерфейс IAccount, пусть класс будет rc_AccountCfg</li>
+  <li>Попробуйте скомпилировать. Должно быть все ОК.</li>
+</ol>
+
+<p>Теперь добавим кой чего полезного</p>
+
+<ol>
+  <li>
+    <p>Добавьте список аккаунтов в rc_PhoneCfg</p>
+
+    <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">List</span><span class="p">&lt;</span> <span class="n">IAccount</span> <span class="p">&gt;</span> <span class="n">v_slAccList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span> <span class="n">IAccount</span><span class="p">&gt;(</span> <span class="p">);</span>
+<span class="k">internal</span> <span class="nf">rc_PhoneCfg</span><span class="p">(</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">v_slAccList</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span> <span class="k">new</span> <span class="nf">rc_AccountCfg</span><span class="p">(</span> <span class="p">)</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Определите свойство Accounts</p>
+
+    <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span> <span class="n">IAccount</span><span class="p">&gt;</span> <span class="n">Accounts</span>
+<span class="p">{</span>
+    <span class="k">get</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">v_slAccList</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Остальные свойства определите следующим образом (свойства set везде пусть будут set { } )</p>
+
+    <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CFBFlag</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="n">CFBNumber</span> <span class="p">=</span> <span class="s">""</span><span class="p">;</span>
+<span class="n">CFNRFlag</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="n">CFNRNumber</span> <span class="p">=</span> <span class="s">""</span><span class="p">;</span>
+<span class="n">CFUFlag</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="n">CFUNumber</span> <span class="p">=</span> <span class="s">""</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span> <span class="n">String</span> <span class="p">&gt;</span> <span class="n">CodecList</span>
+<span class="p">{</span>
+    <span class="k">get</span>
+    <span class="p">{</span>
+        <span class="n">List</span><span class="p">&lt;</span> <span class="n">String</span> <span class="p">&gt;</span> <span class="n">slCodecs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span> <span class="n">String</span> <span class="p">&gt;(</span> <span class="p">);</span>
+        <span class="n">slCodecs</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span> <span class="s">"PCMA"</span> <span class="p">);</span>
+        <span class="k">return</span> <span class="n">slCodecs</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">set</span> <span class="p">{}</span>
+<span class="p">}</span>
+
+<span class="n">DNDFlag</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="n">DefaultAccountIndex</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="n">IsNull</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="n">PublishEnabled</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="n">SIPPort</span> <span class="p">=</span> <span class="m">5060</span><span class="p">;</span>
+</code></pre></div>    </div>
+
+    <p>То же самое сделайте в классе rc_AccountCfg. Введите правильные настройки.</p>
+
+    <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">AccountName</span> <span class="p">=</span> <span class="s">"3000"</span><span class="p">;</span>
+<span class="n">DisplayName</span> <span class="p">=</span> <span class="s">"3000"</span><span class="p">;</span>
+<span class="n">DomainName</span> <span class="p">=</span> <span class="s">"*"</span><span class="p">;</span>
+<span class="n">Enabled</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="n">HostName</span> <span class="p">=</span> <span class="s">"10.91.25.22"</span><span class="p">;</span>
+<span class="n">Id</span> <span class="p">=</span> <span class="s">"3000"</span><span class="p">;</span>
+<span class="n">Index</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="n">Password</span> <span class="p">=</span> <span class="s">"admin"</span><span class="p">;</span>
+<span class="n">ProxyAddress</span> <span class="p">=</span> <span class="s">""</span><span class="p">;</span>
+<span class="n">RegState</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="n">TransportMode</span> <span class="p">=</span> <span class="n">ETransportMode</span><span class="p">.</span><span class="n">TM_UDP</span><span class="p">;</span>
+<span class="n">UserName</span> <span class="p">=</span> <span class="s">"3000"</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>Теперь займемся главной формой. Дальше весь код пишется в главной форме Form1, имейте ввиду.</p>
+
+<p>Добавляем импорты</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">Sipek.Common</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Sipek.Common.CallControl</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Sipek.Sip</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Реализуем несколько свойств</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#region properties
+</span><span class="n">CCallManager</span> <span class="n">CallManager</span>
+<span class="p">{</span>
+	<span class="k">get</span>
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="n">CCallManager</span><span class="p">.</span><span class="n">Instance</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">private</span> <span class="n">rc_PhoneCfg</span> <span class="n">v_hPhoneCfg</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">rc_PhoneCfg</span><span class="p">(</span> <span class="p">);</span>
+<span class="k">internal</span> <span class="n">rc_PhoneCfg</span> <span class="n">Config</span>
+<span class="p">{</span>
+	<span class="k">get</span>
+	<span class="p">{</span>
+		<span class="k">return</span> <span class="n">v_hPhoneCfg</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">private</span> <span class="n">IStateMachine</span> <span class="n">v_hCall</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="cp">#endregion
+</span></code></pre></div></div>
+
+<p>Теперь мы готовы зарегистрировать функции обратного вызова. Делаем в конструкторе</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CallManager</span><span class="p">.</span><span class="n">CallStateRefresh</span> <span class="p">+=</span> <span class="k">new</span> <span class="nf">DCallStateRefresh</span><span class="p">(</span> <span class="n">CallManager_CallStateRefresh</span> <span class="p">);</span>
+<span class="n">pjsipRegistrar</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">AccountStateChanged</span> <span class="p">+=</span> <span class="k">new</span> <span class="nf">DAccountStateChanged</span><span class="p">(</span> <span class="n">Instance_AccountStateChanged</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<p>Обработчики реализуем попозже</p>
+
+<p>Теперь мы готовы инициализировать систему Sipek. Для этого делаем следующие шаги</p>
+
+<ol>
+  <li>
+    <p>Присваиваем</p>
+
+    <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CallManager</span><span class="p">.</span><span class="n">StackProxy</span> <span class="p">=</span> <span class="n">pjsipStackProxy</span><span class="p">.</span><span class="n">Instance</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Отправляем настройки в систему</p>
+
+    <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CallManager</span><span class="p">.</span><span class="n">Config</span> <span class="p">=</span> <span class="n">Config</span><span class="p">;</span>
+<span class="n">pjsipStackProxy</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Config</span> <span class="p">=</span> <span class="n">Config</span><span class="p">;</span>
+<span class="n">pjsipRegistrar</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">Config</span> <span class="p">=</span> <span class="n">Config</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Инициализируем</p>
+
+    <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CallManager</span><span class="p">.</span><span class="nf">Initialize</span><span class="p">(</span> <span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>И пытаемся зарегистрироваться на сервере</p>
+
+    <div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pjsipRegistrar</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="nf">registerAccounts</span><span class="p">(</span> <span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>Теперь реализуем обработчики. Чтобы избежать проблему синхронизации потоков, будем использовать Invoke.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#region callbacks
+</span><span class="k">void</span> <span class="nf">Instance_AccountStateChanged</span><span class="p">(</span> <span class="n">Int32</span> <span class="n">iAccountId</span><span class="p">,</span> <span class="n">Int32</span> <span class="n">iAccState</span> <span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span> <span class="n">InvokeRequired</span> <span class="p">)</span>
+		<span class="k">this</span><span class="p">.</span><span class="nf">BeginInvoke</span><span class="p">(</span> <span class="k">new</span> <span class="nf">DAccountStateChanged</span><span class="p">(</span> <span class="n">OnRegistrationUpdate</span> <span class="p">),</span> <span class="k">new</span> <span class="n">Object</span><span class="p">[</span> <span class="p">]</span> <span class="p">{</span> <span class="n">iAccountId</span><span class="p">,</span> <span class="n">iAccState</span> <span class="p">}</span> <span class="p">);</span>
+	<span class="k">else</span>
+		<span class="nf">OnRegistrationUpdate</span><span class="p">(</span> <span class="n">iAccountId</span><span class="p">,</span> <span class="n">iAccState</span> <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">void</span> <span class="nf">CallManager_CallStateRefresh</span><span class="p">(</span> <span class="n">Int32</span> <span class="n">iSessionId</span> <span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span> <span class="n">InvokeRequired</span> <span class="p">)</span>
+		<span class="k">this</span><span class="p">.</span><span class="nf">BeginInvoke</span><span class="p">(</span> <span class="k">new</span> <span class="nf">DCallStateRefresh</span><span class="p">(</span> <span class="n">OnStateUpdate</span> <span class="p">),</span> <span class="k">new</span> <span class="n">Object</span><span class="p">[</span> <span class="p">]</span> <span class="p">{</span> <span class="n">iSessionId</span> <span class="p">}</span> <span class="p">);</span>
+	<span class="k">else</span>
+		<span class="nf">OnStateUpdate</span><span class="p">(</span> <span class="n">iSessionId</span> <span class="p">);</span>
+<span class="p">}</span>
+<span class="cp">#endregion
+</span></code></pre></div></div>
+
+<p>И синхронизированные обработчики</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#region synchronized callbacks
+</span><span class="k">private</span> <span class="k">void</span> <span class="nf">OnRegistrationUpdate</span><span class="p">(</span> <span class="n">Int32</span> <span class="n">iAccountId</span><span class="p">,</span> <span class="n">Int32</span> <span class="n">iAccState</span> <span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">cs_RegState</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="n">iAccState</span><span class="p">.</span><span class="nf">ToString</span><span class="p">(</span> <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">private</span> <span class="k">void</span> <span class="nf">OnStateUpdate</span><span class="p">(</span> <span class="n">Int32</span> <span class="n">iSessionId</span> <span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">cs_CallState</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="n">CallManager</span><span class="p">.</span><span class="nf">getCall</span><span class="p">(</span> <span class="n">iSessionId</span> <span class="p">).</span><span class="n">StateId</span><span class="p">.</span><span class="nf">ToString</span><span class="p">(</span> <span class="p">);</span>
+<span class="p">}</span>
+<span class="cp">#endregion
+</span></code></pre></div></div>
+
+<p>И обработчики нажатия кнопок</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">cs_MakeCall_Click</span><span class="p">(</span> <span class="n">Object</span> <span class="n">hSender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">hArgs</span> <span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">v_hCall</span> <span class="p">=</span> <span class="n">CallManager</span><span class="p">.</span><span class="nf">createOutboundCall</span><span class="p">(</span> <span class="n">cs_Phone</span><span class="p">.</span><span class="n">Text</span> <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">private</span> <span class="k">void</span> <span class="nf">cs_Release_Click</span><span class="p">(</span> <span class="n">Object</span> <span class="n">hSender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">hArgs</span> <span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">cs_Phone</span><span class="p">.</span><span class="nf">Clear</span><span class="p">(</span> <span class="p">);</span>
+	<span class="n">CallManager</span><span class="p">.</span><span class="nf">onUserRelease</span><span class="p">(</span> <span class="n">v_hCall</span><span class="p">.</span><span class="n">Session</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Теперь если Вы правильно ввели HostName, UserName и Password в rc_AccountCfg, ваш (или не Ваш) SIP сервер запущен и работает, то в поле RegState вы должны увидеть 200, что означает что ваш софтфон успешно зарегистрировался на SIP сервере.</p>
+
+<p>Набирайте в cs_Phone номер и нажимайте MakeCall. Удачных телефонных переговоров.</p>
+
+<h3 id="Комментарии-со-старой-версии-блога">Комментарии со старой версии блога</h3>
+
+<blockquote>
+  <p>Nevin:
+03.11.2010 в 00:55
+Спасибо за статью. единственное замечание: IConfigurationInterface в сегодняшней версии библиотеки называется IConfiguratorInterface</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Alex:
+17.11.2010 в 22:33
+Спасибо! Отличное руководство =)
+На этапе «Теперь мы готовы зарегистрировать функции обратного вызова.» не понятно где делать в конструкторе (где этот констркутор?):</p>
+</blockquote>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">allManager</span><span class="p">.</span><span class="n">CallStateRefresh</span> <span class="p">+=</span> <span class="k">new</span> <span class="nf">DCallStateRefresh</span><span class="p">(</span> <span class="n">CallManager_CallStateRefresh</span> <span class="p">);</span>
+<span class="n">pjsipRegistrar</span><span class="p">.</span><span class="n">Instance</span><span class="p">.</span><span class="n">AccountStateChanged</span> <span class="p">+=</span> <span class="k">new</span> <span class="nf">DAccountStateChanged</span><span class="p">(</span> <span class="n">Instance_AccountStateChanged</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Прокомментируйте поподробней пожалуйста.
+С Уважением, Alex</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>MrDekk:
+17.11.2010 в 22:49
+Я имел в виду конструктора формы. Можете скачать исходники моих экспериментов вот тут <a href="/media/files/freesoftphone.rar">вот</a> Надеюсь это Вам поможет в Ваших изысканиях.
+Всегда рад помочь</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>MrDekk:
+17.11.2010 в 22:50
+И да – пост про IConfiguratorInterface очень верный. Теперь он действительно так называется.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Koks:
+21.11.2010 в 08:08
+Вроде получилось, регистрируется и звонит, но никак не реагирует на входящий вызов( в чем может быть проблема? Исходники скачал те что выложил автор.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>MrDekk:
+21.11.2010 в 13:53
+Честно говоря я сам не до конца понял как реагировать на входящий вызов. Глубокий дебаг библиотеки показал, что она реагирует на входящий вызов, но делегат почему-то не вызывает.
+Проблема видимо в настройках каких-то, которые мы не учли, либо в недрах библиотеки.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Koks:
+21.11.2010 в 21:02
+Самое интересное что и sipek2 вроде бы законченный телефон тоже не реагирует.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Koks:
+21.11.2010 в 21:23
+А нельзя соорудить какой нибудь костыль что бы получать входящие? Просто очень надо =)
+Сейчас скачаю сырцы библиотеки посмотреть.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>MrDekk:
+21.11.2010 в 23:44
+sipek2 на основе этой же библиотеки написан. Я не рылся в этом направлении – для моей задачи были нужны только исходящие звонки.
+С входящими пробовал – но так ничего и не добился.
+Если найдете что-то интересное – дайте знать пожалуйста.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Koks:
+23.11.2010 в 04:13
+Только что починил, пересоздав свой евент.
+В классе CallManager добавил</p>
+</blockquote>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Form</span> <span class="n">OnForm</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="k">public</span> <span class="k">delegate</span> <span class="k">void</span> <span class="nf">IncCallHandler</span><span class="p">(</span><span class="kt">int</span> <span class="n">SessionId</span><span class="p">,</span> <span class="kt">string</span> <span class="n">Number</span><span class="p">,</span><span class="kt">string</span> <span class="n">Info</span><span class="p">);</span>
+
+<span class="k">delegate</span> <span class="k">void</span> <span class="nf">IncDelegate</span><span class="p">(</span><span class="kt">int</span> <span class="n">SessionId</span><span class="p">,</span> <span class="kt">string</span> <span class="n">Number</span><span class="p">,</span> <span class="kt">string</span> <span class="n">Info</span><span class="p">);</span>
+
+<span class="k">private</span> <span class="k">void</span> <span class="nf">IncEvent</span><span class="p">(</span><span class="kt">int</span> <span class="n">SessionId</span><span class="p">,</span> <span class="kt">string</span> <span class="n">Number</span><span class="p">,</span> <span class="kt">string</span> <span class="n">Info</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">OnForm</span><span class="p">.</span><span class="n">InvokeRequired</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="n">IncDelegate</span> <span class="n">Invoker</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">IncDelegate</span><span class="p">(</span><span class="n">IncEvent</span><span class="p">);</span>
+		<span class="n">OnForm</span><span class="p">.</span><span class="nf">Invoke</span><span class="p">(</span><span class="n">Invoker</span><span class="p">,</span> <span class="k">new</span> <span class="kt">object</span><span class="p">[]</span> <span class="p">{</span> <span class="n">SessionId</span><span class="p">,</span> <span class="n">Number</span><span class="p">,</span><span class="n">Info</span> <span class="p">});</span>
+	<span class="p">}</span>
+	<span class="k">else</span>
+	<span class="p">{</span>
+		<span class="nf">IncCall</span><span class="p">(</span><span class="n">SessionId</span><span class="p">,</span><span class="n">Number</span><span class="p">,</span><span class="n">Info</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">void</span> <span class="nf">On_Form</span><span class="p">(</span><span class="n">Form</span> <span class="n">ParentForm</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">OnForm</span> <span class="p">=</span> <span class="n">ParentForm</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">event</span> <span class="n">IncCallHandler</span> <span class="n">IncCall</span><span class="p">;</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Дальше изменил там же</p>
+</blockquote>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">OnIncomingCall</span><span class="p">(</span><span class="kt">int</span> <span class="n">sessionId</span><span class="p">,</span> <span class="kt">string</span> <span class="n">number</span><span class="p">,</span> <span class="kt">string</span> <span class="n">info</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">IStateMachine</span> <span class="n">call</span> <span class="p">=</span> <span class="k">this</span><span class="p">[</span><span class="n">sessionId</span><span class="p">];</span>
+
+	<span class="c1">//if (call.IsNull) return;</span>
+
+	<span class="c1">// inform automaton for incoming call</span>
+	<span class="n">call</span><span class="p">.</span><span class="n">State</span><span class="p">.</span><span class="nf">incomingCall</span><span class="p">(</span><span class="n">number</span><span class="p">,</span> <span class="n">info</span><span class="p">);</span>
+
+	<span class="c1">// call callback</span>
+	<span class="nf">IncEvent</span><span class="p">(</span><span class="n">sessionId</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="n">info</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Теперь когда создаем класс
+Делаем еще вот так</p>
+</blockquote>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CallManager</span><span class="p">.</span><span class="nf">On_Form</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+<span class="n">CallManager</span><span class="p">.</span><span class="n">IncCall</span> <span class="p">+=</span> <span class="k">new</span> <span class="n">CCallManager</span><span class="p">.</span><span class="nf">IncCallHandler</span><span class="p">(</span><span class="n">IncCaller</span><span class="p">);</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>И там например</p>
+</blockquote>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">private</span> <span class="k">void</span> <span class="nf">IncCaller</span><span class="p">(</span><span class="kt">int</span> <span class="n">SessionId</span><span class="p">,</span> <span class="kt">string</span> <span class="n">number</span><span class="p">,</span> <span class="kt">string</span> <span class="n">info</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">cs_CallState</span><span class="p">.</span><span class="n">Text</span> <span class="p">=</span> <span class="n">number</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Все работает.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Koks:
+23.11.2010 в 04:51
+Не работает еще кнопка ответа, если кто найдет как починить буду благодарен.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Koks:
+23.11.2010 в 05:29
+Разбираться в дебрях библиотеки было лень, поэтому вот атким костылем можно и отвечать)</p>
+</blockquote>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Sipek</span><span class="p">.</span><span class="n">Sip</span><span class="p">.</span><span class="n">pjsipCallProxy</span><span class="p">.</span><span class="nf">dll_answerCall</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">200</span><span class="p">);</span>
+</code></pre></div></div>
+<blockquote>
+  <p>0 это номер сессии</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Koks:
+23.11.2010 в 05:34
+Теперь еще одна проблема, со звуком он не дружит только у меня?</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Viktor:
+15.01.2011 в 21:52
+А с какими серверами вы работаете? я вот что-то совсем не могу подружить его с 3CX сервером… ни в какую не хочет регистрироваться… Может кто-нить что подскажет?</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>MrDekk:
+16.01.2011 в 11:32
+Ну лично я работал с Asterisk. Все работало.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Viktor:
+16.01.2011 в 14:26
+еще вопрос: что значит regState 171101? нигде не смог найти описания…</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>MrDekk:
+17.01.2011 в 12:08
+171101 я честно говоря не знаю.
+А по поводу 3СХ сервера, если бы Вы рассказали проблему и ее решение – было бы оочень замечательно.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>elg:
+14.02.2011 в 13:31
+А под вистой/семеркой работает?
+Почему-то не слышно звука от собеседника. Связано ли с тем, что SipekSdk использует WaveLibMixer, а он не поддерживается в Vista? Можно ли как-то решить эту проблему?</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>MrDekk:
+16.02.2011 в 15:31
+У меня под семеркой работает нормально. Под вистой не пробовал если честно.
+Могу посоветовать только проверить настройки в панели управления. У меня были проблемы с микрофоном. Но эти проблемы к SipekSdk не имеют вообще никакого отношения.
+Удачи в делах.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>jasja1:
+01.03.2011 в 03:23
+Запускал на Win7, результат – нулевой, не могу добиться даже регистрации на сервере. Думал дело в ОС, запустил на ВМ WinXP – та же ситуация. Софтфон от 3CX – работает нормально.. перепробовал уже много вариантов.. Буду очень рад, если кто-нибудь даст дельный совет, в чем может быть проблема</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>MrDekk:
+01.03.2011 в 09:14
+Ну можно попробовать. Если Вы выполните два условия:</p>
+
+  <ol>
+    <li>Опишите проблему – что конкретно у Вас не получается</li>
+    <li>Выложите проблемный код</li>
+  </ol>
+
+  <p>Тогда будет возможность Вам чем-то помочь.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>jasja1:
+01.03.2011 в 19:48</p>
+
+  <ol>
+    <li>не получается зарегистрироваться на сервере – после запуска программы абсолютно ничего не происходит</li>
+    <li>код был полностью взят из <a href="/media/files/freesoftphone.rar">исходника</a>, c настроенным интерфейсом IAccountCfg:</li>
+  </ol>
+</blockquote>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">AccountName</span><span class="p">=</span><span class="s">"100"</span>
+<span class="n">DisplayName</span><span class="p">=</span><span class="s">"100"</span>
+<span class="n">DomainName</span><span class="p">=</span><span class="s">"*""
+</span><span class="n">Enabled</span><span class="p">=</span><span class="k">true</span>
+<span class="n">HostName</span><span class="p">=</span><span class="s">"192.168.199.1"</span>
+<span class="n">id</span><span class="p">=</span><span class="s">"100"</span>
+<span class="n">Index</span><span class="p">=</span><span class="m">0</span>
+<span class="n">Password</span><span class="p">=</span><span class="s">"qwerty"</span>
+<span class="n">ProxyAddress</span><span class="p">=</span><span class="s">""</span>
+<span class="n">RegState</span><span class="p">=</span><span class="m">0</span>
+<span class="n">TransportMode</span><span class="p">=</span><span class="n">ETransportMode</span><span class="p">.</span><span class="n">TM_TCP</span>
+<span class="n">UserName</span><span class="p">=</span><span class="s">"100"</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Установлен и настроен сервер 3cx (Sip порт 5060, Публичный IP: 192.168.199.1).
+Добавлен абонент (Внутренний номер 100 Имя 100 Фамилия 100 ID=100 пароль qwerty)</p>
+
+  <p>После запуска программы регистрация на сервере не проходит. Лог сервера чист.
+Соответственно пробовал софтфоны 3cx и X-Lite 4 – с аналогичными настройками все работает..</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>jasja1:
+01.03.2011 в 20:06
+Часть лога программы</p>
+</blockquote>
+
+<pre><code class="language-log">17:55:29.607 pjsua_core.c 1 SIP worker threads created
+17:55:29.607 pjsua_core.c pjsua version 1.2 for win32 initialized
+17:55:29.611 pjsua_core.c SIP UDP socket reachable at 192.168.0.100:5060
+17:55:29.611 udp055775A0 SIP UDP transport started, published address is 192.168.0.100:5060
+17:55:29.611 pjsua_acc.c Account added with id 0
+17:55:29.611 tcplis SIP TCP listener destroyed
+17:55:29.611 pjsua_core.c Error creating SIP TCP listener: Address already in use (WSAEADDRINUSE) [status=130048]
+</code></pre>
+
+<blockquote>
+  <p>Откуда берется IP 192.168.0.100? + решил для эксперимента поменять порт в интерфейсе IPhoneCfg на 5070, на сервере порт остался прежним.. и регистрация прошла – RegState 200.
+Не могу понять логику)</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>MrDekk:
+03.03.2011 в 18:12
+Address already in use случается тогда, когда вы биндите сокет (socket bind) на порт, который уже занят (уже был бинд от другого приложения). Поэтому у Вас не получалось приконнектится (видимо какой-то софтфон был запущен и он биндил адрес). Когда Вы адрес поменяли, то все работало.</p>
+</blockquote>
+
+<blockquote>
+  <p>Чтобы работало без смены порта можно сделать следующее</p>
+</blockquote>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">on</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span> <span class="p">...</span> <span class="p">)</span>
+<span class="k">if</span> <span class="p">(</span> <span class="n">setsockopt</span><span class="p">(</span> <span class="n">s</span><span class="p">,</span> <span class="n">SOL_SOCKET</span><span class="p">,</span> <span class="n">SO_REUSEADDR</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">on</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">on</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="c1">//  случилась ошибка
+</span><span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Ну или запускать с нестандартным портом…</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Алексей:
+22.03.2011 в 00:27
+Каким вы сервером пользуетесь??? Я запускаю программу и сервер(какой-то нашел сиповский) и никакой реакции, IP указал 127.0.0.1, пробовал и тот что получают от роутера, ничего не даёт. Никакой реакции по нажатию на кнопки. Обьясните что и как тут вообще??? и что вводить в поле имени кому звонить?</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>MrDekk:
+22.03.2011 в 19:23
+Я пользовался Asterisk’ом. Ставил на сервер и даже звонил через ТФОП.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Дмитрий:
+28.04.2011 в 19:29
+Привет, MrDekk.
+Очень помогла ваша звонилка. Есть одно «НО». pjsipDLL написан на C++ и когда я пытаюсь запустить приложение под вистой или семеркой x64 возникает ошибка «An attempt was made to load a program with an incorrect format» при попытке обращения к pjsipDLL. Быстро решить эту проблему я не смог, поэтому пишу здесь. Если есть идеи, то я был бы очень благодарен.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Дмитрий:
+28.04.2011 в 19:35
+Забыл написать.
+Нашел это
+http://blogs.msdn.com/b/arvindsh/archive/2009/06/21/tip-of-the-day-an-attempt-was-made-to-load-a-program-with-an-incorrect-format-net-p-invoke-issue.aspx
+Долго втыкал, но самостоятельно разобраться не смог. Возможно в этом тесте есть решение проблемы, ноя настолько пень ,что не могу им воспользоваться. Хелп плз.
+Заранее большое спасибо.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>MrDekk:
+29.04.2011 в 14:12
+В настройках компиляции .net проектов вместо ANY CPU поставьте x86 – все должно заработать.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Дмитрий:
+04.05.2011 в 20:48
+Спасибо. С этим справился.
+Вообще не звонит на windows 7.
+После выполнения</p>
+</blockquote>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CallManager</span><span class="p">.</span><span class="nf">createOutboundCall</span><span class="p">(</span><span class="n">txtPhone</span><span class="p">.</span><span class="n">Text</span><span class="p">);</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>событие CallStateRefresh не наступает вообще.
+В чем может быть беда?</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>MrDekk:
+04.05.2011 в 21:51
+Ну, файерволл у Вас есть? Может быть в нем беда. Вообще, мне кажется где-то что-то не дает пройти соединению. Можете попробовать включить native дебаггер и пройтись внутрь sipeksdk.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Дмитрий:
+05.05.2011 в 16:37
+Буду писать сюда о своих действиях, вдруг у кого-то возникнут идеи как мне помочь. Итак, проблема все та же: не работает наш любимый софтфон под вин 7.
+Нашел это:
+http://groups.google.com/group/sipek/browse_thread/thread/ca47464ac4dbdb9f?pli=1
+Выкачал исходники SipekSDK. В них упомянутой ссылки на WaveLibMixer вообще нет. Добавил в свой проект сборку SipekSDK, чтобы было проще отлаживаться. При отладке наткнулся на следующее.</p>
+</blockquote>
+
+<blockquote>
+  <p>Итак мы жмем на кнопку «позвонить», вызывается</p>
+</blockquote>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">v_hCall</span> <span class="p">=</span> <span class="n">CallManager</span><span class="p">.</span><span class="nf">createOutboundCall</span><span class="p">(</span><span class="n">txtPhone</span><span class="p">.</span><span class="n">Text</span><span class="p">);</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Проследовал по обработке OutboundCall вплоть до следующей строчки во враппере для pjsipDLL:</p>
+</blockquote>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SessionId</span> <span class="p">=</span> <span class="nf">dll_makeCall</span><span class="p">(</span><span class="n">Config</span><span class="p">.</span><span class="n">Accounts</span><span class="p">[</span><span class="n">accountId</span><span class="p">].</span><span class="n">Index</span><span class="p">,</span> <span class="n">sipuri</span><span class="p">);</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Здесь получаю SessionId = -1, что приводит к окончанию обработки звонка. То есть под висту (7) почему-то не работает dll_makeCall из pjsipDLL. Попробовал погуглить эту беду ,пока безрезультатно. Может быть у кого-то запускается вся эта радость на висте или семерке? приму любую помощь.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>MrDekk:
+05.05.2011 в 20:48
+Вы native-дебаггером в pjsip.dll пробовали заходить?</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Дмитрий:
+06.05.2011 в 12:38
+Debug-&gt;Options-&gt;Native. Выставил галочки на Load DLL Imports и Enable RPC Debugging.
+После этого я должен иметь возможность заглянуть дебаггером внутрь pjsipDLL? Может быть у меня урезанная студия (хотя нет – вроде Ultimate), но я пройти внутрь pjsipDLL не могу. Что я делаю не так?</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>MrDekk:
+06.05.2011 в 13:24
+В настройках запускаемого шарпового проекта в закладке Debug внизу есть опция Enable Debuggers, там надо поставить галочку напротив Enable unmanaged code debugging. После этого вам нужны исходники pjsip, либо хотя бы pdb файл. Тогда у Вас будет возможность заглянуть внутрь Pjsip.dll</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Дмитрий:
+07.06.2011 в 16:02
+На всякий случай оставляю комментарий, если у кого будут похожие проблемы.
+Итак беда с Виндоус 7 связана с pjsipDLL, которую мы скачиваем. Я выкачал исходники pjsipDLL и пересобрал библиотеку по указаниям отсюда http://sites.google.com/site/sipekvoip/Home/documentation/pjsipwrapper/pjsipwrapper-for-windows
+После этого под семеркой нормально зазвонило.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+  <p>Богдан:
+15.07.2013 в 17:56
+Ответ на звонки полностью работоспособен!
+Вы забыли реализовать свойство bool AAFlag.
+Оно отвечает за автоответ, и проверяется при входящем звонке.
+Если его реализовать все будет хорошо, и не нужно ничего в либе менять.</p>
+</blockquote>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2010/04/11/code-quality/">
+        О Качестве кода
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">11.04.2010</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#QA" title="Pages tagged QA" rel="tag" class="text-success">QA</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#WTF" title="Pages tagged WTF" rel="tag" class="text-success">WTF</a>
+        </div>
+        
+      
+    </p>
+
+    <p>О Качестве кода</p>
+
+<p>Не помню уже откуда, но попалась мне как то на глаза одна такая картинка про качество кода. Она гласит, что хорош тот код, у которого wtf/минута меньше всего :)</p>
+
+<p><img src="/media/images/wtfperminute.jpg" alt="wtf per minute" /></p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2010/04/08/windows-disk-in-freebsd/">
+         FreeBSD - подключаем виндовый диск
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">08.04.2010</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#freebsd" title="Pages tagged freebsd" rel="tag" class="text-success">freebsd</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#windows" title="Pages tagged windows" rel="tag" class="text-success">windows</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#fat32" title="Pages tagged fat32" rel="tag" class="text-success">fat32</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#ntfs" title="Pages tagged ntfs" rel="tag" class="text-success">ntfs</a>
+        </div>
+        
+      
+    </p>
+
+    <p>Как и обещал продолжаю цикл заметок о замене Windows на FreeBSD на почти серверной машине. Сегодняшняя наша цель – подключить виндовый раздел к фре. Сразу стоит отмести ту мысль, что можно было все перевести на ufs и не мучаться. Тут не все так просто, раздел этот размером 1Тб, с заполнением примерно но 80%. Второго такого винта не нашлось для временного перелива информации, поэтому была поставлена задача запустить его под фрей «как есть».</p>
+
+<p>Проблема первая – непонятно какая на нем файловая система (всмысле FAT32 или NTFS). Создавался этот раздел давно и никто уже не помнит. Проблема решается просто – грузимся с любого виндового LiveCD и каким-нибудь Акронисом смотрим. У меня оказалась NTFS. Рекомендую сделать это заранее, т.к. я потратил определенное время пытаясь смонтировать этот винт как FAT32.</p>
+
+<p>Далее нам надо чтобы ядро у нас поддерживало определенную функциональность. Делаем</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>kldstat
+</code></pre></div></div>
+
+<p>и смотрим чтобы в выдаче был модуль geom_mbr.ko. Если его нет, делаем следующие вещи</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> /usr/src/sys/modules/geom
+<span class="nv">$ </span>make <span class="o">&amp;&amp;</span> make obj <span class="o">&amp;&amp;</span> make install clean
+<span class="nv">$ </span>kldload geom_mbr
+</code></pre></div></div>
+
+<p>кроме того, идем в /boot/loader.conf и прописываем там автозапуск модуля</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">geom_mbr_load</span><span class="p">=</span><span class="s">"YES"</span>
+</code></pre></div></div>
+
+<p>После этого у нас есть возможность видеть разделы в /dev у меня виндовый раздел был ad12s2s1. Далее так как система у нас NTFS надо надо организовать поддержку NTFS. Для этого воспользуемся fusefs. Идем в /usr/ports, делаем</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> /usr/ports/
+<span class="nv">$ </span>make search <span class="nv">name</span><span class="o">=</span>’ntfs’
+</code></pre></div></div>
+
+<p>и идем в ту которая от fuse. после этого делаем стандартные</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>make install clean
+</code></pre></div></div>
+
+<p>После этого надо прописать fusefs в автозагрузку. Для этого в /etc/rc.conf добавляем</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># fusefs
+</span><span class="py">fusefs_enable</span><span class="p">=</span><span class="s">»YES»</span>
+</code></pre></div></div>
+
+<p>и запускаем</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>/usr/loca/etc/rc.d/fusefs start
+</code></pre></div></div>
+
+<p>Монтируем том</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>mkdir /d
+<span class="nv">$ </span>ntfs-3g <span class="nt">-o</span> rw,locale<span class="o">=</span>ru_RU.UTF-8 /dev/ad12s2s1 /d
+</code></pre></div></div>
+
+<p>Чтобы том автоматически подцеплялся при старте системы добавляем строчку в /etc/rc.conf после fusefs</p>
+
+<div class="language-ini highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># mount ntfs volume
+</span><span class="err">/usr/local/bin/ntfs-3g</span> <span class="err">-o</span> <span class="err">rw,</span><span class="py">locale</span><span class="p">=</span><span class="s">ru_RU.UTF-8 /dev/ad12s2s1 /d</span>
+</code></pre></div></div>
+
+<p>После этого</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>shutdown <span class="nt">-r</span> now
+</code></pre></div></div>
+
+<p>И наслаждаемся. Теперь у нас в фряхе подцеплен виндовый ntfs раздел. Могут быть проблемы с UTF-8 в консоли. Но – это тема следующих статей</p>
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/page23"><i class="fa fa-hand-o-left" ></i> назад</a>
+  
+  
+    
+      <a class="pagination-item newer" href="/page21">вперед <i class="fa fa-hand-o-right" ></i></a>
+    
+  
+</div>
+
+    </div>
+
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter13259782 = new Ya.Metrika({
+                    id:13259782,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/13259782" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16734363-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>

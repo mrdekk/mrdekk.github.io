@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name='yandex-verification' content='4a3e9fdb2ed97f52' />
+
+  <title>
+    
+      Заметки об IoC и DI &middot; MrDekk
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/mrdekk.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic'>
+  <link rel="stylesheet" href="/public/css/font-awesome.min.css" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+	  <img class="profile" alt="my-profile" src="/media/images/brujo.jpg" width="120px">
+      <h1>MrDekk</h1>
+      <p class="description">Время - лучший учитель! Жаль, что оно убивает своих учеников...</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+        <a href="/"><i class="fa fa-home" ></i></a>
+      </li>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/about/">Кто здесь?</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/tags/">Метки</a>
+            </li>
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/useful/">Полезное</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/awesome/">Awesome Stars</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </ul>
+
+	<p class="social-icons">
+		<!-- <a href="/search"><i class="fa fa-search fa-2x"></i></a> -->
+		<a href="https://github.com/mrdekk"><i class="fa fa-github fa-2x"></i></a>
+		<a href="https://twitter.com/mrdekk"><i class="fa fa-twitter fa-2x"></i></a>
+		<a href="/atom.xml"><i class="fa fa-rss fa-2x"></i></a>
+	</p>
+
+    <p>&copy; 2019. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Заметки об IoC и DI</h1>
+  <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">16.11.2016</span>
+  <i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+	
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#architecture" title="Pages tagged architecture" rel="tag" class="text-success">architecture</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#ios" title="Pages tagged ios" rel="tag" class="text-success">ios</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#patterns" title="Pages tagged patterns" rel="tag" class="text-success">patterns</a>
+      </div>
+      
+    
+  </p>
+  <p>IoC - паттерн инверсии управления (Inversion of Control), почитать можно <a href="https://ru.wikipedia.org/wiki/Инверсия_управления">тут</a>
+DI - паттерн внедрения зависимостей (Dependency Injection), почитать можно <a href="https://ru.wikipedia.org/wiki/Внедрение_зависимости">тут</a></p>
+
+<p>В последнее время все чаще участвую в разного рода дискуссиях касательно архитектуры приложений, причем не важно каких - web, десктопных или мобильных. Во всех случаях всплывают примерно одни и те же проблемы и примерно одни и те же грабли. Дабы не “мозолить” себе язык и не объяснять свою точку зрения постоянно, решил написать эту статью. Тут рассмотрим некоторые основные подходы и паттерны и затем возможные их применения при разработке приложений.</p>
+
+<p>Но для начала предлагаю рассмотреть небольшой примерчик для понимания того, откуда проблема берется.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">protocol</span> <span class="kt">Inbox</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">allLetters</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Mail</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="kt">EmailInbox</span> <span class="p">:</span> <span class="kt">Inbox</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+
+<span class="kd">class</span> <span class="kt">MailService</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nv">inbox</span><span class="p">:</span> <span class="kt">Inbox</span> <span class="o">=</span> <span class="kt">EmailInbox</span><span class="p">(</span><span class="s">"null@example.com"</span><span class="p">)</span>
+
+    <span class="kd">func</span> <span class="nf">mail</span><span class="p">(</span><span class="n">with</span> <span class="nv">recipient</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Mail</span><span class="p">]</span>
+    <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">letters</span> <span class="o">=</span> <span class="n">inbox</span><span class="o">.</span><span class="nf">allLetters</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">letters</span><span class="o">.</span><span class="n">filter</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="n">recipient</span> <span class="o">==</span> <span class="n">recipient</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Примерчик простой, однако даже в нем уже есть проблема - класс MailService крепко-накрепко связан с классом EmailInbox, несмотря даже на то, что мы честно выделили протокол Inbox. Теперь (например, в другом проекте) потребовалось использовать MailService, но при этом Inbox там реализован по другому (например через файлы). Это приведет к тому, что придется код переписывать, не получится просто взять и использовать.</p>
+
+<p>Ситуацию можно немного ухудшить, написав примерно так.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">MailService</span>
+<span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">mail</span><span class="p">(</span><span class="n">with</span> <span class="nv">recipient</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Mail</span><span class="p">]</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="kt">EmailInbox</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">allLetters</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="n">recipient</span> <span class="o">==</span> <span class="n">recipient</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Теперь внешнему наблюдателю сразу даже будет непонятно, что внутри класса есть зависимость. Да при детальном анализе кода будет ясно, но если класс не из 10 строк, а из 1000? По этой же причине опасны singleton’ы.</p>
+
+<p>Для обеспечения переносимости кода, для возможности организовать хорошее тестирование (например заmock’ать какие-нибудь зависимости) и т.д. с этим надо что-то делать. И вот тут-то и появляются разного рода умные слова, такие как Dependency Injection, Inversion of Control и иногда Service Locator. Как правило, считается что они значат примерно одно и то же, хотя если разбираться детальнее разница между ними есть и большая.</p>
+
+<p>Самый первый и самый с одной стороны простой термин - Dependency Injection или по-русски “внедрение зависимостей”. Вообще, это комплекс мероприятий в результате которого зависимости оказываются в вашем объекте. Даже наш простой примерчик в общем делает dependency injection в самом простом его виде - зависимость просто создается. Внедрять зависимости можно спрашивая их у кого-то (см. Service Locator) или кто-то их нам установит автоматически (см. Inversion of Control).</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">mailService</span> <span class="o">=</span> <span class="kt">MailService</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">inbox</span> <span class="o">=</span> <span class="kt">EmailInbox</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="n">mailServie</span><span class="o">.</span><span class="n">inbox</span> <span class="o">=</span> <span class="n">inbox</span> <span class="c1">// dependency injection</span>
+</code></pre></div></div>
+
+<p>Service Locator - это специальный объект (или фасад) у которого вы всегда сможете спросить нужную зависимость. Как правило, он либо знает где ее взять (на то он и locator), либо он сам хранит их у себя (см. паттерн реестр). Когда кому-то нужна какая-то зависимость, этот кто-то через механизмы singleton’а (или еще как) идет к Service Locator’у и спрашивает нужную зависимость.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">MailService</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nv">inbox</span><span class="p">:</span> <span class="kt">Inbox</span> <span class="o">=</span> <span class="kt">ServiceLocator</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">inbox</span> <span class="c1">// service locator</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Третий термин (Inversion of Control) рассмотрим подробнее.</p>
+
+<p>Но сначала давайте разберемся с тем, что за “control” инвертируется. Когда-то давно, когда приложения были консольными, control-flow приложения выглядел примерно так: мы запрашиваем с устройства ввода у пользователя данные, обрабатываем их и выводим на устройство вывода. Потоком управления управляло (пардон за тавталогию) само приложение. Когда появились графические UI приложение вместо того, чтобы управлять циклом приложения стало обрабатывать событие, отдав управление операционной системе. Таким образом получилась инверсия control-flow приложения. Таким же образом обстоит дело с инверсией при внедрении зависимостей при использовании паттерна Inversion of Control - управление временем жизни объекта и внедрением зависимостей делегируется специальному объекту, в задачу которого входит создание всех необходимых объектов и установка ссылок между ними. Этот специальный объект может называться сборщиком (assembler), контейнером (inversion of control container, см. Spring Framework) или еще как-нибудь, сути его это не меняеет.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">IoCContainer</span> <span class="c1">// Inversion of Control container (assembler)</span>
+<span class="p">{</span>
+    <span class="k">let</span> <span class="nv">mailService</span><span class="p">:</span> <span class="kt">MailService</span><span class="o">!</span>
+    <span class="k">let</span> <span class="nv">inbox</span><span class="p">:</span> <span class="kt">Inbox</span>
+
+    <span class="kd">func</span> <span class="nf">build</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nf">create</span><span class="p">()</span>
+        <span class="nf">internlink</span><span class="p">()</span>
+        <span class="nf">post</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">create</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">mailService</span> <span class="o">=</span> <span class="kt">MailService</span><span class="p">()</span>
+        <span class="n">inbox</span> <span class="o">=</span> <span class="kt">EmailInbox</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">interlink</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">mailService</span><span class="o">.</span><span class="n">inbox</span> <span class="o">=</span> <span class="n">inbox</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">post</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">mailService</span><span class="o">.</span><span class="nf">postCreate</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Главное отличие контейнера от сервис локатора в том, что контейнер конкретный класс как правило не видит - зависимости для него появляются автомагически (automagically), а service locator видит и даже может быть хранит на него ссылку, а если еще и сильную… Кроме того, при использовании контейнера вы можете например иметь циклическую ссылку (с учетом конечно всех требований ARC и weak), или выполнить что-то после того, как весь граф (не дерево! и это важно) зависимостей будет собран (см. IoCContainer.post)</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2019/11/06/swift-dependency-injection/">
+            Внедрение зависимостей (dependency injection) в Swift 5.1
+            <small>06.11.2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2019/05/08/clang8-dev-vscode-ubuntu-docker/">
+            Разрабатываем и отлаживаем С++ в Docker с помощью VSCode (2019 edition - clang8 lldb)
+            <small>08.05.2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2018/11/28/swift-kotlin-comparison/">
+            Сравнение Swift vs Kotlin
+            <small>28.11.2018</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter13259782 = new Ya.Metrika({
+                    id:13259782,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/13259782" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16734363-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>

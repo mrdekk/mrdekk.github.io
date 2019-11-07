@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name='yandex-verification' content='4a3e9fdb2ed97f52' />
+
+  <title>
+    
+      Главная &middot; MrDekk
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/mrdekk.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic'>
+  <link rel="stylesheet" href="/public/css/font-awesome.min.css" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+	  <img class="profile" alt="my-profile" src="/media/images/brujo.jpg" width="120px">
+      <h1>MrDekk</h1>
+      <p class="description">Время - лучший учитель! Жаль, что оно убивает своих учеников...</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+        <a href="/"><i class="fa fa-home" ></i></a>
+      </li>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/about/">Кто здесь?</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/tags/">Метки</a>
+            </li>
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/useful/">Полезное</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/awesome/">Awesome Stars</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </ul>
+
+	<p class="social-icons">
+		<!-- <a href="/search"><i class="fa fa-search fa-2x"></i></a> -->
+		<a href="https://github.com/mrdekk"><i class="fa fa-github fa-2x"></i></a>
+		<a href="https://twitter.com/mrdekk"><i class="fa fa-twitter fa-2x"></i></a>
+		<a href="/atom.xml"><i class="fa fa-rss fa-2x"></i></a>
+	</p>
+
+    <p>&copy; 2019. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2015/07/09/wildfly-run-script-freebsd/">
+        Скрипт запуска сервера WildFly для FreeBSD
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">09.07.2015</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#freebsd" title="Pages tagged freebsd" rel="tag" class="text-success">freebsd</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#javaee" title="Pages tagged javaee" rel="tag" class="text-success">javaee</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#wildfly" title="Pages tagged wildfly" rel="tag" class="text-success">wildfly</a>
+        </div>
+        
+      
+    </p>
+
+    <p>После компиляции java с исправлением бага, дошла очередь до установки WildFly. Однако, все встало без проблем вообще и сразу заработало. Оставалась одна проблема – автозапуск сервера при рестарте сервера (пардон за каламбур). Прошерстив мануалы FreeBSD набросал небольшой скрипт, может кому будет полезен:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="nb">.</span> /etc/rc.subr
+
+<span class="nv">name</span><span class="o">=</span>wildfly
+<span class="nv">rcvar</span><span class="o">=</span>wildfly_enable
+
+<span class="nv">start_cmd</span><span class="o">=</span><span class="s2">"/usr/local/wildfly/bin/standalone.sh &amp;"</span>
+<span class="nv">stop_cmd</span><span class="o">=</span><span class="s2">"/usr/local/wildfly/bin/jboss-cli.sh --connect controller=127.0.0.1 command=:shutdown"</span>
+
+load_rc_config <span class="nv">$name</span>
+run_rc_command <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span>
+</code></pre></div></div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2015/05/07/translet-not-loaded-problem/">
+        Боремся с «Translet class loaded, but unable to create translet instance.»
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">07.05.2015</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#java" title="Pages tagged java" rel="tag" class="text-success">java</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#javaee" title="Pages tagged javaee" rel="tag" class="text-success">javaee</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#maven" title="Pages tagged maven" rel="tag" class="text-success">maven</a>
+        </div>
+        
+      
+    </p>
+
+    <p>При работе с XSLT преобразованиями на сервере приложений WildFly возникает такой Exception</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Caused by: javax.xml.transform.TransformerConfigurationException:
+  Translet class loaded, but unable to create translet instance.
+</code></pre></div></div>
+
+<p>Судя по всему, пока в WildFly эту проблему не поправили, существует такой Workaround:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Workaround for: "Translet class loaded, but unable to create translet instance." --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+	<span class="nt">&lt;groupid&gt;</span>xalan<span class="nt">&lt;/groupid&gt;</span>
+	<span class="nt">&lt;artifactid&gt;</span>xalan<span class="nt">&lt;/artifactid&gt;</span>
+	<span class="nt">&lt;version&gt;</span>2.7.2<span class="nt">&lt;/version&gt;</span>
+	<span class="nt">&lt;exclusions&gt;</span>
+		<span class="nt">&lt;exclusion&gt;</span>
+			<span class="nt">&lt;groupid&gt;</span>xml-apis<span class="nt">&lt;/groupid&gt;</span>
+			<span class="nt">&lt;artifactid&gt;</span>xml-apis<span class="nt">&lt;/artifactid&gt;</span>
+		<span class="nt">&lt;/exclusion&gt;</span>
+	<span class="nt">&lt;/exclusions&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2015/03/19/ubuntu-deb-installation/">
+        Инсталляция deb пакетов в Ubuntu
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">19.03.2015</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#ubuntu" title="Pages tagged ubuntu" rel="tag" class="text-success">ubuntu</a>
+        </div>
+        
+      
+    </p>
+
+    <p>Если у вас есть .deb пакет и вы не знаете как его инсталлировать, то вот рецепт</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dpkg <span class="nt">-i</span> software.deb
+</code></pre></div></div>
+
+<p>Удалить</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dpkg <span class="nt">-r</span> software.deb
+</code></pre></div></div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2015/03/17/ubuntu-repo-state-reset/">
+        Сброс состояния репозиториев в Ubuntu
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">17.03.2015</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#ubuntu" title="Pages tagged ubuntu" rel="tag" class="text-success">ubuntu</a>
+        </div>
+        
+      
+    </p>
+
+    <p>Когда бубунта начинает выдавать что-то вроде «software has no installation candidate» сие означает, что у нее что-то не так с репозиториями, чтобы сие поправить делаем так:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-i</span>
+<span class="nv">$ </span>apt-get clean
+<span class="nv">$ </span><span class="nb">cd</span> /var/lib/apt
+<span class="nv">$ </span>mv lists lists.old
+<span class="nv">$ </span>mkdir <span class="nt">-p</span> lists/partial
+<span class="nv">$ </span>apt-get clean
+<span class="nv">$ </span>apt-key update
+<span class="nv">$ </span>apt-get update
+</code></pre></div></div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2015/03/17/git-orphan-branch/">
+        Git Orphan Branch
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">17.03.2015</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#git" title="Pages tagged git" rel="tag" class="text-success">git</a>
+        </div>
+        
+      
+    </p>
+
+    <p>Иногда необходимо в GIT создать ветку, не имеющую ничего общего с уже существующими (orphan branch). Как правило, такая необходимость возникает при размещении в одном репозитории нескольких проектов.</p>
+
+<p>Делается это так</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout <span class="nt">--orphan</span> newbranch
+<span class="nv">$ </span>git rm <span class="nt">-rf</span> <span class="nb">.</span>
+<span class="c"># do work</span>
+<span class="nv">$ </span>git add your files
+<span class="nv">$ </span>git commit <span class="nt">-m</span> <span class="s1">'Initial commit'</span>
+</code></pre></div></div>
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/page11"><i class="fa fa-hand-o-left" ></i> назад</a>
+  
+  
+    
+      <a class="pagination-item newer" href="/page9">вперед <i class="fa fa-hand-o-right" ></i></a>
+    
+  
+</div>
+
+    </div>
+
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter13259782 = new Ya.Metrika({
+                    id:13259782,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/13259782" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16734363-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>

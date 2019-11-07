@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name='yandex-verification' content='4a3e9fdb2ed97f52' />
+
+  <title>
+    
+      Разрабатываем и отлаживаем С++ в Docker с помощью VSCode (2019 edition - clang8 lldb) &middot; MrDekk
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/mrdekk.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic'>
+  <link rel="stylesheet" href="/public/css/font-awesome.min.css" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+	  <img class="profile" alt="my-profile" src="/media/images/brujo.jpg" width="120px">
+      <h1>MrDekk</h1>
+      <p class="description">Время - лучший учитель! Жаль, что оно убивает своих учеников...</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+        <a href="/"><i class="fa fa-home" ></i></a>
+      </li>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/about/">Кто здесь?</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/tags/">Метки</a>
+            </li>
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/useful/">Полезное</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/awesome/">Awesome Stars</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </ul>
+
+	<p class="social-icons">
+		<!-- <a href="/search"><i class="fa fa-search fa-2x"></i></a> -->
+		<a href="https://github.com/mrdekk"><i class="fa fa-github fa-2x"></i></a>
+		<a href="https://twitter.com/mrdekk"><i class="fa fa-twitter fa-2x"></i></a>
+		<a href="/atom.xml"><i class="fa fa-rss fa-2x"></i></a>
+	</p>
+
+    <p>&copy; 2019. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Разрабатываем и отлаживаем С++ в Docker с помощью VSCode (2019 edition - clang8 lldb)</h1>
+  <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">08.05.2019</span>
+  <i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+	
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#c%2B%2B" title="Pages tagged c++" rel="tag" class="text-success">c++</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#linux" title="Pages tagged linux" rel="tag" class="text-success">linux</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#ubuntu" title="Pages tagged ubuntu" rel="tag" class="text-success">ubuntu</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#gcc" title="Pages tagged gcc" rel="tag" class="text-success">gcc</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#vscode" title="Pages tagged vscode" rel="tag" class="text-success">vscode</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#clang" title="Pages tagged clang" rel="tag" class="text-success">clang</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#lldb" title="Pages tagged lldb" rel="tag" class="text-success">lldb</a>
+      </div>
+      
+    
+  </p>
+  <p>Какое-то время назад я написал статью <a href="/2018/01/06/vscode-cpp-docker-debugging/">Разрабатываем и отлаживаем С++ в Docker с помощью VSCode</a> в котором для сборки использовался gcc и для отладки gdbserver. В этом обновленном посте хочу затронуть такой же вопрос, но уже на базе clang 8 и lldb-server.</p>
+
+<p>Также в отличии от предыдущей статьи мы не будем каждый раз пересоздавать контейнер, а запустим его один раз и будет с ним работать через <code class="highlighter-rouge">docker exec</code>.</p>
+
+<p>Итак, начнем, Dockerfile</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM ubuntu:18.04
+
+RUN apt-get update 
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y build-essential xz-utils curl cmake
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y lldb
+
+RUN curl -SL http://releases.llvm.org/8.0.0/clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz | tar -xJC . &amp;&amp; \
+    mv clang+llvm-8.0.0-x86_64-linux-gnu-ubuntu-18.04 clang_8.0.0 &amp;&amp; \
+    mv clang_8.0.0 /usr/local
+
+ENV PATH="/usr/local/clang_8.0.0/bin:${PATH}"
+ENV LD_LIBRARY_PATH="/usr/local/clang_8.0.0/lib:${LD_LIBRARY_PATH}"
+
+WORKDIR /opt/build
+VOLUME ["/opt"]
+
+</code></pre></div></div>
+
+<p>lldb (для lldb-server) используем поставляемый в пакетах (на момент написания статьи для 18.04 это был LLDB 6). Также из пакетов ставим cmake (вроде ничего специфичного пока не надо). clang ставим руками, но уже собранный.</p>
+
+<p>Дальше нам нужен скрипт сборки контейнера (/scripts/docker_build.sh)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nv">cwd</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+
+docker build <span class="se">\</span>
+    <span class="nt">-t</span> something/cmaker <span class="se">\</span>
+    <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>И таска для vscode</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "label": "build docker container",
+    "command": "${workspaceFolder}/scripts/docker_build.sh"
+}
+</code></pre></div></div>
+
+<p>после этого нам понадобится запустить контейнер для последующего использования, для этого нам нужен скрипт (/scripts/docker_run.sh). Тут попутно запускается lldb-server, о нем позже:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nv">cwd</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+
+docker stop сmaker
+docker rm сmaker
+docker run <span class="se">\</span>
+    <span class="nt">-dt</span> <span class="se">\</span>
+    <span class="nt">--name</span> сmaker <span class="se">\</span>
+    <span class="nt">-p</span> 7000:7000 <span class="se">\</span>
+    <span class="nt">-p</span> 7001:7001 <span class="se">\</span>
+    <span class="nt">-p</span> 7002:7002 <span class="se">\</span>
+    <span class="nt">-p</span> 7003:7003 <span class="se">\</span>
+    <span class="nt">-v</span> <span class="k">${</span><span class="nv">cwd</span><span class="k">}</span>:/opt <span class="se">\</span>
+    <span class="nt">--privileged</span> <span class="se">\</span>
+    something/cmaker <span class="se">\</span>
+    <span class="s2">"</span><span class="k">${</span><span class="p">@</span><span class="k">}</span><span class="s2">"</span>
+
+</code></pre></div></div>
+
+<p>и таска для vscode</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "label": "run container for future builds",
+    "command": "${workspaceFolder}/scripts/docker_run.sh",
+    "args": [
+        "lldb-server", "platform", "--server", "--listen=0.0.0.0:7000", "-m", "7001", "-M", "7003"
+    ],
+    "options": {
+        "cwd": "${workspaceFolder}"
+    }
+}
+</code></pre></div></div>
+
+<p>После этого можем приступать к сборке проекта. Структуру проекта сразу предусмотрел для многомодульного проекта</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include
+scripts
+  docker_build.sh
+  docker_run.sh
+hword
+  include
+  CMakeLists.txt
+  main.cpp
+CMakeLists.txt
+Dockerfile
+</code></pre></div></div>
+
+<p>Корневой CMakeLists.txt выглядит так</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cmake_minimum_required(VERSION 3.0)
+project(something)
+
+set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/build)
+
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
+set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
+
+set(PROJECT_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
+
+include_directories("${PROJECT_INCLUDE_DIR}")
+include_directories("${PROJECT_SOURCE_DIR}")
+
+add_subdirectory(hword)
+</code></pre></div></div>
+
+<p>CMakeLists.txt для hword выглядит так</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cmake_minimum_required(VERSION 3.0)
+project(hword)
+
+set(PROJECT_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
+set(HWORD_VERSION_MAJOR 1)
+set(HWORD_VERSION_MINOR 0)
+
+set(PROJECT_HWORD_SRCS
+${PROJECT_SOURCE_DIR}/main.cpp
+)
+
+include_directories("${PROJECT_BINARY_DIR}")
+add_executable(${PROJECT_NAME}_r ${PROJECT_HWORD_SRCS})
+include_directories("${PROJECT_INCLUDE_DIR}")
+</code></pre></div></div>
+
+<p>Обратите внимание что к имени проекта добавлен постфикс <code class="highlighter-rouge">_r</code></p>
+
+<p>Для примера содержимое main.cpp</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;unistd.h&gt;
+#include &lt;limits.h&gt;
+
+#include &lt;iostream&gt;
+
+using namespace std;
+
+static const int HNAME_MAX = 512;
+static const int LNAME_MAX = 512;
+
+int main()
+{
+    char hostname[HNAME_MAX];
+    char username[LNAME_MAX];
+    gethostname(hostname, HNAME_MAX);
+    getlogin_r(username, LNAME_MAX);
+
+    cout &lt;&lt; "hostname: " &lt;&lt; hostname &lt;&lt; ", username: " &lt;&lt; username &lt;&lt; endl;
+    return 0;
+}
+</code></pre></div></div>
+
+<p>Теперь соберем все это дело, запустим и отладим</p>
+
+<p>Нам понадобится скрипт для <code class="highlighter-rouge">docker exec</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nv">cwd</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+
+docker <span class="nb">exec</span> <span class="se">\</span>
+    <span class="nt">-it</span> <span class="se">\</span>
+    cmaker <span class="se">\</span>
+    <span class="s2">"</span><span class="k">${</span><span class="p">@</span><span class="k">}</span><span class="s2">"</span>
+
+</code></pre></div></div>
+
+<p>Таска для cmake</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "label": "cmake initialize scripts (Makefile, Debug)",
+    "command": "${workspaceFolder}/scripts/docker_exec.sh",
+    "args": [                
+        "cmake", "-G", "Unix Makefiles", 
+        "-DCMAKE_BUILD_TYPE=Debug", 
+        "-DCMAKE_C_COMPILER=/usr/local/clang_8.0.0/bin/clang",
+        "-DCMAKE_CXX_COMPILER=/usr/local/clang_8.0.0/bin/clang++",
+        "/opt"
+    ],
+    "options": {
+        "cwd": "${workspaceFolder}"
+    }
+}
+</code></pre></div></div>
+
+<p>Обратите внимание, что тут явным образом указаны пути до компиляторов, это очень важно.</p>
+
+<p>Далее таска для сборки всего проекта и для сборки конкретного</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "label": "make full project",
+    "command": "${workspaceFolder}/scripts/docker_exec.sh",
+    "args": [
+        "make", "-j", "8"
+    ],
+    "options": {
+        "cwd": "${workspaceFolder}"
+    }
+}
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "label": "make (hword) project",
+    "command": "${workspaceFolder}/scripts/docker_exec.sh",
+    "args": [
+        "make", "-j", "8", "hword_r"
+    ],
+    "options": {
+        "cwd": "${workspaceFolder}"
+    }
+}
+</code></pre></div></div>
+
+<p>И для простого запуска</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "label": "run (hword) project",
+    "command": "${workspaceFolder}/scripts/docker_exec.sh",
+    "args": [
+        "/opt/build/hword_r"
+    ]
+}
+</code></pre></div></div>
+
+<p>С отладкой есть несколько проблем. Во-первых, кроме порта на котором слушает lldb-server надо пробросить еще несколько, на которых будет работать собственно соединение (для этого при запуске контейнера несколько опций <code class="highlighter-rouge">-p</code>). Во-вторых, lldb-server’у этот диапазон портов надо явно задать. И в третьих, надо правильно написать launch.json, выглядит он так:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "name": "debug: hword",
+    "type": "lldb",
+    "request": "launch",
+    "program": "/opt/build/hword_r",
+    "initCommands": [
+        "platform select remote-linux",
+        "platform connect connect://127.0.0.1:7000"
+    ],
+    "cwd": "/opt",
+    "sourceMap": { 
+        "/opt" : "${workspaceFolder}" 
+    }
+}
+</code></pre></div></div>
+
+<p>Жмем F5 и выуля - мы в отладке. Надеюсь это поможет :)</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2019/11/06/swift-dependency-injection/">
+            Внедрение зависимостей (dependency injection) в Swift 5.1
+            <small>06.11.2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2018/11/28/swift-kotlin-comparison/">
+            Сравнение Swift vs Kotlin
+            <small>28.11.2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2018/01/06/vscode-cpp-docker-debugging/">
+            Разрабатываем и отлаживаем С++ в Docker с помощью VSCode
+            <small>06.01.2018</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter13259782 = new Ya.Metrika({
+                    id:13259782,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/13259782" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16734363-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+  </body>
+</html>
