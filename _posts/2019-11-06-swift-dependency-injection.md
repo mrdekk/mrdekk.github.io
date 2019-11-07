@@ -59,7 +59,7 @@ final class BooksRenderer {
 
 ```swift
 final class ServiceLocator {
-    let booksProvider: BooksProvider = NaiveBooksProvider()
+    static let booksProvider: BooksProvider = NaiveBooksProvider()
 }
 
 final class BooksRenderer {
@@ -78,9 +78,9 @@ final class BooksRenderer {
 
 ```swift
 final class ServiceLocator {
-    let booksProvider: BooksProvider = NaiveBooksProvider()
+    static let booksProvider: BooksProvider = NaiveBooksProvider()
 
-    func bookUpdateOperation() -> Operation & BookUpdate {
+    static func bookUpdateOperation() -> Operation & BookUpdate {
         return NaiveBookUpdateOperation(...)
     }
 }
@@ -176,7 +176,7 @@ final class ServiceLocator {
         // register
     }
 
-    static func resolve<T>(for name: String) -> T {
+    static func resolve<T>(for name: String?) -> T {
         // do some magic
     }
 }
@@ -189,3 +189,5 @@ final class BooksRenderer {
 И вуаля! Однако несмотря на всю прелесть такой магии, есть проблема в месте где творится магия ("do some magic"). Если вы вдруг забыли сделать register, то упс, вы получаете рантайм крэш. И сделать это красиво с compile time check непонятно как, так как регистрация динамическая. 
 
 Предлагаю подискутировать, оформляйте issues [тут](https://github.com/mrdekk/mrdekk.github.io)
+
+P.S. 
