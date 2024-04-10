@@ -30,6 +30,10 @@ gems:
   - jekyll-coffeescript
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-tabs
 
 exclude:
   - vendor
+
+plugins:
+  - jekyll-tabs
