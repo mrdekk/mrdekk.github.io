@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name='yandex-verification' content='4a3e9fdb2ed97f52' />
+
+  <title>
+    
+      Собираем toolchain для С++ разработки под Linux (Ubuntu) на OSX &middot; MrDekk
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/mrdekk.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic'>
+  <link rel="stylesheet" href="/public/css/font-awesome.min.css" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="stylesheet" href="/public/css/tabs.css">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+	  <img class="profile" alt="my-profile" src="/media/images/brujo.jpg" width="120px">
+      <h1>MrDekk</h1>
+      <p class="description">Время - лучший учитель! Жаль, что оно убивает своих учеников...</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+        <a href="/"><i class="fa fa-home" ></i></a>
+      </li>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/about/">Кто здесь?</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/tags/">Метки</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/useful/">Полезное</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/awesome/">Awesome Stars</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </ul>
+
+	<p class="social-icons">
+		<!-- <a href="/search"><i class="fa fa-search fa-2x"></i></a> -->
+		<a href="https://github.com/mrdekk"><i class="fa fa-github fa-2x"></i></a>
+		<a href="https://twitter.com/mrdekk"><i class="fa fa-twitter fa-2x"></i></a>
+		<a href="/atom.xml"><i class="fa fa-rss fa-2x"></i></a>
+	</p>
+
+    <p>&copy; 2024. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Собираем toolchain для С++ разработки под Linux (Ubuntu) на OSX</h1>
+  <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">01.01.2018</span>
+  <i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+	
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#c%2B%2B" title="Pages tagged c++" rel="tag" class="text-success">c++</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#osx" title="Pages tagged osx" rel="tag" class="text-success">osx</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#linux" title="Pages tagged linux" rel="tag" class="text-success">linux</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#ubuntu" title="Pages tagged ubuntu" rel="tag" class="text-success">ubuntu</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#gcc" title="Pages tagged gcc" rel="tag" class="text-success">gcc</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#clang" title="Pages tagged clang" rel="tag" class="text-success">clang</a>
+      </div>
+      
+    
+  </p>
+  <h1 id="crosstool-ng">Crosstool-NG</h1>
+
+<p>Для начала нам необходимо crosstool-ng для сборки toolchain’а для компиляции под Linux на базе OSX.</p>
+
+<h2 id="case-sensitive-volume">Case Sensitive Volume</h2>
+
+<p>Для установки crosstool-ng и для сборки правильного toolchain’а необходим Case-Sensitive Volume. Для этого воспользуемся <a href="https://gist.github.com/scottsb/479bebe8b4b86bf17e2d/">замечательным скриптом</a>. Опционально надо поправить в нем ${HOME} на то, куда вы реально хотите сохранять образ - у меня например второй большой диск (HDD против SSD) для всякого такого, поэтому пришлось поправить это дело.</p>
+
+<p>Заодно сделаем его, воспользовавшись скриптом</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./casesafe.sh create
+./casesafe.sh mount
+</code></pre></div></div>
+
+<p>После того как станет ненужным, не забудте сделать</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./casesafe.sh unmount
+</code></pre></div></div>
+
+<h2 id="установка-требуемых-зависимостей-через-homebrew">Установка требуемых зависимостей через HomeBrew</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>autoconf
+brew <span class="nb">install </span>binutils
+brew <span class="nb">install </span>gawk
+brew <span class="nb">install </span>gmp
+brew <span class="nb">install </span>gnu-sed
+brew <span class="nb">install </span>help2man
+brew <span class="nb">install </span>mpfr
+brew <span class="nb">install </span>openssl
+brew <span class="nb">install </span>pcre
+brew <span class="nb">install </span>readline
+brew <span class="nb">install </span>wget
+brew <span class="nb">install </span>xz
+</code></pre></div></div>
+
+<p>Иногда brew может сказать что зависимость уже стоит, но устарела, тогда опционально можно сделать brew update …</p>
+
+<p>Еще опционально просят поставить dupes/grep ввиду того, что libc результирующего toolchain’а будет неправильно сконфигурирована, ввиду отличия макового BSD grep от GNU grep. –with-default-names необходимо чтобы системный grep заменился новым, так как без этого параметры brew’шный grep поставиться как ggrep.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install grep</span> <span class="nt">--with-default-names</span>
+</code></pre></div></div>
+
+<h2 id="установка-собственно-crosstool-ng">Установка собственно crosstool-ng</h2>
+
+<p>Я решил пойти по Hacker’s way и сделать все через исходники, а не через release tarballs. Поэтому первое что делаем - клонируем репу, нужен гит:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/crosstool-ng/crosstool-ng
+</code></pre></div></div>
+
+<p>Далее нам требуется выбрать конкретный релиз, релизы обозначены тегами, поэтому выгребем теги и зачекаутим нужный:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git fetch <span class="nt">--all</span> <span class="nt">--tags</span> <span class="nt">--prune</span>
+git checkout tags/crosstool-ng-1.23.0 <span class="nt">-b</span> r1.23.0
+</code></pre></div></div>
+
+<p>Далее начинаем работу по сборке. Так как мы решили пойти Hacker’s Way, то будем запускать это дело из исходников (поэтому ./configure –enable-local).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bootstrap
+./configure <span class="nt">--enable-local</span>
+make
+</code></pre></div></div>
+
+<p>Для проверки успешности сборки в текущей директории надо сделать</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./ct-ng <span class="nb">help</span>
+</code></pre></div></div>
+
+<p>Должна вывестись инструкция.</p>
+
+<h2 id="конфигурируем">Конфигурируем</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./ct-ng menuconfig
+</code></pre></div></div>
+
+<p>Говорят, тем кто собирал линуксовые ядра все должно быть понятно, я просмотрел все опции и потыкал то, что мне надо.</p>
+
+<p>А вообще можно сделать так</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./ct-ng list-samples
+</code></pre></div></div>
+
+<p>И выбрать что-то из уже готовых настроек. И затем посмотреть конфигурацию так</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./ct-ng show-x86_64-ubuntu16.04-linux-gnu
+</code></pre></div></div>
+
+<p>Выбираем preset</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./ct-ng x86_64-ubuntu16.04-linux-gnu
+</code></pre></div></div>
+
+<p>И можно оттюнить с помощью menuconfig</p>
+
+<h2 id="проблемы">Проблемы</h2>
+
+<p>Может случится так, что вы получите такую ошибку</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Volumes/OSXElCapitan/Users/mrdekk/casesafe/.build/src/gdb-7.12.1/gdb/doublest.c:258:19: error: use of undeclared identifier 'min'; did you mean 'fmin'?
+[ERROR]    /Volumes/OSXElCapitan/Users/mrdekk/casesafe/.build/src/gdb-7.12.1/gdb/doublest.c:568:19: error: use of undeclared identifier 'min'; did you mean 'fmin'?
+[ERROR]    /Volumes/OSXElCapitan/Users/mrdekk/casesafe/.build/src/gdb-7.12.1/gdb/doublest.c:912:25: error: use of undeclared identifier 'min'; did you mean 'fmin'?
+[ERROR]    make[3]: *** [doublest.o] Error 1
+[ERROR]    make[3]: *** Waiting for unfinished jobs....
+[ERROR]    make[2]: *** [all-gdb] Error 2
+[ERROR]    make[1]: *** [all] Error 2
+</code></pre></div></div>
+
+<p>Надо попробовать ветку master в crosstool-ng. Однако bash на OSX слишком старый для bootstrap, поэтому придется поставить bash из brew и поправить shell в bootstrap.</p>
+
+<p>После однако начинаются проблемы с sha512sum, такие</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Volumes/OSXElCapitan/Users/mrdekk/Documents/Utils/crosstool-ng/scripts/functions: line 786: sha512sum: command not found
+</code></pre></div></div>
+
+<p>Для этого делаем так</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>coreutils
+<span class="nb">ln</span> <span class="nt">-s</span> /usr/local/bin/gsha512sum /usr/local/bin/sha512sum
+</code></pre></div></div>
+
+<p>Еще там не собирается glibc с binutils-2.29.1, есть <a href="https://git.busybox.net/buildroot/commit/?id=cf821efbd0b24690b52f379d4a9934a16073762e">патч</a>, который позволяет так собираться</p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span> <span class="o">*</span><span class="n">loc1</span> <span class="nf">__attribute__</span> <span class="p">((</span><span class="n">nocommon</span><span class="p">));</span>
+<span class="kt">char</span> <span class="o">*</span><span class="n">loc2</span> <span class="nf">__attribute__</span> <span class="p">((</span><span class="n">nocommon</span><span class="p">));</span>
+<span class="n">compat_symbol</span> <span class="p">(</span><span class="n">libc</span><span class="p">,</span> <span class="n">loc1</span><span class="p">,</span> <span class="n">loc1</span><span class="p">,</span> <span class="n">GLIBC_2_0</span><span class="p">);</span>
+<span class="n">compat_symbol</span> <span class="p">(</span><span class="n">libc</span><span class="p">,</span> <span class="n">loc2</span><span class="p">,</span> <span class="n">loc2</span><span class="p">,</span> <span class="n">GLIBC_2_0</span><span class="p">);</span>
+
+<span class="cm">/* Although we do not support the use we define this variable as well.  */</span>
+<span class="kt">char</span> <span class="o">*</span><span class="n">locs</span> <span class="nf">__attribute__</span> <span class="p">((</span><span class="n">nocommon</span><span class="p">));</span>
+<span class="n">compat_symbol</span> <span class="p">(</span><span class="n">libc</span><span class="p">,</span> <span class="n">locs</span><span class="p">,</span> <span class="n">locs</span><span class="p">,</span> <span class="n">GLIBC_2_0</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Еще появилась такая проблема</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ERROR]      ../sysdeps/ieee754/dbl-64/e_pow.c:469:13: error: '&lt;&lt;' in boolean context, did you mean '&lt;' ? [-Werror=int-in-bool-context]
+[ERROR]      ../sysdeps/ieee754/dbl-64/e_pow.c:471:17: error: '&lt;&lt;' in boolean context, did you mean '&lt;' ? [-Werror=int-in-bool-context]
+[ERROR]      ../sysdeps/ieee754/dbl-64/e_pow.c:477:9: error: '&lt;&lt;' in boolean context, did you mean '&lt;' ? [-Werror=int-in-bool-context]
+[ERROR]      ../sysdeps/ieee754/dbl-64/e_pow.c:479:13: error: '&lt;&lt;' in boolean context, did you mean '&lt;' ? [-Werror=int-in-bool-context]
+</code></pre></div></div>
+
+<p>Для ее решения есть такой <a href="https://patchwork.ozlabs.org/patch/680578/">патч</a></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">diff</span> <span class="o">--</span><span class="n">git</span> <span class="n">a</span><span class="o">/</span><span class="n">sysdeps</span><span class="o">/</span><span class="n">ieee754</span><span class="o">/</span><span class="n">dbl</span><span class="o">-</span><span class="mi">64</span><span class="o">/</span><span class="n">e_pow</span><span class="p">.</span><span class="n">c</span> <span class="n">b</span><span class="o">/</span><span class="n">sysdeps</span><span class="o">/</span><span class="n">ieee754</span><span class="o">/</span><span class="n">dbl</span><span class="o">-</span><span class="mi">64</span><span class="o">/</span><span class="n">e_pow</span><span class="p">.</span><span class="n">c</span>
+<span class="n">index</span> <span class="mi">663</span><span class="n">fa39</span><span class="p">..</span><span class="n">bd758b5</span> <span class="mi">100644</span>
+<span class="o">---</span> <span class="n">a</span><span class="o">/</span><span class="n">sysdeps</span><span class="o">/</span><span class="n">ieee754</span><span class="o">/</span><span class="n">dbl</span><span class="o">-</span><span class="mi">64</span><span class="o">/</span><span class="n">e_pow</span><span class="p">.</span><span class="n">c</span>
+<span class="o">+++</span> <span class="n">b</span><span class="o">/</span><span class="n">sysdeps</span><span class="o">/</span><span class="n">ieee754</span><span class="o">/</span><span class="n">dbl</span><span class="o">-</span><span class="mi">64</span><span class="o">/</span><span class="n">e_pow</span><span class="p">.</span><span class="n">c</span>
+<span class="err">@@</span> <span class="o">-</span><span class="mi">466</span><span class="p">,</span><span class="mi">15</span> <span class="o">+</span><span class="mi">466</span><span class="p">,</span><span class="mi">15</span> <span class="err">@@</span>  <span class="n">checkint</span> <span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">)</span>
+     <span class="k">return</span> <span class="p">(</span><span class="n">n</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">;</span>	<span class="cm">/* odd or even */</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">)</span>
+     <span class="p">{</span>
+<span class="o">-</span>      <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">20</span><span class="p">))</span>
+<span class="o">+</span>      <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">20</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+ 	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>		<span class="cm">/* if not integer */</span>
+<span class="o">-</span>      <span class="k">return</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">21</span><span class="p">))</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">;</span>
+<span class="o">+</span>      <span class="k">return</span> <span class="p">(</span><span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">21</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">;</span>
+     <span class="p">}</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">)</span>
+     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>			<span class="cm">/*if  not integer */</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">==</span> <span class="mi">20</span><span class="p">)</span>
+     <span class="k">return</span> <span class="p">(</span><span class="n">m</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">;</span>
+<span class="o">-</span>  <span class="k">if</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">12</span><span class="p">))</span>
+<span class="o">+</span>  <span class="k">if</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">12</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="o">-</span>  <span class="k">return</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">11</span><span class="p">))</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">;</span>
+<span class="o">+</span>  <span class="k">return</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">11</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">;</span>
+ <span class="err">}</span>
+</code></pre></div></div>
+
+<p>Далее опять проблемы</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ALL  ]      rpc_parse.c: In function 'get_prog_declaration':
+[ERROR]      rpc_parse.c:543:23: error: '%d' directive writing between 1 and 10 bytes into a region of size 7 [-Werror=format-overflow=]
+[ALL  ]           sprintf (name, "%s%d", ARGNAME, num); /* default name of argument */
+[ALL  ]                             ^~
+[ALL  ]      rpc_parse.c:543:20: note: directive argument in the range [1, 2147483647]
+[ALL  ]           sprintf (name, "%s%d", ARGNAME, num); /* default name of argument */
+[ALL  ]                          ^~~~~~
+[ALL  ]      rpc_parse.c:543:5: note: 'sprintf' output between 5 and 14 bytes into a destination of size 10
+[ALL  ]           sprintf (name, "%s%d", ARGNAME, num); /* default name of argument */
+[ALL  ]           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[ALL  ]      cc1: all warnings being treated as errors
+[ERROR]      make[3]: *** [/Volumes/OSXElCapitan/Users/mrdekk/casesafe/.build/x86_64-ubuntu16.04-linux-gnu/build/build-libc-final/multilib/sunrpc/rpc_parse.o] Error 1
+[ERROR]      make[3]: *** Waiting for unfinished jobs....
+[ERROR]      make[2]: *** [sunrpc/others] Error 2
+[ERROR]      make[1]: *** [all] Error 2
+</code></pre></div></div>
+
+<p>Решение этой проблемы найти было сложнее, но кажется есть <a href="https://lists.crux.nu/pipermail/crux-commits/2017-October/022800.html">вот</a></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">+---</span> <span class="n">a</span><span class="o">/</span><span class="n">sunrpc</span><span class="o">/</span><span class="n">rpc_parse</span><span class="p">.</span><span class="n">c</span>
+<span class="o">++++</span> <span class="n">b</span><span class="o">/</span><span class="n">sunrpc</span><span class="o">/</span><span class="n">rpc_parse</span><span class="p">.</span><span class="n">c</span>
+<span class="o">+</span><span class="err">@@</span> <span class="o">-</span><span class="mi">521</span><span class="p">,</span><span class="mi">7</span> <span class="o">+</span><span class="mi">521</span><span class="p">,</span><span class="mi">7</span> <span class="err">@@</span> <span class="k">static</span> <span class="kt">void</span>
+<span class="o">+</span> <span class="n">get_prog_declaration</span> <span class="p">(</span><span class="n">declaration</span> <span class="o">*</span> <span class="n">dec</span><span class="p">,</span> <span class="n">defkind</span> <span class="n">dkind</span><span class="p">,</span> <span class="kt">int</span> <span class="n">num</span> <span class="cm">/* arg number */</span> <span class="p">)</span>
+<span class="o">+</span> <span class="p">{</span>
+<span class="o">+</span>   <span class="n">token</span> <span class="n">tok</span><span class="p">;</span>
+<span class="o">+-</span>  <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>		<span class="cm">/* argument name */</span>
+<span class="o">++</span>  <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="n">MAXLINESIZE</span><span class="p">];</span>		<span class="cm">/* argument name */</span>
+<span class="o">+</span> 
+<span class="o">+</span>   <span class="k">if</span> <span class="p">(</span><span class="n">dkind</span> <span class="o">==</span> <span class="n">DEF_PROGRAM</span><span class="p">)</span>
+<span class="o">+</span>     <span class="p">{</span>
+</code></pre></div></div>
+
+<p>Дальше опять проблемы</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nss_nisplus/nisplus-alias.c:300:12: error: argument 1 null where non-null expected [-Werror=nonnull]
+[ERROR]      nss_nisplus/nisplus-alias.c:303:39: error: '%s' directive argument is null [-Werror=format-truncation=]
+[ERROR]      make[3]: *** [/Volumes/OSXElCapitan/Users/mrdekk/casesafe/.build/x86_64-ubuntu16.04-linux-gnu/build/build-libc-final/multilib/nis/nisplus-alias.os] Error 1
+[ERROR]      make[3]: *** Waiting for unfinished jobs....
+[ERROR]      make[2]: *** [nis/others] Error 2
+[ERROR]      make[1]: *** [all] Error 2
+</code></pre></div></div>
+
+<p>Лечаться <a href="https://patches.linaro.org/patch/100439/">так</a></p>
+
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">diff</span> <span class="o">--</span><span class="n">git</span> <span class="n">a</span><span class="o">/</span><span class="n">nis</span><span class="o">/</span><span class="n">nss_nisplus</span><span class="o">/</span><span class="n">nisplus</span><span class="o">-</span><span class="n">alias</span><span class="p">.</span><span class="n">c</span> <span class="n">b</span><span class="o">/</span><span class="n">nis</span><span class="o">/</span><span class="n">nss_nisplus</span><span class="o">/</span><span class="n">nisplus</span><span class="o">-</span><span class="n">alias</span><span class="p">.</span><span class="n">c</span>
+<span class="n">index</span> <span class="mi">7</span><span class="n">f698b4e6d</span><span class="p">..</span><span class="mi">509</span><span class="n">ace1f83</span> <span class="mi">100644</span>
+<span class="o">---</span> <span class="n">a</span><span class="o">/</span><span class="n">nis</span><span class="o">/</span><span class="n">nss_nisplus</span><span class="o">/</span><span class="n">nisplus</span><span class="o">-</span><span class="n">alias</span><span class="p">.</span><span class="n">c</span>
+<span class="o">+++</span> <span class="n">b</span><span class="o">/</span><span class="n">nis</span><span class="o">/</span><span class="n">nss_nisplus</span><span class="o">/</span><span class="n">nisplus</span><span class="o">-</span><span class="n">alias</span><span class="p">.</span><span class="n">c</span>
+<span class="err">@@</span> <span class="o">-</span><span class="mi">297</span><span class="p">,</span><span class="mi">10</span> <span class="o">+</span><span class="mi">297</span><span class="p">,</span><span class="mi">10</span> <span class="err">@@</span>  <span class="n">_nss_nisplus_getaliasbyname_r</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="k">struct</span> <span class="n">aliasent</span> <span class="o">*</span><span class="n">alias</span><span class="p">,</span>
+       <span class="k">return</span> <span class="n">NSS_STATUS_UNAVAIL</span><span class="p">;</span>
+     <span class="err">}</span>
+ 
+<span class="o">-</span>  <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="n">strlen</span> <span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="mi">9</span> <span class="o">+</span> <span class="n">tablename_len</span><span class="p">];</span>
+<span class="o">+</span>  <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="n">tablename_len</span> <span class="o">+</span> <span class="mi">9</span><span class="p">];</span>
+   <span class="kt">int</span> <span class="n">olderr</span> <span class="o">=</span> <span class="n">errno</span><span class="p">;</span>
+ 
+<span class="o">-</span>  <span class="n">snprintf</span> <span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span> <span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="s">"[name=%s],%s"</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">tablename_val</span><span class="p">);</span>
+<span class="o">+</span>  <span class="n">snprintf</span> <span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span> <span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="s">"[name=],%s"</span><span class="p">,</span> <span class="n">tablename_val</span><span class="p">);</span>
+ 
+   <span class="n">nis_result</span> <span class="o">*</span><span class="n">result</span> <span class="o">=</span> <span class="n">nis_list</span> <span class="p">(</span><span class="n">buf</span><span class="p">,</span> <span class="n">FOLLOW_PATH</span> <span class="o">|</span> <span class="n">FOLLOW_LINKS</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>После этого toolchain собрался. После этого я попробовал собрать простой Hello, World с ним и запустить. На macOS не запустилось (zsh: exec format error: ./CrossWorld) - это хорошо. Собираем простейший контейнер на ubuntu 16.04 и запускаем - работает. Отлично!</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2024/04/08/notes-on-di/">
+            Заметки о Dependency Injection
+            <small>08.04.2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2019/11/06/swift-dependency-injection/">
+            Внедрение зависимостей (dependency injection) в Swift 5.1
+            <small>06.11.2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2019/05/08/clang8-dev-vscode-ubuntu-docker/">
+            Разрабатываем и отлаживаем С++ в Docker с помощью VSCode (2019 edition - clang8 lldb)
+            <small>08.05.2019</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter13259782 = new Ya.Metrika({
+                    id:13259782,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/13259782" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16734363-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+    <script src="/public/js/tabs.js"></script>
+
+  </body>
+</html>

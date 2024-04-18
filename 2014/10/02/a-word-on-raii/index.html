@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name='yandex-verification' content='4a3e9fdb2ed97f52' />
+
+  <title>
+    
+      Об RAII замолвите слово &middot; MrDekk
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/mrdekk.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic'>
+  <link rel="stylesheet" href="/public/css/font-awesome.min.css" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="stylesheet" href="/public/css/tabs.css">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+	  <img class="profile" alt="my-profile" src="/media/images/brujo.jpg" width="120px">
+      <h1>MrDekk</h1>
+      <p class="description">Время - лучший учитель! Жаль, что оно убивает своих учеников...</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+        <a href="/"><i class="fa fa-home" ></i></a>
+      </li>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/about/">Кто здесь?</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/tags/">Метки</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/useful/">Полезное</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/awesome/">Awesome Stars</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </ul>
+
+	<p class="social-icons">
+		<!-- <a href="/search"><i class="fa fa-search fa-2x"></i></a> -->
+		<a href="https://github.com/mrdekk"><i class="fa fa-github fa-2x"></i></a>
+		<a href="https://twitter.com/mrdekk"><i class="fa fa-twitter fa-2x"></i></a>
+		<a href="/atom.xml"><i class="fa fa-rss fa-2x"></i></a>
+	</p>
+
+    <p>&copy; 2024. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Об RAII замолвите слово</h1>
+  <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">02.10.2014</span>
+  <i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+	
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#c%2B%2B" title="Pages tagged c++" rel="tag" class="text-success">c++</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#patterns" title="Pages tagged patterns" rel="tag" class="text-success">patterns</a>
+      </div>
+      
+    
+  </p>
+  <p>Давненько я сюда не писал ничего технического, настало время заполнить сий пробел. Считаю важным зафиксировать здесь несколько заметок о технологии RAII (Resource Acquisition Is Initialization, получение ресурса есть инициализация). Еще информацию об этой технологии на просторах англоязычного интернета можно найти по названию Scoped-Based Resource Management (SBRM), по русски это будет звучать как-то так – управление ресурсами на основе области видимости.</p>
+
+<p>Технология RAII достаточно часто используется и является важной технологией управления временем жизни ресурсов. Управление осуществляется с использованием вспомогательного объекта, в котором ресурс выделяется в конструкторе, а освобождается в деструкторе.</p>
+
+<p>Давайте проиллюстрируем важность и удобство техники на примере.</p>
+
+<p>Например, у нас есть функция, которая получает мьютекс в начале и освобождает его в конце:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span> <span class="n">Mutex</span><span class="o">&amp;</span> <span class="n">mutex</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">mutex</span><span class="p">.</span><span class="n">acquire</span><span class="p">(</span> <span class="p">);</span>
+
+    <span class="c1">// выполняем какой-нибудь код</span>
+
+    <span class="n">mutex</span><span class="p">.</span><span class="n">release</span><span class="p">(</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Позже, может понадобится добавить досрочный выход из функции по какому-нибудь условию. Пока функция небольшая по размерам, не проблема увидеть, что функция получается мьютекс и освобождает его в конце, поэтому необходимо добавить освобождение мьютекса при досрочном выходе:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span> <span class="n">Mutex</span><span class="o">&amp;</span> <span class="n">mutex</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">mutex</span><span class="p">.</span><span class="n">acquire</span><span class="p">(</span> <span class="p">);</span>
+
+    <span class="c1">// выполняем какой-нибудь код</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="n">shoudExit</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// неплохо бы сделать следующее</span>
+        <span class="n">mutex</span><span class="p">.</span><span class="n">release</span><span class="p">(</span> <span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// выполняем какой-нибудь код</span>
+
+    <span class="n">mutex</span><span class="p">.</span><span class="n">release</span><span class="p">(</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>По прошествии длительного времени (год, например) функция разрастается и начинает занимать много строк кода. В процессе роста было добавлено много досрочных выходов, но освобождение мьютекса всегда добавлялось. Однажды, над кодом начинает работать новый человек, он решает добавить очередной досрочный выход… Из-за больших размеров функции мьютекса он может и не увидеть:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span> <span class="n">Mutex</span><span class="o">&amp;</span> <span class="n">mutex</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">mutex</span><span class="p">.</span><span class="n">acquire</span><span class="p">(</span> <span class="p">);</span>
+
+    <span class="c1">// очень много строк кода</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="n">newShouldExit</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// опаньки ...</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// очень много строк кода</span>
+
+    <span class="n">mutex</span><span class="p">.</span><span class="n">release</span><span class="p">(</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Из примера видно, что такая техника управления ресурсами очень чувствительна к человеческой ошибке. Поэтому в таких случаях целесообразно применять RAII. Согласно стандарту С++ если мы определяем объект на стеке, его конструктор всегда будет выполнен в процессе инициализации, а деструктор в момент выхода из зоны видимости, то есть при return. Поэтому давайте использовать это соглашение в своих целях для управления ресурсами. Для начала напишем вспомогательный класс для автоматического получения и освобождения мьютекса:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MutexLock</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+
+    <span class="n">MutexLock</span><span class="p">(</span> <span class="n">Mutex</span><span class="o">&amp;</span> <span class="n">mutex</span> <span class="p">)</span>
+        <span class="o">:</span>    <span class="n">_mutex</span><span class="p">(</span> <span class="n">mutex</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">_mutex</span><span class="p">.</span><span class="n">acquire</span><span class="p">(</span> <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="o">~</span><span class="n">MutexLock</span><span class="p">(</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">_mutex</span><span class="p">.</span><span class="n">release</span><span class="p">(</span> <span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="nl">private:</span>
+
+    <span class="n">Mutex</span><span class="o">&amp;</span> <span class="n">_mutex</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Все что требуется – это получить мьютекс в начале нашей функции, и нет больше нужды беспокоиться об его освобождении перед каждым возвратом из функции, потому что об освобождении позаботится деструктор:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span> <span class="n">Mutex</span><span class="o">&amp;</span> <span class="n">mutex</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">MutexLock</span> <span class="n">lock</span><span class="p">(</span> <span class="n">mutex</span> <span class="p">);</span>
+
+    <span class="c1">// очень много строк кода</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="n">newShouldExit</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// теперь нет необходимости освобождать мьютекс здесь</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// очень много строк кода</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="n">shouldExit</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// и здесь тоже не надо</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// очень много строка кода</span>
+
+    <span class="c1">// и в конце также не надо</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Эту технику можно использовать в разных сценариях. Например, если в начале функции выделяется память из кучи, и требуется, чтобы память освобождалась в момент выхода из функции, можно использовать умные указатели STL. Ниже приведен скелет реализации умного указателя с использованием обозначенной техники:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">template</span> <span class="o">&lt;</span> <span class="k">typename</span> <span class="nc">T</span> <span class="p">&gt;</span>
+<span class="k">class</span> <span class="nc">SmartPointer</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+
+    <span class="n">SmartPointer</span><span class="p">(</span> <span class="n">T</span><span class="o">*</span> <span class="n">ptr</span> <span class="p">)</span>
+        <span class="o">:</span>    <span class="n">_ptr</span><span class="p">(</span> <span class="n">ptr</span> <span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="o">~</span><span class="n">SmartPointer</span><span class="p">(</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">delete</span> <span class="n">_ptr</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">T</span><span class="o">&amp;</span> <span class="k">operator</span> <span class="o">*</span> <span class="p">(</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="o">*</span><span class="n">_ptr</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">T</span><span class="o">*</span> <span class="k">operator</span> <span class="o">-&gt;</span> <span class="p">(</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">_ptr</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="nl">private:</span>
+
+    <span class="n">T</span><span class="o">*</span> <span class="n">_ptr</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Наша функция в свою очередь будет выглядеть так:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// выделяем память</span>
+    <span class="n">SmartPointer</span> <span class="n">ptr</span><span class="p">(</span> <span class="k">new</span> <span class="n">MyClass</span><span class="p">(</span> <span class="p">)</span> <span class="p">);</span>
+
+    <span class="c1">// очень много строк кода</span>
+
+    <span class="c1">// это работает правильно, т.к. мы переопределили оператор -&gt;</span>
+    <span class="n">ptr</span><span class="o">-&gt;</span><span class="n">DoSomething</span><span class="p">(</span> <span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="n">shouldExit</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// память автоматически очищается в деструкторе</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// очень много строк кода</span>
+
+    <span class="c1">// память автоматически очищается здесь тоже</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>С памятью есть еще один интересный пример. Иногда требуется неким образом занять всю доступную память при запуске. Далее мы будем использовать эту память по своему усмотрению с помощью технологии placement new. Соответственно куски такой «сырой» превыделенной памяти мы назовем контекстами памяти. Соответственно мы имеем глобальный набор таких контекстов, после чего мы решаем, из какого контекста будет возвращен указатель на «выделенную» память.</p>
+
+<p>Если дальше необходимо использовать какой-то контекст в рамках области видимости функции, то опять наблюдается уже знакомый паттерн:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MemoryChunkUse</span>
+<span class="p">{</span>
+<span class="nl">public:</span>
+
+    <span class="n">MemoryChunkUse</span><span class="p">(</span> <span class="n">MemoryChunk</span><span class="o">&amp;</span> <span class="n">chunk</span> <span class="p">)</span>
+        <span class="o">:</span>    <span class="n">_chunk</span><span class="p">(</span> <span class="n">chunk</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">UseMemoryChunk</span><span class="p">(</span> <span class="n">chunk</span> <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="o">~</span><span class="n">MemoryChunkUse</span><span class="p">(</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">ReleaseMemoryChunk</span><span class="p">(</span> <span class="n">chunk</span> <span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="nl">private:</span>
+
+    <span class="n">MemoryChunk</span><span class="o">&amp;</span> <span class="n">_chunk</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Функция будет выглядеть так:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">foo</span><span class="p">(</span> <span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// используем контекст</span>
+    <span class="n">MemoryChunkUse</span> <span class="n">useChunk</span><span class="p">(</span> <span class="n">GRAPHICS_MEMORY_CHUNK</span> <span class="p">);</span>
+
+    <span class="c1">// очень много строк кода</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="n">shouldExit</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// здесь контекст памяти будет автоматически освобожден</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// очень много строк кода</span>
+
+    <span class="c1">// здесь контекст памяти также будет освобожден</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>С помощью технологии RAII вы заставляете компилятор освобождать ресурсы за вас, причем практически бесплатно. Круто, не так ли?</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2024/04/08/notes-on-di/">
+            Заметки о Dependency Injection
+            <small>08.04.2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2019/11/06/swift-dependency-injection/">
+            Внедрение зависимостей (dependency injection) в Swift 5.1
+            <small>06.11.2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2019/05/08/clang8-dev-vscode-ubuntu-docker/">
+            Разрабатываем и отлаживаем С++ в Docker с помощью VSCode (2019 edition - clang8 lldb)
+            <small>08.05.2019</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter13259782 = new Ya.Metrika({
+                    id:13259782,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/13259782" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16734363-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+    <script src="/public/js/tabs.js"></script>
+
+  </body>
+</html>

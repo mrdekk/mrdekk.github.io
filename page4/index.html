@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name='yandex-verification' content='4a3e9fdb2ed97f52' />
+
+  <title>
+    
+      Главная &middot; MrDekk
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/mrdekk.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic'>
+  <link rel="stylesheet" href="/public/css/font-awesome.min.css" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="stylesheet" href="/public/css/tabs.css">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+	  <img class="profile" alt="my-profile" src="/media/images/brujo.jpg" width="120px">
+      <h1>MrDekk</h1>
+      <p class="description">Время - лучший учитель! Жаль, что оно убивает своих учеников...</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+        <a href="/"><i class="fa fa-home" ></i></a>
+      </li>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/about/">Кто здесь?</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/tags/">Метки</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/useful/">Полезное</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/awesome/">Awesome Stars</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </ul>
+
+	<p class="social-icons">
+		<!-- <a href="/search"><i class="fa fa-search fa-2x"></i></a> -->
+		<a href="https://github.com/mrdekk"><i class="fa fa-github fa-2x"></i></a>
+		<a href="https://twitter.com/mrdekk"><i class="fa fa-twitter fa-2x"></i></a>
+		<a href="/atom.xml"><i class="fa fa-rss fa-2x"></i></a>
+	</p>
+
+    <p>&copy; 2024. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2017/03/02/rmagick-install-osx/">
+        Установка rmagick на Mac OS X (macOS)
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">02.03.2017</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#cocoapods" title="Pages tagged cocoapods" rel="tag" class="text-success">cocoapods</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#recipe" title="Pages tagged recipe" rel="tag" class="text-success">recipe</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#osx" title="Pages tagged osx" rel="tag" class="text-success">osx</a>
+        </div>
+        
+      
+    </p>
+
+    <p>Если у вас по каким-то причинам не устанавливается rmagick, например:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>current directory: /home/kb10uy/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/bundler/gems/rmagick-42aa8ce34f61/ext/RMagick
+/home/kb10uy/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20160812-28804-12a4s7p.rb extconf.rb
+checking for gcc... yes
+checking for Magick-config... no
+checking for pkg-config... yes
+checking for outdated ImageMagick version (&lt;= 6.4.9)... no
+checking for presence of MagickWand API (ImageMagick version &gt;= 6.9.0)... no
+checking for Ruby version &gt;= 1.8.5... yes
+checking for stdint.h... yes
+checking for sys/types.h... yes
+checking for wand/MagickWand.h... no
+
+Can't install RMagick 2.15.4. Can't find MagickWand.h.
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+        --with-opt-dir
+        --without-opt-dir
+        --with-opt-include
+        --without-opt-include=${opt-dir}/include
+        --with-opt-lib
+        --without-opt-lib=${opt-dir}/lib
+        --with-make-prog
+        --without-make-prog
+        --srcdir=.
+        --curdir
+        --ruby=/home/kb10uy/.rbenv/versions/2.3.1/bin/$(RUBY_BASE_NAME)
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /home/kb10uy/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/bundler/gems/extensions/armv6l-linux/2.3.0-static/rmagick-42aa8ce34f61/mkmf.log
+
+extconf failed, exit code 1
+</code></pre></div></div>
+
+<p>Или например так:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jjdevenuta(opal)$ gem install rmagick
+Fetching: rmagick-2.13.1.gem (100%)
+Building native extensions.  This could take a while...
+ERROR:  Error installing rmagick:
+ERROR: Failed to build gem native extension.
+
+/Users/jjdevenuta/.rvm/rubies/ruby-1.9.2-head/bin/ruby extconf.rb
+checking for Ruby version &gt;= 1.8.5... yes
+checking for gcc... yes
+checking for Magick-config... no
+Can't install RMagick 2.13.1. Can't find Magick-config in /Users/jjdevenuta/.rvm/gems/ruby-1.9.2-head@rails3/bin:/Users/jjdevenuta/.rvm/gems/ruby-1.9.2-head@global/bin:/Users/jjdevenuta/.rvm/rubies/ruby-1.9.2-head/bin:/Users/jjdevenuta/.rvm/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin:/usr/X11/bin
+
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of
+necessary libraries and/or headers.  Check the mkmf.log file for more
+details.  You may need configuration options.
+
+Provided configuration options:
+    --with-opt-dir
+    --without-opt-dir
+    --with-opt-include
+    --without-opt-include=${opt-dir}/include
+    --with-opt-lib
+    --without-opt-lib=${opt-dir}/lib
+    --with-make-prog
+    --without-make-prog
+    --srcdir=.
+    --curdir
+    --ruby=/Users/jjdevenuta/.rvm/rubies/ruby-1.9.2-head/bin/ruby
+</code></pre></div></div>
+
+<p>То это значит что у вас в системе стоит imagemagick 7 который не поддерживается rmagick (там переименовали и переместили важные заголовочные файлы). Чтобы поставить rmagick вам надо imagemagick 6, сделать это можно так</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew update
+brew <span class="nb">rm </span>imagemagick
+brew <span class="nb">install </span>imagemagick@6
+brew <span class="nb">link </span>imagemagick@6 <span class="nt">--force</span>
+bundle
+</code></pre></div></div>
+
+<p>Взято <a href="https://github.com/rmagick/rmagick/issues/256">отсюдова</a></p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2016/12/05/detect-unavailable-api-usage/">
+        Детектируем недоступные API на данном minimal deployment target
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">05.12.2016</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#ios" title="Pages tagged ios" rel="tag" class="text-success">ios</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#objc" title="Pages tagged objc" rel="tag" class="text-success">objc</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#swift" title="Pages tagged swift" rel="tag" class="text-success">swift</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#xcode" title="Pages tagged xcode" rel="tag" class="text-success">xcode</a>
+        </div>
+        
+      
+    </p>
+
+    <p>Как правило iOS приложения (да и в общем macOS тоже) пишутся с использованием самых новых инструментов разработки (читай последних SDK), но при этом поддерживаются предыдущие версии iOS (macOS). Бывают ситуации, когда по недосмотру используются API из новых версий, которые недоступны на данном minimal deployment target. Если такую ошибку пропустить в прод (зарелизить приложение), то вызов такого метода на версии iOS которая его не поддерживает неминуемо приведет к крэшу. Дабы облегчить себе жизнь можно сделать вот что:</p>
+
+<ol>
+  <li>Идем в Build Settings нужного проекта в xcode</li>
+  <li>Находим раздел “Apple LLVM 8.0 - Custom Compiler Flags”</li>
+  <li>Находим там пункт “Other Warning Flags”</li>
+  <li>В него для требуемой настройки сборки (например Debug) добавляем такой флаг “-Wpartial-availability”</li>
+</ol>
+
+<p>После этого Xcode начинает отображать такие места как #warning</p>
+
+<p>Для того, чтобы Xcode не писал #warning’и для тех мест где вы делаете это намерянно, можно переопределить (где-нибудь в pre-compile заголовках) такие макро:</p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#define START_IGNORE_PARTIAL _Pragma("clang diagnostic push") _Pragma("clang diagnostic ignored \"-Wpartial-availability\"")
+#define END_IGNORE_PARTIAL _Pragma("clang diagnostic pop")
+</span></code></pre></div></div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2016/11/24/arc-cookbook/">
+        Поваренная книга ARC
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">24.11.2016</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#arc" title="Pages tagged arc" rel="tag" class="text-success">arc</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#ios" title="Pages tagged ios" rel="tag" class="text-success">ios</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#objc" title="Pages tagged objc" rel="tag" class="text-success">objc</a>
+        </div>
+        
+      
+    </p>
+
+    <ul>
+  <li>Про ARC можно почитать тут: <a href="http://developer.apple.com/library/ios/#releasenotes/ObjectiveC/RN-TransitioningToARC/_index.html">Transitioning to ARC Release Notes</a></li>
+  <li>Майк Эш (Mike Ash) написал хорошую статью в его Friday <a href="http://www.mikeash.com/pyblog/friday-qa-2011-09-30-automatic-reference-counting.html">Q&amp;As</a></li>
+  <li>Детальная техническая документация доступна на <a href="http://clang.llvm.org/docs/AutomaticReferenceCounting.html">сайте CLANG’а</a> проекта LLVM.</li>
+</ul>
+
+<p>Описанные в этой статье рецепты подразумевают использование iOS 5 и выше. В iOS 4 не доступны weak ссылки, которые являются очень важной вещью. Я понимаю, что в конце 2016 года уже даже iOS 7 официально не поддерживается, но вдруг найдутся такие читатели, которые вынуждены поддерживать очень старый код.</p>
+
+<p>В статье в примерах используется Objective-C. Примеры на Swift’е не привожу - так как там это во-первых все несколько проще, во-вторых, кажется не составит труда отобразить эти правила на Swift, если это необходимо.</p>
+
+<h2 id="общее">Общее</h2>
+
+<ul>
+  <li>скалярные ivar свойства должны использовать <strong>assign</strong></li>
+</ul>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="kt">int</span> <span class="n">scalarInt</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">CGFloat</span> <span class="n">scalarFloat</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">assign</span><span class="p">)</span> <span class="n">CGPoint</span> <span class="n">scalarStruct</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>ссылочные ivar свойства, на которые необходимо иметь сильную ссылку или это дочерние свойства (“вниз” по иерархии) должны использовать <strong>strong</strong></li>
+</ul>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">id</span> <span class="n">childObject</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>ссылочные ivar свойства на родителя (“вверх” по иерархии) должны использовать <strong>weak</strong>. Кроме того, при ссылках “вне” иерархии (например, делегаты) лучше использовать <strong>weak</strong> как наиболее безопасный.</li>
+</ul>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">)</span> <span class="n">id</span> <span class="n">parentObject</span><span class="p">;</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">weak</span><span class="p">)</span> <span class="n">NSObject</span> <span class="o">&lt;</span><span class="n">SomeDelegate</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">delegate</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>в блоках лучше использовать <strong>copy</strong></li>
+</ul>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">copy</span><span class="p">)</span> <span class="n">SomeBlockType</span> <span class="n">someBlock</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>В dealloc
+    <ul>
+      <li>удаляем обсерверы (observers)</li>
+      <li>отписываемся от уведомлений</li>
+      <li>для всех не weak свойств устанавливаем nil</li>
+      <li>инвалидируем все таймеры</li>
+    </ul>
+  </li>
+  <li>IBOutlet’ы должны быть <strong>weak</strong> за исключением корневых, которые должны быть <strong>strong</strong>.</li>
+</ul>
+
+<h2 id="bridging">Bridging</h2>
+
+<p>Из документации</p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">id</span> <span class="n">myId</span><span class="p">;</span>
+<span class="n">CFStringRef</span> <span class="n">myCFRef</span><span class="p">;</span>
+<span class="n">NSString</span>   <span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">__bridge</span> <span class="n">NSString</span>  <span class="o">*</span><span class="p">)</span><span class="n">myCFRef</span><span class="p">;</span>          <span class="c1">// тривиальное преобразование (noop)</span>
+<span class="n">CFStringRef</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="n">__bridge</span> <span class="n">CFStringRef</span><span class="p">)</span><span class="n">myId</span><span class="p">;</span>             <span class="c1">// тривиальное преобразование (noop)</span>
+<span class="n">NSString</span>   <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">__bridge_transfer</span> <span class="n">NSString</span>  <span class="o">*</span><span class="p">)</span><span class="n">myCFRef</span><span class="p">;</span> <span class="c1">// -1 на CFRef</span>
+<span class="n">CFStringRef</span> <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">__bridge_retained</span> <span class="n">CFStringRef</span><span class="p">)</span><span class="n">myId</span><span class="p">;</span>    <span class="c1">// возвращает CFRef +1</span>
+</code></pre></div></div>
+
+<p>Если переводить с непонятного на русский, то:</p>
+
+<ul>
+  <li><strong>__bridge</strong> - тривиальное преобразование (по отношению к управлению памятью) (noop)</li>
+  <li><strong>__bridge_transfer</strong> - необходимо для преобразования CF ссылок в объекты Objective-C. ARC уменьшит счетчик ссылок объекта CF, поэтому убедитесь, что CFRef имеет +1.</li>
+  <li><strong>__bridge_retained</strong> - необходимо для преобразования объектов Objective-C в CF ссылки. Эта операция даст вым CF ссылку с +1. Далее вы будете ответственны за вызов CFRelease у полученной CFRef ссылки где-нибудь в будущем.</li>
+</ul>
+
+<h2 id="nserror">NSError</h2>
+
+<p>Вездесущий NSError с точки зрения ARC непростой. Типовое соглашение Cocoa гласит, что ошибки обычно передаются как out-параметры (косвенные указатели).</p>
+
+<p>В ARC out-параметры по-умолчанию <strong>__autoreleasing</strong> и должны реализовываться так:</p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">performWithError</span><span class="p">:(</span><span class="n">__autoreleasing</span> <span class="n">NSError</span> <span class="o">**</span><span class="p">)</span><span class="nv">error</span>
+<span class="p">{</span>
+    <span class="c1">// ... случилась ошибка ...</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">error</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// записываем ее в out-параметр. ARC автоматически autorelease'ит</span>
+        <span class="o">*</span><span class="n">error</span> <span class="o">=</span> <span class="p">[[</span><span class="n">NSError</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">initWithDomain</span><span class="p">:</span><span class="s">@""</span>
+                                            <span class="nl">code:</span><span class="o">-</span><span class="mi">1</span>
+                                        <span class="nl">userInfo:</span><span class="nb">nil</span><span class="p">];</span>
+        <span class="k">return</span> <span class="nb">NO</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">YES</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>При использовании out-параметров, вы как правило будет использовать __autoreleasing на ваших *error объектах примерно таким образом:</p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">NSError</span> <span class="n">__autoreleasing</span> <span class="o">*</span><span class="n">error</span> <span class="o">=</span> <span class="n">error</span><span class="p">;</span>
+<span class="n">BOOL</span> <span class="n">OK</span> <span class="o">=</span> <span class="p">[</span><span class="n">myObject</span> <span class="nf">performOperationWithError</span><span class="p">:</span><span class="o">&amp;</span><span class="n">error</span><span class="p">];</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">OK</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// обрабатываем ошибку.</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Если __autoreleasing не указать, компилятор автоматически добавит для вас временный autoreleasing объект. Такое решение необходимо как компромисс для обеспечения обратной совместимости. В далекие времена iOS 5 существовали такие настройки компилятора, которые не добавляли автоматически __autoreleasing.</p>
+
+<h2 id="autoreleasepool">@autoreleasepool</h2>
+
+<p>Используйте @autoreleasepool внутри циклов, когда:</p>
+
+<ul>
+  <li>в нем очень много итераций</li>
+  <li>в одной итерации создается большое количество временных объектов</li>
+</ul>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// если someArray большой</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">id</span> <span class="n">obj</span> <span class="k">in</span> <span class="n">someArray</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">@autoreleasepool</span>
+    <span class="p">{</span>
+        <span class="c1">// или вы создаете много</span>
+        <span class="c1">// временных объектов тут</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Создание и уничтожение autorelease пулов через @autoreleasepool дешевле чем даром. Не волнуйтесь использовать их внутри цикла. Если же этих заверений недостаточно, можете воспользоваться профайлером.</p>
+
+<h2 id="blocks">Blocks</h2>
+
+<p>В общем, блоки просто работают, однако есть несколько исключений.</p>
+
+<p>Перед тем как добавлять блоки в коллекцию, необходимо предварительно их скопировать (copy).</p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">someBlockType</span> <span class="n">someBlock</span> <span class="o">=</span> <span class="o">^</span><span class="p">{</span><span class="n">NSLog</span><span class="p">(</span><span class="s">@"hi"</span><span class="p">);};</span>
+<span class="p">[</span><span class="n">someArray</span> <span class="nf">addObject</span><span class="p">:[</span><span class="n">someBlock</span> <span class="nf">copy</span><span class="p">]];</span>
+</code></pre></div></div>
+
+<p>retain-циклы особенно опасны в блоках. Вы могли видеть такой warning:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>warning: capturing 'self' strongly in this
+block is likely to lead to a retain cycle
+[-Warc-retain-cycles,4]
+</code></pre></div></div>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">SomeBlockType</span> <span class="n">someBlock</span> <span class="o">=</span> <span class="o">^</span><span class="p">{</span>
+    <span class="p">[</span><span class="n">self</span> <span class="nf">someMethod</span><span class="p">];</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Идея здесь такая. self имеет сильную ссылку на someBlock, someBlock “захватывает” и держит сильную ссылку на self. В следующем примере мы имеем дело с тем же retain циклом, но он уже менее очевиден:</p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// блок захватит self сильной ссылкой</span>
+<span class="n">SomeBlockType</span> <span class="n">someBlock</span> <span class="o">=</span> <span class="o">^</span><span class="p">{</span>
+    <span class="n">BOOL</span> <span class="n">isDone</span> <span class="o">=</span> <span class="n">_isDone</span><span class="p">;</span>  <span class="c1">// _isDone - это ivar в self</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Более безопасно (правда малость многословно) это можно сделать с использованием weakSelf:</p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">__weak</span> <span class="n">SomeObjectClass</span> <span class="o">*</span><span class="n">weakSelf</span> <span class="o">=</span> <span class="n">self</span><span class="p">;</span>
+
+<span class="n">SomeBlockType</span> <span class="n">someBlock</span> <span class="o">=</span> <span class="o">^</span><span class="p">{</span>
+    <span class="n">SomeObjectClass</span> <span class="o">*</span><span class="n">strongSelf</span> <span class="o">=</span> <span class="n">weakSelf</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">strongSelf</span> <span class="o">==</span> <span class="nb">nil</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Оригинальный self здесь не существует.</span>
+        <span class="c1">// Игнорируйте, уведомите о или каким-то еще способ обработайте этот случай.</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="p">[</span><span class="n">strongSelf</span> <span class="nf">someMethod</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Иногда, необходимо отдельно позаботиться о конкретных объектах, чтобы избежать retain-циклов: если someObject будет захвачен сильной ссылок в блоке, который использует someObject, вам потребуется weakSomeObject для решения проблемы.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SomeObjectClass *someObject = ...
+__weak SomeObjectClass *weakSomeObject = someObject;
+
+someObject.completionHandler = ^{
+    SomeObjectClass *strongSomeObject = weakSomeObject;
+    if (strongSomeObject == nil)
+    {
+        // Оригинальный someObject здесь не существует.
+        // Игнорируйте, уведомите о или каким-то еще способ обработайте этот случай.
+    }
+    else
+    {
+        // отлично, ТЕПЕРЬ мы можем что-нибудь сделать с someObject
+        [strongSomeObject someMethod];
+    }
+};
+</code></pre></div></div>
+
+<h2 id="использование-cg-из-ns-или-ui">Использование CG из NS или UI</h2>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">UIColor</span> <span class="o">*</span><span class="n">redColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">redColor</span><span class="p">];</span>
+<span class="n">CGColorRef</span> <span class="n">redRef</span> <span class="o">=</span> <span class="n">redColor</span><span class="p">.</span><span class="n">CGColor</span><span class="p">;</span>
+<span class="c1">// делаем что-нибудь с redRef.</span>
+</code></pre></div></div>
+
+<p>Этот примерн имеет несколько малозаметных проблем. Когда вы создаете redRef, если redColor более нигде не используется, то он удаляется сразу после комментария.</p>
+
+<p>Проблема здесь в том, что redColor “владеет” redRef, и когда redRef используется, redColor’а уже может не быть. Кроме того, такие проблемы редко проявляют себя в симуляторе. Более вероятно, что эта проблема “выстрелит” где-нибудь на устройстве, у которого осталось мало свободной памяти.</p>
+
+<p>Существует несколько workaround’ов. Обычно, необходимо лишь убедиться, что redColor существует все время, пока вы используете redRef.</p>
+
+<p>Самый простой способ добиться этого - использовать __autoreleasing.</p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">UIColor</span> <span class="o">*</span> <span class="n">__autoreleasing</span> <span class="n">redColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">redColor</span><span class="p">];</span>
+<span class="n">CGColorRef</span> <span class="n">redRef</span> <span class="o">=</span> <span class="n">redColor</span><span class="p">.</span><span class="n">CGColor</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Теперь, redColor не будет уничтожен до тех пор в будущем, пока метод не вернет управление. Поэтому мы можем спокойно использовать redRef в рамках нашего метода.</p>
+
+<p>Другой путь - получить +1 на redRef:</p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">UIColor</span> <span class="o">*</span><span class="n">redColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">redColor</span><span class="p">];</span>
+<span class="n">CGColorRef</span> <span class="n">redRef</span> <span class="o">=</span> <span class="n">CFRetain</span><span class="p">(</span><span class="n">redColor</span><span class="p">.</span><span class="n">CGColor</span><span class="p">);</span>
+<span class="c1">// используем redRef и когда закончим - удаляем его:</span>
+<span class="n">CFRelease</span><span class="p">(</span><span class="n">redRef</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Важно, что необходимо вызывать CFRetain() в той же строке, в которой вы получаете redColor.CGColor. redColor будет уничтожен сразу после последнего использования, следующий код работать <strong>НЕ</strong> будет:</p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">UIColor</span> <span class="o">*</span><span class="n">redColor</span> <span class="o">=</span> <span class="p">[</span><span class="n">UIColor</span> <span class="nf">redColor</span><span class="p">];</span>
+<span class="n">CGColorRef</span> <span class="n">redRef</span> <span class="o">=</span> <span class="n">redColor</span><span class="p">.</span><span class="n">CGColor</span><span class="p">;</span> <span class="c1">// redColor будет удален сразу после этого ...</span>
+<span class="n">CFRetain</span><span class="p">(</span><span class="n">redRef</span><span class="p">);</span>  <span class="c1">// Тут будет крэш ...</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<p>Есть еще один интересный момент относительно строки “Тут будет крэш”. Как правило, крэш в этой строке в симуляторе не случится, но обязательно произойдет на реальном устройстве.</p>
+
+<h2 id="singletons">Singletons</h2>
+
+<p>Связаны с ARC только косвенно. Существует огромное количество реализаций singleton’ов “на коленке” (некоторые из них даже переопределяют retain и release).</p>
+
+<p>Вот правильная реализация singleton’а которую стоит использовать:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+ (MyClass *)singleton
+{
+    static MyClass *sharedMyClass = nil;
+    static dispatch_once_t once = 0;
+    dispatch_once(&amp;once, ^{
+        sharedMyClass = [[self alloc] init];
+    });
+    return sharedMyClass;
+}
+</code></pre></div></div>
+
+<p>Теперь нам необходимо иметь возможность уничтожить такой singleton. Кроме того, если это UnitTest’ы, то лучше не использовать singleton’ы.</p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// определяем статическую переменную вне метода singleton'а</span>
+<span class="k">static</span> <span class="n">MyClass</span> <span class="o">*</span><span class="n">__sharedMyClass</span> <span class="o">=</span> <span class="nb">nil</span><span class="p">;</span>
+
+<span class="k">+</span> <span class="p">(</span><span class="n">MyClass</span> <span class="o">*</span><span class="p">)</span><span class="n">singleton</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="n">dispatch_once_t</span> <span class="n">once</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">dispatch_once</span><span class="p">(</span><span class="o">&amp;</span><span class="n">once</span><span class="p">,</span> <span class="o">^</span><span class="p">{</span>
+        <span class="n">__sharedMyClass</span> <span class="o">=</span> <span class="p">[[</span><span class="n">self</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">];</span>
+    <span class="p">});</span>
+    <span class="k">return</span> <span class="n">__sharedMyClass</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Только для использования библиотекой тестирования!!!</span>
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">destroyAndRecreateSingleton</span>
+<span class="p">{</span>
+    <span class="n">__sharedMyClass</span> <span class="o">=</span> <span class="p">[[</span><span class="n">self</span> <span class="nf">alloc</span><span class="p">]</span> <span class="nf">init</span><span class="p">];</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2016/11/16/note-about-ioc-and-di/">
+        Заметки об IoC и DI
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">16.11.2016</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#architecture" title="Pages tagged architecture" rel="tag" class="text-success">architecture</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#ios" title="Pages tagged ios" rel="tag" class="text-success">ios</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#patterns" title="Pages tagged patterns" rel="tag" class="text-success">patterns</a>
+        </div>
+        
+      
+    </p>
+
+    <p>IoC - паттерн инверсии управления (Inversion of Control), почитать можно <a href="https://ru.wikipedia.org/wiki/Инверсия_управления">тут</a>
+DI - паттерн внедрения зависимостей (Dependency Injection), почитать можно <a href="https://ru.wikipedia.org/wiki/Внедрение_зависимости">тут</a></p>
+
+<p>В последнее время все чаще участвую в разного рода дискуссиях касательно архитектуры приложений, причем не важно каких - web, десктопных или мобильных. Во всех случаях всплывают примерно одни и те же проблемы и примерно одни и те же грабли. Дабы не “мозолить” себе язык и не объяснять свою точку зрения постоянно, решил написать эту статью. Тут рассмотрим некоторые основные подходы и паттерны и затем возможные их применения при разработке приложений.</p>
+
+<p>Но для начала предлагаю рассмотреть небольшой примерчик для понимания того, откуда проблема берется.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">protocol</span> <span class="kt">Inbox</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">allLetters</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Mail</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="kt">EmailInbox</span> <span class="p">:</span> <span class="kt">Inbox</span> <span class="p">{</span> <span class="o">...</span> <span class="p">}</span>
+
+<span class="kd">class</span> <span class="kt">MailService</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nv">inbox</span><span class="p">:</span> <span class="kt">Inbox</span> <span class="o">=</span> <span class="kt">EmailInbox</span><span class="p">(</span><span class="s">"null@example.com"</span><span class="p">)</span>
+
+    <span class="kd">func</span> <span class="nf">mail</span><span class="p">(</span><span class="n">with</span> <span class="nv">recipient</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Mail</span><span class="p">]</span>
+    <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">letters</span> <span class="o">=</span> <span class="n">inbox</span><span class="o">.</span><span class="nf">allLetters</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">letters</span><span class="o">.</span><span class="n">filter</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="n">recipient</span> <span class="o">==</span> <span class="n">recipient</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Примерчик простой, однако даже в нем уже есть проблема - класс MailService крепко-накрепко связан с классом EmailInbox, несмотря даже на то, что мы честно выделили протокол Inbox. Теперь (например, в другом проекте) потребовалось использовать MailService, но при этом Inbox там реализован по другому (например через файлы). Это приведет к тому, что придется код переписывать, не получится просто взять и использовать.</p>
+
+<p>Ситуацию можно немного ухудшить, написав примерно так.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">MailService</span>
+<span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">mail</span><span class="p">(</span><span class="n">with</span> <span class="nv">recipient</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Mail</span><span class="p">]</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="kt">EmailInbox</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="nf">allLetters</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="n">recipient</span> <span class="o">==</span> <span class="n">recipient</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Теперь внешнему наблюдателю сразу даже будет непонятно, что внутри класса есть зависимость. Да при детальном анализе кода будет ясно, но если класс не из 10 строк, а из 1000? По этой же причине опасны singleton’ы.</p>
+
+<p>Для обеспечения переносимости кода, для возможности организовать хорошее тестирование (например заmock’ать какие-нибудь зависимости) и т.д. с этим надо что-то делать. И вот тут-то и появляются разного рода умные слова, такие как Dependency Injection, Inversion of Control и иногда Service Locator. Как правило, считается что они значат примерно одно и то же, хотя если разбираться детальнее разница между ними есть и большая.</p>
+
+<p>Самый первый и самый с одной стороны простой термин - Dependency Injection или по-русски “внедрение зависимостей”. Вообще, это комплекс мероприятий в результате которого зависимости оказываются в вашем объекте. Даже наш простой примерчик в общем делает dependency injection в самом простом его виде - зависимость просто создается. Внедрять зависимости можно спрашивая их у кого-то (см. Service Locator) или кто-то их нам установит автоматически (см. Inversion of Control).</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">mailService</span> <span class="o">=</span> <span class="kt">MailService</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">inbox</span> <span class="o">=</span> <span class="kt">EmailInbox</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="n">mailServie</span><span class="o">.</span><span class="n">inbox</span> <span class="o">=</span> <span class="n">inbox</span> <span class="c1">// dependency injection</span>
+</code></pre></div></div>
+
+<p>Service Locator - это специальный объект (или фасад) у которого вы всегда сможете спросить нужную зависимость. Как правило, он либо знает где ее взять (на то он и locator), либо он сам хранит их у себя (см. паттерн реестр). Когда кому-то нужна какая-то зависимость, этот кто-то через механизмы singleton’а (или еще как) идет к Service Locator’у и спрашивает нужную зависимость.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">MailService</span>
+<span class="p">{</span>
+    <span class="k">var</span> <span class="nv">inbox</span><span class="p">:</span> <span class="kt">Inbox</span> <span class="o">=</span> <span class="kt">ServiceLocator</span><span class="o">.</span><span class="n">shared</span><span class="o">.</span><span class="n">inbox</span> <span class="c1">// service locator</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Третий термин (Inversion of Control) рассмотрим подробнее.</p>
+
+<p>Но сначала давайте разберемся с тем, что за “control” инвертируется. Когда-то давно, когда приложения были консольными, control-flow приложения выглядел примерно так: мы запрашиваем с устройства ввода у пользователя данные, обрабатываем их и выводим на устройство вывода. Потоком управления управляло (пардон за тавталогию) само приложение. Когда появились графические UI приложение вместо того, чтобы управлять циклом приложения стало обрабатывать событие, отдав управление операционной системе. Таким образом получилась инверсия control-flow приложения. Таким же образом обстоит дело с инверсией при внедрении зависимостей при использовании паттерна Inversion of Control - управление временем жизни объекта и внедрением зависимостей делегируется специальному объекту, в задачу которого входит создание всех необходимых объектов и установка ссылок между ними. Этот специальный объект может называться сборщиком (assembler), контейнером (inversion of control container, см. Spring Framework) или еще как-нибудь, сути его это не меняеет.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">IoCContainer</span> <span class="c1">// Inversion of Control container (assembler)</span>
+<span class="p">{</span>
+    <span class="k">let</span> <span class="nv">mailService</span><span class="p">:</span> <span class="kt">MailService</span><span class="o">!</span>
+    <span class="k">let</span> <span class="nv">inbox</span><span class="p">:</span> <span class="kt">Inbox</span>
+
+    <span class="kd">func</span> <span class="nf">build</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nf">create</span><span class="p">()</span>
+        <span class="nf">internlink</span><span class="p">()</span>
+        <span class="nf">post</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">create</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">mailService</span> <span class="o">=</span> <span class="kt">MailService</span><span class="p">()</span>
+        <span class="n">inbox</span> <span class="o">=</span> <span class="kt">EmailInbox</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">interlink</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">mailService</span><span class="o">.</span><span class="n">inbox</span> <span class="o">=</span> <span class="n">inbox</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">post</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">mailService</span><span class="o">.</span><span class="nf">postCreate</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Главное отличие контейнера от сервис локатора в том, что контейнер конкретный класс как правило не видит - зависимости для него появляются автомагически (automagically), а service locator видит и даже может быть хранит на него ссылку, а если еще и сильную… Кроме того, при использовании контейнера вы можете например иметь циклическую ссылку (с учетом конечно всех требований ARC и weak), или выполнить что-то после того, как весь граф (не дерево! и это важно) зависимостей будет собран (см. IoCContainer.post)</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2016/11/09/todos-in-swift-xcode/">
+        TODO в swift в Xcode
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">09.11.2016</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#swift" title="Pages tagged swift" rel="tag" class="text-success">swift</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#ios" title="Pages tagged ios" rel="tag" class="text-success">ios</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#xcode" title="Pages tagged xcode" rel="tag" class="text-success">xcode</a>
+        </div>
+        
+      
+    </p>
+
+    <p>Очень часто в процессе разработки бывает, когда вместо некоторого кода пишется временная заглушка или некий временный код, или даже просто участок кода к которому необходимо вернуться чуть позже, например:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// TODO: we need to convert to float math for better precision</span>
+<span class="k">let</span> <span class="nv">sum</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="k">let</span> <span class="nv">avg</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="mi">2</span>
+</code></pre></div></div>
+
+<p>И хотелось бы, чтобы Xcode каким-либо образом это подсвечивал, например как это было в старом добром Objective-C</p>
+
+<div class="language-objc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#warning we need to convert to float math for better precision
+</span><span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">avg</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Но в Xcode “из коробки” увы нет такой поддержки для Swift. Быть может она появится в будущем, сейчас же предлагаю применить черную магию и написать скрипт. Для этого идем в Build Phases и создаем “Run Script”, поместить его можно в конце. Содержание скрипта такое:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">TAGS</span><span class="o">=</span><span class="s2">"TODO:|FIXME:"</span>
+find <span class="s2">"</span><span class="k">${</span><span class="nv">SRCROOT</span><span class="k">}</span><span class="s2">"</span> <span class="se">\(</span> <span class="nt">-name</span> <span class="s2">"*.h"</span> <span class="nt">-or</span> <span class="nt">-name</span> <span class="s2">"*.m"</span> <span class="nt">-or</span> <span class="nt">-name</span> <span class="s2">"*.swift"</span> <span class="se">\)</span> <span class="nt">-print0</span> | xargs <span class="nt">-0</span> egrep <span class="nt">--with-filename</span> <span class="nt">--line-number</span> <span class="nt">--only-matching</span> <span class="s2">"(</span><span class="nv">$TAGS</span><span class="s2">).*</span><span class="se">\$</span><span class="s2">"</span> | perl <span class="nt">-p</span> <span class="nt">-e</span> <span class="s2">"s/(</span><span class="nv">$TAGS</span><span class="s2">)/ warning: </span><span class="se">\$</span><span class="s2">1/"</span>
+</code></pre></div></div>
+
+<p>Xcode после сборки начнет подсвечивать ваши TODO’шки так</p>
+
+<p><img src="/media/images/xcode_todos_1.png" alt="highlight todos" /></p>
+
+<p>Если вы хотите подсвечивать еще например // ERROR: как ошибки, можно скрипт сделать таким</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">TAGS</span><span class="o">=</span><span class="s2">"TODO:|FIXME:"</span>
+<span class="nv">ERRORTAG</span><span class="o">=</span><span class="s2">"ERROR:"</span>
+find <span class="s2">"</span><span class="k">${</span><span class="nv">SRCROOT</span><span class="k">}</span><span class="s2">"</span> <span class="se">\(</span> <span class="nt">-name</span> <span class="s2">"*.h"</span> <span class="nt">-or</span> <span class="nt">-name</span> <span class="s2">"*.m"</span> <span class="nt">-or</span> <span class="nt">-name</span> <span class="s2">"*.swift"</span> <span class="se">\)</span> <span class="nt">-print0</span> | xargs <span class="nt">-0</span> egrep <span class="nt">--with-filename</span> <span class="nt">--line-number</span> <span class="nt">--only-matching</span> <span class="s2">"(</span><span class="nv">$TAGS</span><span class="s2">).*</span><span class="se">\$</span><span class="s2">|(</span><span class="nv">$ERRORTAG</span><span class="s2">).*</span><span class="se">\$</span><span class="s2">"</span> | perl <span class="nt">-p</span> <span class="nt">-e</span> <span class="s2">"s/(</span><span class="nv">$TAGS</span><span class="s2">)/ warning: </span><span class="se">\$</span><span class="s2">1/"</span> | perl <span class="nt">-p</span> <span class="nt">-e</span> <span class="s2">"s/(</span><span class="nv">$ERRORTAG</span><span class="s2">)/ error: </span><span class="se">\$</span><span class="s2">1/"</span>
+</code></pre></div></div>
+
+<p>Xcode сделает так</p>
+
+<p><img src="/media/images/xcode_todos_2.png" alt="highlight errors" /></p>
+
+<p>Придумал не сам, нашел <a href="http://krakendev.io/blog/generating-warnings-in-xcode">тут</a> и перевел.</p>
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/page5"><i class="fa fa-hand-o-left" ></i> назад</a>
+  
+  
+    
+      <a class="pagination-item newer" href="/page3">вперед <i class="fa fa-hand-o-right" ></i></a>
+    
+  
+</div>
+
+    </div>
+
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter13259782 = new Ya.Metrika({
+                    id:13259782,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/13259782" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16734363-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+    <script src="/public/js/tabs.js"></script>
+
+  </body>
+</html>

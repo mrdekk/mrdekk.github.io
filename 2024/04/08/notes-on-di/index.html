@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name='yandex-verification' content='4a3e9fdb2ed97f52' />
+
+  <title>
+    
+      Заметки о Dependency Injection &middot; MrDekk
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/mrdekk.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic'>
+  <link rel="stylesheet" href="/public/css/font-awesome.min.css" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="stylesheet" href="/public/css/tabs.css">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+	  <img class="profile" alt="my-profile" src="/media/images/brujo.jpg" width="120px">
+      <h1>MrDekk</h1>
+      <p class="description">Время - лучший учитель! Жаль, что оно убивает своих учеников...</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+        <a href="/"><i class="fa fa-home" ></i></a>
+      </li>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/about/">Кто здесь?</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/tags/">Метки</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/useful/">Полезное</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/awesome/">Awesome Stars</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </ul>
+
+	<p class="social-icons">
+		<!-- <a href="/search"><i class="fa fa-search fa-2x"></i></a> -->
+		<a href="https://github.com/mrdekk"><i class="fa fa-github fa-2x"></i></a>
+		<a href="https://twitter.com/mrdekk"><i class="fa fa-twitter fa-2x"></i></a>
+		<a href="/atom.xml"><i class="fa fa-rss fa-2x"></i></a>
+	</p>
+
+    <p>&copy; 2024. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Заметки о Dependency Injection</h1>
+  <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">08.04.2024</span>
+  <i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+	
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#swift" title="Pages tagged swift" rel="tag" class="text-success">swift</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#ios" title="Pages tagged ios" rel="tag" class="text-success">ios</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#kotlin" title="Pages tagged kotlin" rel="tag" class="text-success">kotlin</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#android" title="Pages tagged android" rel="tag" class="text-success">android</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#di" title="Pages tagged di" rel="tag" class="text-success">di</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#dependency+injection" title="Pages tagged dependency injection" rel="tag" class="text-success">dependency injection</a>
+      </div>
+      
+    
+  </p>
+  <p>Тема внедрение зависимостей одна из краеугольных в целом при любой разработке. И, благодаря этому, одна из наиболее дискуссионных, порой доходящаяя до уровня “священных войн” между апологетами разных подходов. В этой статье постараюсь изложить свое видение подходов к решению проблем.</p>
+
+<h2 id="преамбула">Преамбула</h2>
+
+<p>Для того, чтобы не превращать эту статью в рассказ “от сотворения мира”, очень рекомендую посмотреть <a href="https://www.youtube.com/live/GA1NY-RKkhs?si=HBUhtDkeJZYBgfhX&amp;t=4399">это видео</a> (с указанного таймкода, лекция там в целом про архитектуру, но нас в рамках этой статьи будут интересовать выкладки про DI).</p>
+
+<h2 id="постановка-проблемы">Постановка проблемы</h2>
+
+<h3 id="базовая-задача">Базовая задача</h3>
+
+<p>Итак, мы стараемся придумать решение следующей проблемы</p>
+
+<ul id="task" class="tab" data-tab="e343ddfd-1010-4990-a6d2-3b0aff5100ba" data-name="task">
+  
+      <li class="active" id="task-swift">
+          <a href="#">Swift </a>
+      </li>
+  
+      <li id="task-kotlin">
+          <a href="#">Kotlin </a>
+      </li>
+  
+</ul>
+<ul class="tab-content" id="e343ddfd-1010-4990-a6d2-3b0aff5100ba" data-name="task">
+  
+      <li class="active">
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">protocol</span> <span class="kt">SomeBookService</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+
+<span class="kd">class</span> <span class="kt">BookProcessor</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">service</span><span class="p">:</span> <span class="kt">SomeBookService</span> <span class="o">=</span> <span class="kt">SomeBookServiceImpl</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+</li>
+  
+      <li>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">SomeBookService</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">BookProcessor</span><span class="p">(</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">service</span><span class="p">:</span> <span class="nc">SomeBookService</span> <span class="p">=</span> <span class="nc">SomeBookServiceImpl</span><span class="p">()</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+</li>
+  
+</ul>
+
+<p>Что мы хотим от хорошего решения?</p>
+
+<ul>
+  <li><strong>Через протокол/интерфейс.</strong> Использующий зависимость класс не должен знать о конкретной реализации и должен иметь работать с любой реализацией правильно реализующей контракт (объявленный в протоколе/интерфейсе).</li>
+  <li><strong>Узкий контракт.</strong> Реализация, которую мы получаем в виде зависимости должена иметь минимально необходимый контракт. Наша сущность не должна видеть лишнего</li>
+  <li><strong>Необходимость и достаточность.</strong> Поставляемые зафисимости поставляются в необходимом и достаточном объеме, не требуется каких-то специальных приседаний для того, чтобы получить что-то еще (это как правило относится к запрету использовать внутри синглтоны).</li>
+  <li><strong>Реализация DI для логического кода “невидима”.</strong> Мы не должны видеть фрагменты порождающего кода где-либо (кроме некоторых исключений).</li>
+</ul>
+
+<h3 id="платформенные-особенности">Платформенные особенности</h3>
+
+<p>Мы рассматриваем мобильные платформы (в целом можно рассматривать и серверные, но там как правило все проще в этом плане).</p>
+
+<h4 id="ios">iOS</h4>
+
+<p>Как правило, все сущности iOS позволяют нормально реализовать constructor injection паттерн без необходимости построения специальных решений. Иногда требуются специальные действия для создания циклических зависимостей, но они легко решаются способами, описанными ниже.</p>
+
+<p>Единственный объект, который система создает сама - это UIApplication (и applicationDidFinishLaunchingWithOptions) или SwiftUI объект обозначенный как @main. Но эти объекты будем считать точкой входа и растить графы от них.</p>
+
+<h4 id="android">Android</h4>
+
+<p>У Android также как и в iOS есть главный объект создаваемый системой - Application, но есть и важное отличие - в Android есть объекты, которые фреймворком могут быть убиты и пересозданы через тривиальный конструктор, такие как Activity, Fragment, View и тд. И есть общепринятая практика использовать для иньекции зависимостей в такие объекты через паттерн Service Locator. Service Locator считаем антипаттерном (как минимум он противоречит принципам хорошего решения, упомянутым выше).</p>
+
+<p>Поэтому для решение проблемы спец сущностей (которые могут быть пересозданы), в Android надо предусмотреть дополнительные средства.</p>
+
+<h3 id="o-service-locatorе">O Service Locator’е</h3>
+
+<p><a href="https://ru.wikipedia.org/wiki/Локатор_служб">Service Locator</a> это такой паттерн проектирования, который, упрощенно говоря, предоставляет единую точку, через которую можно запросить разные зависимости. В рамках создания библиотек для DI он обычно соседствует с паттерном <a href="https://ru.wikipedia.org/wiki/Одиночка_(шаблон_проектирования)">Singleton</a> предоставляя публично известный разделяемый объект, из которого можно запросить практически все что угодно.</p>
+
+<p>Я считаю его антипаттерном в применении к задачам DI (у него есть другая применимость, которая норм).</p>
+
+<p>Но чтобы не быть голословным, давайте рассмотрим поставленные требования к хорошему решению:</p>
+
+<ul>
+  <li><strong>Через протокол/интерфейс</strong> - эту задачу в целом можно решить, отдавая из публичного singleton’а сервис локатора интерфейсы</li>
+  <li><strong>Узкий контракт</strong> - так как точка эта общеизвестная, то надо отдавать зависимость целиком, что нарушает принцип сужения контракта. Можно из публичного singleton’а отдавать одну реализацию под набором интерфейсов, но тогда у нас будет очень сложно выглядеть общий контракт такого объекта, сложно будет что-то в нем найти.</li>
+  <li><strong>Необходимость и достаточность</strong> - мы показываем всевозмоюжные интерфейсы или даже реализации, что любой клиент может видеть все приложение, что явно нарушает это требование</li>
+  <li><strong>“Невидимость”</strong> - требование явно нарушается, так как из любой точки приложения можно публичный singleton локатора</li>
+</ul>
+
+<p>Таким образом Service Locator использовать не стоит, поэтому будем строить решение на базе концепции контейнера.</p>
+
+<h3 id="о-библиотечных-решениях">О библиотечных решениях</h3>
+
+<p>В мире написано огромное количество библиотек, заявляющих что так или иначе решают проблему внедрения зависимостей. Однако большая часть из них основана на паттерне Service Locator. Справедливости ради стоит сказать, что наиболее популярная библиотека Dagger 2 для Android пытается использовать концепцию контейнера, и в Sevice Locator его чаще всего превращают при использовании.</p>
+
+<h2 id="идея-решения-проблемы">Идея решения проблемы</h2>
+
+<p>Как уже было сказано выше - будем использовать концепцию контейнера.</p>
+
+<p>Контейнер - это такая сущность, которыя</p>
+
+<ul>
+  <li>Создает нужные объекты и управляет их временем жизни</li>
+  <li>Настраивает связи между ними</li>
+  <li>Невидима для самих объектов</li>
+</ul>
+
+<p>Каждая конкретная логическая сущность (кроме самих контейнеров) заявляет необходимость зависимостей (через constructor или property injection) и все. Никоим образом логическая сущность не получает доступа не к типу контейнера, ни к его инстансу (кроме как через Factory интерфейсы там где нужна prototype зависимость).</p>
+
+<p>Отступление про нейминг. Однажды я увидел, как в коде контейнеры называют графами (Graph) и мне эта идея так понравилась, что далее буду называть типы контейнеров графами, можно в рамках этой заметки считать эти термины эквивалентными для задач DI.</p>
+
+<p>Таким образом простейший контейнер может выглядеть так</p>
+
+<ul id="container" class="tab" data-tab="c9c44b36-1f40-4dc4-81da-d83ce2ecca3b" data-name="container">
+  
+      <li class="active" id="container-swift">
+          <a href="#">Swift </a>
+      </li>
+  
+      <li id="container-kotlin">
+          <a href="#">Kotlin </a>
+      </li>
+  
+</ul>
+<ul class="tab-content" id="c9c44b36-1f40-4dc4-81da-d83ce2ecca3b" data-name="container">
+  
+      <li class="active">
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">final</span> <span class="kd">class</span> <span class="kt">SomeGraph</span> <span class="p">{</span>
+
+    <span class="c1">// 'singleton' entities</span>
+    <span class="kd">private</span> <span class="k">let</span> <span class="nv">dep1</span><span class="p">:</span> <span class="kt">Dep1</span>
+    <span class="kd">private</span> <span class="k">let</span> <span class="nv">dep2</span><span class="p">:</span> <span class="kt">Dep2</span>
+    <span class="kd">private</span> <span class="k">let</span> <span class="nv">dep3</span><span class="p">:</span> <span class="kt">Dep3</span>
+
+    <span class="c1">// other graphs</span>
+    <span class="kd">private</span> <span class="k">let</span> <span class="nv">subGraph</span><span class="p">:</span> <span class="kt">SomeSubGraph</span>
+
+    <span class="nf">init</span><span class="p">(</span>
+        <span class="nv">someGraphDependencies</span><span class="p">:</span> <span class="kt">SomeGraphDependencies</span><span class="p">,</span>
+        <span class="nv">someSpecificDependency</span><span class="p">:</span> <span class="kt">SomeSpecificDependency</span><span class="p">,</span>
+        <span class="nv">configuration</span><span class="p">:</span> <span class="kt">SomeGraphConfiguration</span><span class="p">,</span>
+        <span class="o">...</span>
+    <span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">dep1</span> <span class="o">=</span> <span class="kt">Dep1</span><span class="p">(</span>
+            <span class="cm">/* ... */</span><span class="p">,</span>
+            <span class="nv">makeSome</span><span class="p">:</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="k">self</span><span class="o">.</span><span class="nf">makeSomePrototypeDep</span><span class="p">(</span><span class="nv">val</span><span class="p">:</span> <span class="n">configuration</span><span class="o">.</span><span class="n">val</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">dep2</span> <span class="o">=</span> <span class="kt">Dep2</span><span class="p">(</span><span class="cm">/* ... */</span><span class="p">,</span> <span class="nv">useVal</span><span class="p">:</span> <span class="n">configuration</span><span class="o">.</span><span class="n">useVal</span><span class="p">)</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">dep3</span> <span class="o">=</span> <span class="kt">Dep3</span><span class="p">(</span><span class="nv">dep1</span><span class="p">:</span> <span class="kt">Dep1</span><span class="p">,</span> <span class="nv">dep2</span><span class="p">:</span> <span class="kt">Dep2</span><span class="p">)</span>
+        <span class="c1">// ...</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">subGraph</span> <span class="o">=</span> <span class="kt">SomeSubGraph</span><span class="p">(</span>
+            <span class="cm">/* ... */</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">deinit</span> <span class="p">{</span>
+        <span class="c1">// тут некоторая логика очистки сущностей, которые того требуют</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 'prototype' entities</span>
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">makeSomePrototypeDep</span><span class="p">(</span><span class="nv">val</span><span class="p">:</span> <span class="kt">Val1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Dep4</span> <span class="p">{</span>
+        <span class="c1">// ...</span>
+        <span class="k">return</span> <span class="kt">Dep4</span><span class="p">(</span>
+            <span class="nv">val</span><span class="p">:</span> <span class="n">val</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+</li>
+  
+      <li>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SomeGraph</span><span class="p">(</span>
+    <span class="n">someGraphDependencies</span><span class="p">:</span> <span class="nc">SomeGraphDependencies</span><span class="p">,</span>
+    <span class="n">someSpecificDependency</span><span class="p">:</span> <span class="nc">SomeSpecificDependency</span><span class="p">,</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">configuration</span><span class="p">:</span> <span class="nc">SomeGraphConfiguration</span><span class="p">,</span>
+    <span class="o">..</span><span class="p">.</span>
+<span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// 'singleton' entities</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">dep1</span><span class="p">:</span> <span class="nc">Dep1</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">dep2</span><span class="p">:</span> <span class="nc">Dep2</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">dep3</span><span class="p">:</span> <span class="nc">Dep3</span>
+
+    <span class="c1">// other graphs</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">subGraph</span><span class="p">:</span> <span class="nc">SomeSubGraph</span>
+
+    <span class="nf">init</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">dep1</span> <span class="p">=</span> <span class="nc">Dep1</span><span class="p">(</span>
+            <span class="cm">/* ... */</span><span class="p">,</span>
+            <span class="n">makeSome</span> <span class="p">=</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nf">makeSomePrototypeDep</span><span class="p">(</span><span class="kd">val</span> <span class="err">=</span> <span class="py">configuration</span><span class="p">.</span><span class="k">val</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">dep2</span> <span class="p">=</span> <span class="nc">Dep2</span><span class="p">(</span><span class="cm">/* ... */</span><span class="p">,</span> <span class="n">useVal</span> <span class="p">=</span> <span class="n">configuration</span><span class="p">.</span><span class="n">useVal</span><span class="p">)</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">dep3</span> <span class="p">=</span> <span class="nc">Dep3</span><span class="p">(</span><span class="n">dep1</span> <span class="p">=</span> <span class="nc">Dep1</span><span class="p">,</span> <span class="n">dep2</span> <span class="p">=</span> <span class="nc">Dep2</span><span class="p">)</span>
+        <span class="c1">// ...</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">subGraph</span> <span class="p">=</span> <span class="nc">SomeSubGraph</span><span class="p">(</span>
+            <span class="cm">/* ... */</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">fun</span> <span class="nf">cleanup</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// в Java/Kotlin нет полноценных деструкторов, поэтому cleanup методы</span>
+        <span class="c1">// необходимо будет вызывать руками</span>
+        <span class="c1">// тут некоторая логика очистки сущностей, которые того требуют</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 'prototype' entities</span>
+    <span class="k">private</span> <span class="k">fun</span> <span class="nf">makeSomePrototypeDep</span><span class="p">(</span><span class="k">val</span><span class="p">:</span> <span class="nc">Val1</span><span class="p">):</span> <span class="nc">Dep4</span> <span class="p">{</span>
+        <span class="c1">// ...</span>
+        <span class="k">return</span> <span class="nc">Dep4</span><span class="p">(</span>
+            <span class="kd">val</span> <span class="err">=</span> <span class="py">val</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+</li>
+  
+</ul>
+
+<p>И все - собирайте нужную конструкцию из иерархических графов. Когда какой-то набор сущностей станет ненужным - зануляете граф и все очищается (в Android не забываем звать cleanup).</p>
+
+<p>PROFIT? не совсем, есть тонкости</p>
+
+<h3 id="ios-1">iOS</h3>
+
+<p>В iOS как правило все проходит без проблем. Мы создаем корневой граф-контейнер в applicationWill/DidLaunchingWithOptions и передаем его целиком или частями в дальнейшие сущности, или создаем его в корневом объекте помеченном @main и также передаем целиком или частями дальше. Главное не забывать о сужении интерфейсов и принципе достаточной необходимости.</p>
+
+<h3 id="android-1">Android</h3>
+
+<p>Для бизнесовых сущностей достаточно также в рамках класса Application создать корневой граф и действовать аналогично iOS, но, как я уже выше упоминал, есть проблемы с андроидными сущностями. Поэтому для них нужно специальное решение.</p>
+
+<p>Заведем пару контрактов</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// любая сущность, в которую наш DI сможет что-то инжектить</span>
+<span class="kd">interface</span> <span class="nc">Injectable</span>
+
+<span class="c1">// контракт сущности контейнера, который сможет что-то куда-то инжектить</span>
+<span class="kd">interface</span> <span class="nc">Injector</span> <span class="p">{</span>
+    <span class="k">fun</span> <span class="nf">inject</span><span class="p">(</span><span class="n">into</span><span class="p">:</span> <span class="nc">Injectable</span><span class="p">)</span> <span class="c1">// можно опционально return Result</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Чуть выше в разделе про Service Locator я уже говорил, что основная проблема в нем в том, что</p>
+
+<ul>
+  <li>его shared instance известен публично, и может быть использован скрыто. С этим увы ничего не поделать, андроидные компоненты устроены так, что нам придется пойти на открытие какого-то shared instance. Для activity/fragment есть лазейка, о ней чуть позже, но в общем итоге не поделать ничего.</li>
+  <li>из него можно достать что угодно, эту проблему будем решать.</li>
+</ul>
+
+<p>Также важно, что для Android компонентов инъекция будет асинхронной относительно вызова конструктора объектов, поэтому полноценную compile time проверку мы сделать не сможем. Ограничимся сокрытием лишней информации.</p>
+
+<p>Теперь нам нужно предусмотреть сущность, которую мы будем видеть через shared instance, но не моч из нее ничего достать</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SomeGraph</span> <span class="k">private</span> <span class="k">constructor</span><span class="p">(</span>
+    <span class="k">private</span> <span class="kd">val</span> <span class="py">dependency</span><span class="p">:</span> <span class="nc">SomeDependnecy</span><span class="p">,</span>
+    <span class="c1">// other deps</span>
+<span class="p">):</span> <span class="nc">Injector</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">inject</span><span class="p">(</span><span class="n">target</span><span class="p">:</span> <span class="nc">Injectable</span><span class="p">)</span> <span class="p">=</span> <span class="k">when</span> <span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">is</span> <span class="nc">SomeKnownFragment</span> <span class="p">-&gt;</span> <span class="p">{</span>
+            <span class="n">target</span><span class="p">.</span><span class="n">dependency</span> <span class="p">=</span> <span class="n">dependency</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">-&gt;</span> <span class="p">{</span>
+            <span class="c1">// report error in some kind</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="py">sharedInstance</span><span class="p">:</span> <span class="nc">SomeGraph</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span>
+            <span class="k">private</span> <span class="k">set</span>
+
+        <span class="k">fun</span> <span class="nf">setup</span><span class="p">(</span>
+            <span class="n">dependency</span><span class="p">:</span> <span class="nc">SomeDependency</span>
+        <span class="p">)</span> <span class="p">{</span>
+            <span class="nf">synchronized</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">sharedInstance</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">return</span>
+                <span class="p">}</span>
+                <span class="n">sharedInstance</span> <span class="p">=</span> <span class="nc">SomeGraph</span><span class="p">(</span>
+                    <span class="n">dependency</span> <span class="p">=</span> <span class="n">dependency</span>
+                <span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>И теперь в условном фрагменте мы можем написать так</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">SomeKnownFragment</span><span class="p">:</span> <span class="nc">Fragment</span><span class="p">(),</span> <span class="nc">Injectable</span> <span class="p">{</span>
+
+    <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">dependency</span><span class="p">:</span> <span class="nc">Dependency</span><span class="p">?</span> <span class="p">=</span> <span class="k">null</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onAttach</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="nc">Context</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="nf">onAttach</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+        <span class="nc">SomeGraph</span><span class="p">.</span><span class="n">sharedInstance</span><span class="o">?.</span><span class="nf">inject</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Как я уже сказал, есть некоторая проблема в том, что связывание будет проверено только в runtime, а правильнее было бы сделать в compile time, но архитектура компонентов Android’а тут этому препятствует.</p>
+
+<p>К слову такой подход хорошо подходит для библиотек, этот SomeGraph может быть объектов библиотеки, которую надо проинициализировать и потом сама библиотека будет ее использовать. Для Activity/Fragment и тд можем сделать лучше, для этого нам потребуется еще немножко сахара (покажу на примере Activity, для фрагментов можно сделать аналогично)</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fun</span> <span class="nc">Activity</span><span class="p">.</span><span class="nf">inject</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">val</span> <span class="py">thisAsInjectable</span> <span class="p">=</span> <span class="k">this</span> <span class="k">as</span><span class="p">?</span> <span class="nc">Injectable</span> <span class="o">?:</span> <span class="k">throw</span> <span class="nc">InjectException</span><span class="p">(</span><span class="s">"activity not injectable"</span><span class="p">)</span>
+    <span class="kd">val</span> <span class="py">application</span> <span class="p">=</span> <span class="n">application</span> <span class="o">?:</span> <span class="k">throw</span> <span class="nc">InjectException</span><span class="p">(</span><span class="s">"application isn't set to activity"</span><span class="p">)</span>
+    <span class="kd">val</span> <span class="py">injector</span> <span class="p">=</span> <span class="n">application</span> <span class="k">as</span><span class="p">?</span> <span class="nc">Injector</span> <span class="o">?:</span> <span class="k">throw</span> <span class="nc">InjectException</span><span class="p">(</span><span class="s">"application is not an injector"</span><span class="p">)</span>
+    <span class="n">injector</span><span class="p">.</span><span class="nf">inject</span><span class="p">(</span><span class="n">thisAsInjectable</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>теперь надо класс приложения разметить соответствующим образом</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">YourApp</span><span class="p">:</span> <span class="nc">Application</span><span class="p">(),</span> <span class="nc">Injector</span> <span class="p">{</span>
+
+    <span class="k">private</span> <span class="k">lateinit</span> <span class="kd">var</span> <span class="py">rootGraph</span><span class="p">:</span> <span class="nc">RootGraph</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="nf">onCreate</span><span class="p">()</span>
+        <span class="n">rootGraph</span> <span class="p">=</span> <span class="nc">RootGraph</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">inject</span><span class="p">(</span><span class="n">target</span><span class="p">:</span> <span class="nc">Injectable</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(!</span><span class="k">this</span><span class="o">::</span><span class="n">graph</span><span class="p">.</span><span class="n">isInitialized</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nf">error</span><span class="p">(</span><span class="s">"Application isn't properly initialized yet"</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">graph</span><span class="p">.</span><span class="nf">inject</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>корневой граф будет выглядеть примерно так</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">RootGraph</span><span class="p">(</span>
+    <span class="n">applicationContext</span><span class="p">:</span> <span class="nc">Context</span>
+<span class="p">):</span> <span class="nc">Injector</span> <span class="p">{</span>
+
+    <span class="c1">// private val yourdeps = ...</span>
+
+    <span class="nf">init</span> <span class="p">{</span>
+        <span class="c1">// тут инициализация нужных компонентов</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">inject</span><span class="p">(</span><span class="n">target</span><span class="p">:</span> <span class="nc">Injectable</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">when</span> <span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">is</span> <span class="nc">MainActivity</span> <span class="p">-&gt;</span> <span class="p">{</span>
+                <span class="n">target</span><span class="p">.</span><span class="n">depepdency</span> <span class="p">=</span> <span class="o">..</span><span class="p">.</span>
+            <span class="p">}</span>
+            <span class="c1">// можно делегировать что-то субграфам</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>И в самой активити будет просто</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MainActivity</span> <span class="p">:</span> <span class="nc">Activity</span><span class="p">(),</span> <span class="nc">Injectable</span> <span class="p">{</span>
+
+    <span class="k">override</span> <span class="k">fun</span> <span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">:</span> <span class="nc">Bundle</span><span class="p">?)</span> <span class="p">{</span>
+        <span class="k">super</span><span class="p">.</span><span class="nf">onCreate</span><span class="p">(</span><span class="n">savedInstanceState</span><span class="p">)</span>
+
+        <span class="nf">inject</span><span class="p">()</span>
+
+        <span class="c1">// остальная инициализация</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Никаких синглетонов и никакого раскрытия лишних зависимостей - PROFIT.</p>
+
+<p>P.S. Если придумаете как решить эту проблему с аналогичными гарантиями да еще и в compile time буду благодарен</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2019/11/06/swift-dependency-injection/">
+            Внедрение зависимостей (dependency injection) в Swift 5.1
+            <small>06.11.2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2019/05/08/clang8-dev-vscode-ubuntu-docker/">
+            Разрабатываем и отлаживаем С++ в Docker с помощью VSCode (2019 edition - clang8 lldb)
+            <small>08.05.2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2018/11/28/swift-kotlin-comparison/">
+            Сравнение Swift vs Kotlin
+            <small>28.11.2018</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter13259782 = new Ya.Metrika({
+                    id:13259782,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/13259782" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16734363-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+    <script src="/public/js/tabs.js"></script>
+
+  </body>
+</html>

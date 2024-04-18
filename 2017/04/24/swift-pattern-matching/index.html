@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name='yandex-verification' content='4a3e9fdb2ed97f52' />
+
+  <title>
+    
+      Swift Pattern Matching &middot; MrDekk
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/mrdekk.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic'>
+  <link rel="stylesheet" href="/public/css/font-awesome.min.css" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="stylesheet" href="/public/css/tabs.css">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+	  <img class="profile" alt="my-profile" src="/media/images/brujo.jpg" width="120px">
+      <h1>MrDekk</h1>
+      <p class="description">Время - лучший учитель! Жаль, что оно убивает своих учеников...</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+        <a href="/"><i class="fa fa-home" ></i></a>
+      </li>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/about/">Кто здесь?</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/tags/">Метки</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/useful/">Полезное</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/awesome/">Awesome Stars</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </ul>
+
+	<p class="social-icons">
+		<!-- <a href="/search"><i class="fa fa-search fa-2x"></i></a> -->
+		<a href="https://github.com/mrdekk"><i class="fa fa-github fa-2x"></i></a>
+		<a href="https://twitter.com/mrdekk"><i class="fa fa-twitter fa-2x"></i></a>
+		<a href="/atom.xml"><i class="fa fa-rss fa-2x"></i></a>
+	</p>
+
+    <p>&copy; 2024. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Swift Pattern Matching</h1>
+  <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">24.04.2017</span>
+  <i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+	
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#swift" title="Pages tagged swift" rel="tag" class="text-success">swift</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#ios" title="Pages tagged ios" rel="tag" class="text-success">ios</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#recipe" title="Pages tagged recipe" rel="tag" class="text-success">recipe</a>
+      </div>
+      
+    
+  </p>
+  <p><em>Статья перевод, оригинал <a href="https://appventure.me/2015/08/20/swift-pattern-matching-in-detail/">тут</a>. Далее повествование идет от лица автора, я лишь в меру своих сил попытался литературно перевести на русский. Также автор судя по всему использует Swift 2, по мере возможности я адаптировал примеры для Swift 3.</em></p>
+
+<p>Среди всех новых конструкций языка Swift по отношению к Objective-C выделяется конструкция switch. Которая, в отличии от языка Objective-C не просто альтернатива набору последовательных операций if-elseif-else, но предоставляет расширенный набор вариантов выбора.</p>
+
+<p>Конструкция switch в swift позволяет делать гораздо больше. И в этой статье я попытаюсь рассказать про эти новые возможности более подробно. Я буду игнорировать те аспекты, которые не несут ничего нового по отношению к Objective-C. Базовые идеи для этой статьи появились в Июле 2014, но большинство вариантов приводило к падению компилятора, поэтому я откладывал написание этой статьи.</p>
+
+<h2 id="погружаемся">Погружаемся</h2>
+
+<p>Основная функция оператора switch конечно pattern matching (<em>устоявшийся термин, переводить не стал, прим. переводчика</em>), способность классифицировать значения и сопоставлять их вариантам выбора.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Пример наихудшего конвертера binary -&gt; decimal в истории</span>
+<span class="k">let</span> <span class="nv">bool1</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">let</span> <span class="nv">bool2</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">switch</span> <span class="p">(</span><span class="n">bool1</span><span class="p">,</span> <span class="n">bool2</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">case</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="nf">print</span><span class="p">(</span><span class="s">"0"</span><span class="p">)</span>
+   <span class="k">case</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="nf">print</span><span class="p">(</span><span class="s">"1"</span><span class="p">)</span>
+   <span class="k">case</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="nf">print</span><span class="p">(</span><span class="s">"2"</span><span class="p">)</span>
+   <span class="k">case</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span> <span class="nf">print</span><span class="p">(</span><span class="s">"3"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Pattern matching (PM) давно существует в таких языках программирования, как Haskell, Erlang, Scala или Prolog. Это замечательно, так как позволяет нам увидеть, как PM используется в этих языках для решения практических проблем, и перенять хорошие для решения собственных задач.</p>
+
+<h2 id="торговый-движок">Торговый движок</h2>
+
+<p>К вам обратились дельцы с Wall Street (ну или хотя бы с ММВБ), им нужна торговая платформа на iOS устройствах. Так как это торгвая платформа, вы определяете перечисление для сделок.</p>
+
+<h3 id="первый-черновик">Первый черновик</h3>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">enum</span> <span class="kt">Trades</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nf">buy</span><span class="p">(</span><span class="nv">stock</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">stockPrice</span><span class="p">:</span> <span class="kt">Float</span><span class="p">)</span>
+    <span class="k">case</span> <span class="nf">sell</span><span class="p">(</span><span class="nv">stock</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">stockPrice</span><span class="p">:</span> <span class="kt">Float</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Кроме того, нам доступно следующее API для совершения сделок. <strong>Обратите внимание, что приказы на продажу такие же приказы, только с отрицательным объемом.</strong> Кроме того, сказано, что рыночные цены не так важны, движок возмет внутренню цену в любом случае.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ - parameter stock: The stock name
+ - parameter amount: The amount, negative number = sell, positive = buy
+*/</span>
+<span class="kd">func</span> <span class="nf">process</span><span class="p">(</span><span class="nv">stock</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">print</span> <span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">amount</span><span class="se">)</span><span class="s"> of </span><span class="se">\(</span><span class="n">stock</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Следующий шаг - обработать приказы. И тут виден потенциал для применения pattern matching, поэтому напишем так:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">trade</span> <span class="o">=</span> <span class="kt">Trades</span><span class="o">.</span><span class="nf">buy</span><span class="p">(</span><span class="nv">stock</span><span class="p">:</span> <span class="s">"APPL"</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="nv">stockPrice</span><span class="p">:</span> <span class="mf">115.5</span><span class="p">)</span>
+
+<span class="k">switch</span> <span class="n">trade</span> <span class="p">{</span>
+<span class="k">case</span> <span class="o">.</span><span class="nf">buy</span><span class="p">(</span><span class="k">let</span> <span class="nv">stock</span><span class="p">,</span> <span class="k">let</span> <span class="nv">amount</span><span class="p">,</span> <span class="n">_</span><span class="p">):</span>
+    <span class="nf">process</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">amount</span><span class="p">)</span>
+<span class="k">case</span> <span class="o">.</span><span class="nf">sell</span><span class="p">(</span><span class="k">let</span> <span class="nv">stock</span><span class="p">,</span> <span class="k">let</span> <span class="nv">amount</span><span class="p">,</span> <span class="n">_</span><span class="p">):</span>
+    <span class="nf">process</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">amount</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// Prints "buy 200 of APPL"</span>
+</code></pre></div></div>
+
+<p>Swift позволяет нам извлекать информацию из элементов перечисления в том виде, как нам это необходимо. Поэтому в данном примере, мы используем только идентификатор акции и количество.</p>
+
+<p>Отлично, оправляемся на Wall Street для того, чтобы продемонстрировать нашу замечательную торговую платформу. Однако как обычно, на практике все не так, как в теории. Сделка не так проста, как вам рассказывают.</p>
+
+<ul>
+  <li>Необходимо рассчитать комиссию, которая отличается в зависимости от типа трейдера.</li>
+  <li>Чем меньше игрок, тем больше комиссия</li>
+  <li>Большие компании имеют больший приоритет</li>
+</ul>
+
+<p>Поэтому было решено выдать новый API для решения этих проблем:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">processSlow</span><span class="p">(</span><span class="n">_</span> <span class="nv">stock</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">fee</span><span class="p">:</span> <span class="kt">Float</span><span class="p">)</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="s">"slow"</span><span class="p">)</span> <span class="p">}</span>
+<span class="kd">func</span> <span class="nf">processFast</span><span class="p">(</span><span class="n">_</span> <span class="nv">stock</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">_</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="n">_</span> <span class="nv">fee</span><span class="p">:</span> <span class="kt">Float</span><span class="p">)</span> <span class="p">{</span> <span class="nf">print</span><span class="p">(</span><span class="s">"fast"</span><span class="p">)</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="типы-трейдоров">Типы трейдоров</h3>
+
+<p>Поэтому возвращаемся и добавляем еще одно перечисление. Тип трейдера будет частью всех сделок.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">enum</span> <span class="kt">TraderType</span> <span class="p">{</span>
+<span class="k">case</span> <span class="n">person</span>
+<span class="k">case</span> <span class="n">company</span>
+<span class="p">}</span>
+
+<span class="kd">enum</span> <span class="kt">Trades</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nf">buy</span><span class="p">(</span><span class="nv">stock</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">stockPrice</span><span class="p">:</span> <span class="kt">Float</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">TraderType</span><span class="p">)</span>
+    <span class="k">case</span> <span class="nf">sell</span><span class="p">(</span><span class="nv">stock</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">stockPrice</span><span class="p">:</span> <span class="kt">Float</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">TraderType</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Чтож, как лучше всего имплементировать это новое ограничение? Можно просто добавить каскадную конструкцию if-else для .buy и для .sell, но это приведет к каскадному коду, и неминуемо потеряет выразительность, и кто знает, что акулы с Wall Street придумают для нас завтра. Поэтому реализуем эти новые ограничения с применением pattern matching:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">trade</span> <span class="o">=</span> <span class="kt">Trades</span><span class="o">.</span><span class="nf">sell</span><span class="p">(</span><span class="nv">stock</span><span class="p">:</span> <span class="s">"GOOG"</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nv">stockPrice</span><span class="p">:</span> <span class="mf">666.0</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">TraderType</span><span class="o">.</span><span class="n">company</span><span class="p">)</span>
+
+<span class="k">switch</span> <span class="n">trade</span> <span class="p">{</span>
+<span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">buy</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="kt">TraderType</span><span class="o">.</span><span class="n">person</span><span class="p">):</span>
+    <span class="nf">processSlow</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>
+<span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">sell</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="kt">TraderType</span><span class="o">.</span><span class="n">person</span><span class="p">):</span>
+    <span class="nf">processSlow</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">amount</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>
+<span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">buy</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="kt">TraderType</span><span class="o">.</span><span class="n">company</span><span class="p">):</span>
+    <span class="nf">processFast</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">sell</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="kt">TraderType</span><span class="o">.</span><span class="n">company</span><span class="p">):</span>
+    <span class="nf">processFast</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">amount</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Достаточно выразительно, не так ли? Кроме того, для краткости мы изменили .buy(let stock, let amount) на let .buy(stock, amount). Суть та же, букв меньше.</p>
+
+<h3 id="охрана-охрана">Охрана! Охрана!</h3>
+
+<p><em>Тут видимо имелось ввиду игра слов, синтаксическая конструкция guard также означает и охрану, прим. переводчика</em></p>
+
+<p>Вы снова презентуете ваше творение дельцам с Wall Street, и снова появляется новая хотелка (вам все-таки стоило изначально попросить более детальное ТЗ).</p>
+
+<ul>
+  <li>Приказы на продажу общим объемом более $ 1 000 000 всегда обрабатываются быстрым процессингом, даже если этот приказ поступил от частного лица</li>
+  <li>Приказы на покупку объемом менее $ 1 000 всегда обрабатываются медленным процессингом.</li>
+</ul>
+
+<p>Это стало бы адом (и лапшой наверное), если бы мы попытались реализовать это через традиционное дерево if’ов. Но у нас есть Swift и конструкция switch. Swift предоставляет дополнительные конструкции для ограничения диапазонов действия переменных.</p>
+
+<p>Поэтому наш код нужно поправить всего чуть-чуть для отражения новых требований.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">trade</span> <span class="o">=</span> <span class="kt">Trades</span><span class="o">.</span><span class="nf">buy</span><span class="p">(</span><span class="nv">stock</span><span class="p">:</span> <span class="s">"GOOG"</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="nv">stockPrice</span><span class="p">:</span> <span class="mf">666.0</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">TraderType</span><span class="o">.</span><span class="n">person</span><span class="p">)</span>
+
+<span class="k">switch</span> <span class="n">trade</span> <span class="p">{</span>
+<span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">buy</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="kt">TraderType</span><span class="o">.</span><span class="n">person</span><span class="p">):</span>
+    <span class="nf">processSlow</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>
+
+<span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">sell</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="kt">TraderType</span><span class="o">.</span><span class="n">person</span><span class="p">)</span>
+    <span class="k">where</span> <span class="n">price</span> <span class="o">*</span> <span class="kt">Float</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1000000</span><span class="p">:</span>
+    <span class="nf">processFast</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">amount</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>
+
+<span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">sell</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="kt">TraderType</span><span class="o">.</span><span class="n">person</span><span class="p">):</span>
+    <span class="nf">processSlow</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">amount</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">)</span>
+
+<span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">buy</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="kt">TraderType</span><span class="o">.</span><span class="n">company</span><span class="p">)</span>
+    <span class="k">where</span> <span class="n">price</span> <span class="o">*</span> <span class="kt">Float</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">:</span>
+    <span class="nf">processSlow</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+
+<span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">buy</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="kt">TraderType</span><span class="o">.</span><span class="n">company</span><span class="p">):</span>
+    <span class="nf">processFast</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+
+<span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">sell</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="kt">TraderType</span><span class="o">.</span><span class="n">company</span><span class="p">):</span>
+    <span class="nf">processFast</span><span class="p">(</span><span class="n">stock</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">amount</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Этот код по прежнему остается как достаточно простым для понимания, так и открытым к новым изменениям.</p>
+
+<p>Ура-ура, мы успешно реализовали нашу торговую платформу. Однако, полученное решение все-таки содержит небольшое количество повторяющегося кода. Но может быть есть еще какие-то магические заклинания, которые помогут нам его уменьшить еще? Давайте смотреть дальше.</p>
+
+<h2 id="продвинутый-pattern-matching">Продвинутый Pattern Matching</h2>
+
+<p>Мы уже попробовали несколько шаблонов в действии. Существуют ли другие варианты? Swift различает 7 типов шаблонов. Давайте посмотрим на все.</p>
+
+<p>Все рассмотренные далее паттерны могут быть использованы не только в конструкции switch, но и с if, guard и даже циклом for.</p>
+
+<h3 id="1-шаблонный-паттерн">1. Шаблонный паттерн</h3>
+
+<p>Шаблонный паттерн игнорирует значение, к которому сопоставляется. В этом случае допустимо любое значение. Вы его уже встречали, это тоже самое что и, например, <code class="language-plaintext highlighter-rouge">let _ = fnt()</code>, где символ “_” означает, что вам безразлично что будет возвращено из функции. Самое интересное, что будет сопоставлено не только значение, но и его отстутствие (nil). Можно даже сопоставлять Optional, достаточно лишь добавить “?”.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">p</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<span class="k">switch</span> <span class="n">p</span> <span class="p">{</span>
+<span class="k">case</span> <span class="n">_</span><span class="p">?:</span> <span class="nf">print</span> <span class="p">(</span><span class="s">"Has String"</span><span class="p">)</span>
+<span class="k">case</span> <span class="nv">nil</span><span class="p">:</span> <span class="nf">print</span> <span class="p">(</span><span class="s">"No String"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>И как мы уже успели заметить, когда реализовывали торговую платформу, этот паттерн позволяет нам опускать данные, которые в данном сопоставлении не используются:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="s">"example"</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="k">let</span> <span class="nv">pi</span><span class="p">):</span> <span class="nf">print</span> <span class="p">(</span><span class="s">"pi: </span><span class="se">\(</span><span class="n">pi</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="2-паттер-по-идентификатору">2. Паттер по идентификатору</h3>
+
+<p>Сопоставляет конкретное значение. Это стандартный механизм того, как работает switch в реализации Objective-C:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span> <span class="mi">5</span> <span class="p">{</span>
+  <span class="k">case</span> <span class="mi">5</span><span class="p">:</span> <span class="nf">print</span><span class="p">(</span><span class="s">"5"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="3-паттерн-с-присвоением-значения">3. Паттерн с присвоением значения</h3>
+
+<p>Аналогичен с присвоением значения переменным через let или var, но только внутри конструкции switch. Мы уже чуть выше встречались с этим видом:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">case</span> <span class="k">let</span> <span class="p">(</span><span class="nv">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">):</span> <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">x</span><span class="se">)</span><span class="s"> </span><span class="se">\(</span><span class="n">y</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="4-паттерн-кортеж">4. Паттерн кортеж</h3>
+
+<p>Можно написать отдельную статью про кортежи, здесь ограничимся лишь простым примером:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">age</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="k">let</span> <span class="nv">job</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="s">"Operator"</span>
+<span class="k">let</span> <span class="nv">payload</span><span class="p">:</span> <span class="kt">AnyObject</span> <span class="o">=</span> <span class="kt">NSDictionary</span><span class="p">()</span>
+
+<span class="k">switch</span> <span class="p">(</span><span class="n">age</span><span class="p">,</span> <span class="n">job</span><span class="p">,</span> <span class="n">payload</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">case</span> <span class="p">(</span><span class="k">let</span> <span class="nv">age</span><span class="p">,</span> <span class="n">_</span><span class="p">?,</span> <span class="n">_</span> <span class="k">as</span> <span class="kt">NSDictionary</span><span class="p">):</span>
+  <span class="nf">print</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+  <span class="k">default</span><span class="p">:</span> <span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>В этом примере мы объединяем три значения в кортеж (например, мы их получили из нескольких разных запросов к API) и сопоставляем их. Важно, что здесь мы выполнили три задачи:</p>
+
+<ol>
+  <li>Извлекли возраст (age)</li>
+  <li>Убедились, что есть работа (job), даже несмотря на то, что она нам в общем не нужна</li>
+  <li>Убедились что привязанные данные (payload) являются наследником класса NSDictionary, даже не смотря на то, что они нам в общем также не нужны.</li>
+</ol>
+
+<h3 id="5-паттерн-выбора-из-перечисления">5. Паттерн выбора из перечисления</h3>
+
+<p>Как уже было замечено выше в примере торговой платформы, pattern matching замечательно работает в паре с перечислениями Swift. Это потому, что перечисления в Swift это закрытые, иммутабельные объекты пригодные для разбора. Также как и с кортежом, вы можете извлекать нужные значения в каждом из вариантов выбора, и только те значения, которые вам необходимы.</p>
+
+<p>Предположим, что мы разрабатываем игру, и у нас имеется несколько видов сущностей. Можно использовать структуры, но так как состояния у нас не много, можно обойтись перечислениями.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">enum</span> <span class="kt">Entities</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nf">soldier</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span>
+    <span class="k">case</span> <span class="nf">tank</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span>
+    <span class="k">case</span> <span class="nf">player</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Теперь нам необходимо реализовать цикл отрисовки. Тут нам необходимы только координаты (X и Y).</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">e</span> <span class="k">in</span> <span class="nf">entities</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="n">e</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">soldier</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="nf">drawImage</span><span class="p">(</span><span class="s">"soldier.png"</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">tank</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="nf">drawImage</span><span class="p">(</span><span class="s">"tank.png"</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">player</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="nf">drawImage</span><span class="p">(</span><span class="s">"player.png"</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="6-паттерн-преобразования-типов">6. Паттерн преобразования типов</h3>
+
+<p>Название говорит само за себя, этот паттерн умеет преобразовывать или просто сопоставлять типы. Имеется два типа выражений:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">is</code> <strong>type</strong>: Сопоставляет тип (или его потомка) с правой частью выражения. Преобразование типа проводиться, но результат отбрасывается. Поэтому выражение выбора не будет знать про получившейся тип.</li>
+  <li>выражение <code class="language-plaintext highlighter-rouge">as</code> <strong>type</strong>: Производит тоже сопоставление что и is, но в случае успешного приведения возвращает полученно значение конкретного типа.</li>
+</ul>
+
+<p>Далее пример обоих выражений</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">a</span><span class="p">:</span> <span class="kt">Any</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">switch</span> <span class="n">a</span> <span class="p">{</span>
+    <span class="c1">// this fails because a is still anyobject</span>
+    <span class="c1">// error: binary operator '+' cannot be applied to operands of type 'Any' and 'Int'</span>
+    <span class="k">case</span> <span class="k">is</span> <span class="kt">Int</span><span class="p">:</span> <span class="nf">print</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1">// This works and returns '6'</span>
+    <span class="k">case</span> <span class="k">let</span> <span class="nv">n</span> <span class="k">as</span> <span class="kt">Int</span><span class="p">:</span> <span class="nf">print</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">default</span><span class="p">:</span> <span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Важно, что перед is нет выражения, сопоставляется переменная выбора (а) напрямую.</p>
+
+<h3 id="7-паттерн---выражение">7. Паттерн - выражение</h3>
+
+<p>Паттер-выражение очень мощный. Он сопоставляет значение в конструкции switch с выражением, реализующим оператор ~=. Для этого оператора существуют реализации по-умолчанию, например, для интервалов, можно сделать так:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span> <span class="mi">5</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">0</span><span class="o">..&lt;</span><span class="mi">10</span><span class="p">:</span> <span class="nf">print</span><span class="p">(</span><span class="s">"In range 0-10"</span><span class="p">)</span>
+    <span class="k">default</span><span class="p">:</span> <span class="k">break</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Интереснее, однако, ситуация, когда этот оператор перегружен для ваших объектов. Предположим, мы решили таки переписать нашу игру про солдатов на структуры.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">Soldier</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">hp</span><span class="p">:</span> <span class="kt">Int</span>
+    <span class="k">let</span> <span class="nv">x</span><span class="p">:</span> <span class="kt">Int</span>
+    <span class="k">let</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">Int</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Теперь мы хотим сопоставлять все объекты с жизнью в 0. Можно просто переопределить оператор ~= так:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="o">~=</span> <span class="p">(</span><span class="nv">pattern</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Soldier</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">pattern</span> <span class="o">==</span> <span class="n">value</span><span class="o">.</span><span class="n">hp</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Теперь можно сопоставлять:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">soldier</span> <span class="o">=</span> <span class="kt">Soldier</span><span class="p">(</span><span class="nv">hp</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span> <span class="nv">x</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
+<span class="k">switch</span> <span class="n">soldier</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="mi">0</span><span class="p">:</span> <span class="nf">print</span><span class="p">(</span><span class="s">"dead soldier"</span><span class="p">)</span>
+    <span class="k">default</span><span class="p">:</span> <span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Можно сопоставлять кортежи, так:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="o">~=</span> <span class="p">(</span><span class="nv">pattern</span><span class="p">:</span> <span class="p">(</span><span class="nv">hp</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">x</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">Int</span><span class="p">),</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Soldier</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+   <span class="k">let</span> <span class="p">(</span><span class="nv">hp</span><span class="p">,</span> <span class="nv">x</span><span class="p">,</span> <span class="nv">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">pattern</span>
+   <span class="k">return</span> <span class="n">hp</span> <span class="o">==</span> <span class="n">value</span><span class="o">.</span><span class="n">hp</span> <span class="o">&amp;&amp;</span> <span class="n">x</span> <span class="o">==</span> <span class="n">value</span><span class="o">.</span><span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">==</span> <span class="n">value</span><span class="o">.</span><span class="n">y</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Оператор ~= может работать с протоколами:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">protocol</span> <span class="kt">Entity</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span><span class="k">get</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">struct</span> <span class="kt">Tank</span><span class="p">:</span> <span class="kt">Entity</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Int</span>
+    <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span> <span class="k">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">struct</span> <span class="kt">Peasant</span><span class="p">:</span> <span class="kt">Entity</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Int</span>
+    <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span> <span class="k">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="o">~=</span><span class="p">(</span><span class="nv">pattern</span><span class="p">:</span> <span class="kt">Entity</span><span class="p">,</span> <span class="nv">x</span><span class="p">:</span> <span class="kt">Entity</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">pattern</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="n">x</span><span class="o">.</span><span class="n">value</span>
+<span class="p">}</span>
+
+<span class="k">switch</span> <span class="kt">Tank</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="kt">Peasant</span><span class="p">(</span><span class="mi">42</span><span class="p">):</span> <span class="nf">print</span><span class="p">(</span><span class="s">"Matched"</span><span class="p">)</span> <span class="c1">// Does match</span>
+    <span class="k">default</span><span class="p">:</span> <span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Есть еще много интересных вещей, которые можно сделать через паттерн-выражение. Для более детального описания, можете обратится к <a href="http://austinzheng.com/2014/12/17/custom-pattern-matching/">статье Austin Zheng</a>, правда она на английском.</p>
+
+<p>Мы рассмотрели все возможные варианты, однако перед тем, как мы продолжим, есть еще одна важная вещь для рассмотрения.</p>
+
+<h3 id="fallthrough-break-и-метки">Fallthrough, Break, и метки</h3>
+
+<p>Этот раздел напрямую к pattern matching’у не относится, но затрагивает то, как работает конструкция switch, поэтому вкратце рассмотрим. По-умолчанию, и в отличии от C/C++/Objective-C, конструкция switch не обрабатывает последующии конструкции выбора (case), поэтому нет необходимости в каждом из вариантов писать break. Однако, привычное поведение можно вернуть с помощью оператора fallthrough.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span> <span class="mi">5</span> <span class="p">{</span>
+<span class="k">case</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"Is 5"</span><span class="p">)</span>
+    <span class="k">fallthrough</span>
+<span class="k">default</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"Is a number"</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="c1">// Will print: "Is 5" "Is a number"</span>
+</code></pre></div></div>
+
+<p>Если вам необходимо досрочно выйти, то оператором break можно воспользовать. Зачем это надо, если нет обработки следующих конструкций по-умолчанию, спросите вы? Ну, например, внутри конструкции case вы можете определить, что условие не вполне удовлетворяется, и не стоит выполнять следующие операции:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">userType</span> <span class="o">=</span> <span class="s">"system"</span>
+<span class="k">let</span> <span class="nv">userID</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">switch</span> <span class="p">(</span><span class="n">userType</span><span class="p">,</span> <span class="n">userID</span><span class="p">)</span>  <span class="p">{</span>
+<span class="k">case</span> <span class="p">(</span><span class="s">"system"</span><span class="p">,</span> <span class="n">_</span><span class="p">):</span>
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">userData</span> <span class="o">=</span> <span class="nf">getSystemUser</span><span class="p">(</span><span class="n">userID</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span> <span class="k">break</span> <span class="p">}</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"user info: </span><span class="se">\(</span><span class="n">userData</span><span class="se">)</span><span class="s">"</span><span class="p">)</span>
+    <span class="nf">insertIntoRemoteDB</span><span class="p">(</span><span class="n">userData</span><span class="p">)</span>
+<span class="k">default</span><span class="p">:</span> <span class="p">()</span>
+<span class="p">}</span>
+<span class="c1">// ... more code that needs to be executed</span>
+</code></pre></div></div>
+
+<p>В примере, мы не вызываем функцию insertIntoRemoteData, если функция getSystemUser вернула nil. Конечно, здесь можно использовать конструкцию if let, но если их будет несколько, код станет выглядеть ужасно.</p>
+
+<p>Но что если вы поместили ваш switch внутри, например, цикла while, и вам надо выйти из цикла, а не из switch? Для таких случаев Swift предоставляет возможность определять метки, для которых будут работать операции break и continue:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">gameLoop</span><span class="p">:</span> <span class="k">while</span> <span class="kc">true</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="nf">state</span><span class="p">()</span> <span class="p">{</span>
+     <span class="k">case</span> <span class="o">.</span><span class="nv">waiting</span><span class="p">:</span> <span class="k">continue</span> <span class="n">gameLoop</span>
+     <span class="k">case</span> <span class="o">.</span><span class="nv">done</span><span class="p">:</span> <span class="nf">calculateNextState</span><span class="p">()</span>
+     <span class="k">case</span> <span class="o">.</span><span class="nv">gameOver</span><span class="p">:</span> <span class="k">break</span> <span class="n">gameLoop</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>На этом мы рассмотрели весь синтаксис и детали реализации конструкции switch и pattern matching’а. Теперь давайте рассмотрим несколько интересных примеров из реальной жизни.</p>
+
+<h2 id="примеры-из-реальной-жизни">Примеры из реальной жизни</h2>
+
+<h3 id="optionals">Optionals</h3>
+
+<p>Существует огромное количество способов разворачивания Optional, и pattern matching - один из них. Наверняка вы этим часто пользуетесь, но пример все же вот:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">result</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="nf">secretMethod</span><span class="p">()</span>
+<span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
+<span class="k">case</span> <span class="nv">nil</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"is nothing"</span><span class="p">)</span>
+<span class="k">case</span> <span class="k">let</span> <span class="nv">a</span><span class="p">?:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"</span><span class="se">\(</span><span class="n">a</span><span class="se">)</span><span class="s"> is a value"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Как можно заметить, result может быть строкой, а может быть и nil - это Optional. Можно поиграться с возвращаемым значением secretMethod() и посмотреть на результат. Кроме того, если в result есть значение, то его можно привязать к переменной (в нашем случае - a). С помощью такого кода - мы явно разделяем два случая - когда там нет значения и когда какое-то есть.</p>
+
+<h2 id="сопоставление-типов">Сопоставление типов</h2>
+
+<p>Благодаря строгой типизации в Swift, необходимость в runtime проверке типов возникает редко, реже, нежели в Objective-C. Однако, такие случаи иногда встречаются, особенно если вы работаете с наследием Objective-C (особенно, если кодовая база не была обновлена для работы с generic’ами). В таком случае вам нужна проверка типов. Предположим, у нас есть массив NSString’ов и NSNumber’ов:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">u</span> <span class="o">=</span> <span class="kt">NSArray</span><span class="p">(</span><span class="nv">array</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSString</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="s">"String1"</span><span class="p">),</span> <span class="kt">NSNumber</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">20</span><span class="p">),</span> <span class="kt">NSNumber</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">40</span><span class="p">)])</span>
+</code></pre></div></div>
+
+<p>Когда мы будем итерироваться по этому NSArray, мы не знаем точно, объект какого типа мы получаем. В этом случае нам поможет конструкция switch:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">u</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="n">x</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">_</span> <span class="k">as</span> <span class="kt">NSString</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"string"</span><span class="p">)</span>
+    <span class="k">case</span> <span class="n">_</span> <span class="k">as</span> <span class="kt">NSNumber</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"number"</span><span class="p">)</span>
+    <span class="k">default</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"Unknown types"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="сопоставляем-баллы-с-оценками">Сопоставляем баллы с оценками</h3>
+
+<p>Предположим вы подрядились написать iOS приложение для учителей в американских школах. Там учитель желает быстро уметь конвертировать некоторое количество баллов (от 0 до 100) в оценку (A - F). И тут pattern matching нам поможет:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">aGrade</span> <span class="o">=</span> <span class="mi">84</span>
+
+<span class="k">switch</span> <span class="n">aGrade</span> <span class="p">{</span>
+<span class="k">case</span> <span class="mi">90</span><span class="o">...</span><span class="mi">100</span><span class="p">:</span> <span class="nf">print</span><span class="p">(</span><span class="s">"A"</span><span class="p">)</span>
+<span class="k">case</span> <span class="mi">80</span><span class="o">...</span><span class="mi">90</span><span class="p">:</span> <span class="nf">print</span><span class="p">(</span><span class="s">"B"</span><span class="p">)</span>
+<span class="k">case</span> <span class="mi">70</span><span class="o">...</span><span class="mi">80</span><span class="p">:</span> <span class="nf">print</span><span class="p">(</span><span class="s">"C"</span><span class="p">)</span>
+<span class="k">case</span> <span class="mi">60</span><span class="o">...</span><span class="mi">70</span><span class="p">:</span> <span class="nf">print</span><span class="p">(</span><span class="s">"D"</span><span class="p">)</span>
+<span class="k">case</span> <span class="mi">0</span><span class="o">...</span><span class="mi">60</span><span class="p">:</span> <span class="nf">print</span><span class="p">(</span><span class="s">"F"</span><span class="p">)</span>
+<span class="k">default</span><span class="p">:</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"Incorrect Grade"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="частота-слов">Частота слов</h3>
+
+<p>У нас есть набор пар, каждая из которых представляет собой слово и его частоту в некотором тексте. Наша задача - сделать пороговый фильтр - отфильтровать те слова, частота которых больше некоторого порогового значения и вывести их, без частот.</p>
+
+<p>Вот наши слова:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">wordFreqs</span> <span class="o">=</span> <span class="p">[(</span><span class="s">"k"</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="s">"a"</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="p">(</span><span class="s">"b"</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]</span>
+</code></pre></div></div>
+
+<p>Простое решение через map и filter:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">res</span> <span class="o">=</span> <span class="n">wordFreqs</span><span class="o">.</span><span class="nf">filter</span><span class="p">({</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="k">in</span>
+    <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">3</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">})</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="mi">0</span> <span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Однако, с помощью flatmap (map которая возвращает только не nil элементы), можно улучшить и это решение. Первое и самое важное, мы можем избавиться от e.1 и иметь правильное разложение с использованием кортежей. И нам потребуется только один вызов flatmap, вместо filter и map, которые ухудшают производительность.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">res</span> <span class="o">=</span> <span class="n">wordFreqs</span><span class="o">.</span><span class="n">flatMap</span> <span class="p">{</span> <span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span> <span class="k">in</span>
+    <span class="k">switch</span> <span class="n">e</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="k">let</span> <span class="p">(</span><span class="nv">s</span><span class="p">,</span> <span class="nv">t</span><span class="p">)</span> <span class="k">where</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span> <span class="k">return</span> <span class="n">s</span>
+    <span class="k">default</span><span class="p">:</span> <span class="k">return</span> <span class="kc">nil</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="обход-дерева-каталогов">Обход дерева каталогов</h3>
+
+<p>Предположим, что мы хотим обойти дерево файлов и найти:</p>
+
+<ul>
+  <li>Все “psd” файлы от customer1 и customer2</li>
+  <li>Все “blend” файлы от customer2</li>
+  <li>Все “jpeg” файлы от всех клиентов</li>
+</ul>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">guard</span> <span class="k">let</span> <span class="nv">enumerator</span> <span class="o">=</span> <span class="kt">FileManager</span><span class="o">.</span><span class="k">default</span><span class="o">.</span><span class="nf">enumerator</span><span class="p">(</span><span class="nv">atPath</span><span class="p">:</span> <span class="s">"/customers/2014"</span><span class="p">)</span>
+    <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+
+<span class="k">for</span> <span class="k">case</span> <span class="k">let</span> <span class="nv">url</span> <span class="k">as</span> <span class="kt">URL</span> <span class="k">in</span> <span class="n">enumerator</span> <span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">url</span><span class="o">.</span><span class="n">pathComponents</span><span class="p">,</span> <span class="n">url</span><span class="o">.</span><span class="n">pathExtension</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// psd files from customer1, customer2</span>
+    <span class="k">case</span> <span class="p">(</span><span class="k">let</span> <span class="nv">f</span><span class="p">,</span> <span class="s">"psd"</span><span class="p">)</span>
+        <span class="k">where</span> <span class="n">f</span><span class="o">.</span><span class="nf">contains</span><span class="p">(</span><span class="s">"customer1"</span><span class="p">)</span> <span class="o">||</span>
+            <span class="n">f</span><span class="o">.</span><span class="nf">contains</span><span class="p">(</span><span class="s">"customer2"</span><span class="p">):</span> <span class="nf">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+    <span class="c1">// blend files from customer2</span>
+    <span class="k">case</span> <span class="p">(</span><span class="k">let</span> <span class="nv">f</span><span class="p">,</span> <span class="s">"blend"</span><span class="p">)</span>
+        <span class="k">where</span> <span class="n">f</span><span class="o">.</span><span class="nf">contains</span><span class="p">(</span><span class="s">"customer2"</span><span class="p">):</span> <span class="nf">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+    <span class="c1">// all jpg files</span>
+    <span class="k">case</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="s">"jpg"</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+    <span class="k">default</span><span class="p">:</span> <span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="фибоначчи">Фибоначчи</h3>
+
+<p>Теперь “черная магия”, считаем числа Фибоначчи с помощью pattern matching’а:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">_</span> <span class="nv">i</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="p">{</span>
+    <span class="k">switch</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="k">let</span> <span class="nv">n</span> <span class="k">where</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">case</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">case</span> <span class="k">let</span> <span class="nv">n</span><span class="p">:</span> <span class="k">return</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="nf">fibonacci</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Не запускайте на больших числах :) - получите переполнение стэка.</p>
+
+<h3 id="унаследованнное-api-и-извлечение-значений">Унаследованнное API и извлечение значений</h3>
+
+<p>Частно, когда вы получаете данные из внешнего источника (библиотеки, API и т.д.), перед обработкой хорошей практикой считается их проверить на корректность. Необходимо убедиться что все необходимые ключи присутствуют, данные имеют корректный тип или, например, массив нужной длины. Отсутствие такой проверки может вести от некорректного поведения (нет ключа) до падения приложения (индекс за границей массива). Классический вариант такой проверки - вложенные if’ы.</p>
+
+<p>Предположим, что у нас есть API, которое возвращает пользователя. Однако, существуют два типа пользователей: привелигированные пользователи (такие как администратор) и обычные (John B, Bill Gates и т.д.). Учитывая нюансы развития системы, имеем некоторые особенности такого API:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">system</code> (привелигированные) и <code class="language-plaintext highlighter-rouge">local</code> (обычные) пользователи получаются с помощью одного и того же вызова API</li>
+  <li>Ключ <code class="language-plaintext highlighter-rouge">department</code> (подразделение) может отсутствовать, так как первые версии базы данных не содержали такого ключа и поэтому для ранних пользователей он необязателен к заполнению.</li>
+  <li>Массив <code class="language-plaintext highlighter-rouge">name</code> (имя) может содержать либо 4 значения (логин, фамилия, имя, отчество) или 2 значения (логин и полное имя). Количество значений зависит от того, как давно был создан пользователь.</li>
+  <li>Поле <code class="language-plaintext highlighter-rouge">age</code> (возраст) - целое число указывающее количество полных лет</li>
+</ul>
+
+<p>От нашей системы требуется создавать пользовательские аккаунты для всех привелигированных пользователей со следующей информацией: логин (<code class="language-plaintext highlighter-rouge">username</code>), подразделение (<code class="language-plaintext highlighter-rouge">department</code>). Нам необходимы только пользователи с датой рождения после 1980 года. Если подразделение не задано, то по-умолчанию считаем “Corp”.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">legacyAPI</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">]</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="s">"type"</span><span class="p">:</span> <span class="s">"system"</span><span class="p">,</span>
+        <span class="s">"department"</span><span class="p">:</span> <span class="s">"Dark Arts"</span><span class="p">,</span>
+        <span class="s">"age"</span><span class="p">:</span> <span class="mi">57</span><span class="p">,</span>
+        <span class="s">"name"</span><span class="p">:</span> <span class="p">[</span><span class="s">"voldemort"</span><span class="p">,</span> <span class="s">"Tom"</span><span class="p">,</span> <span class="s">"Marvolo"</span><span class="p">,</span> <span class="s">"Riddle"</span><span class="p">]</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Учитывая вышеназванные ограничения, давайте воспользуемся pattern matching’ом:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">item</span> <span class="o">=</span> <span class="nf">legacyAPI</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="mi">4</span><span class="p">)</span>
+<span class="k">switch</span> <span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="s">"type"</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="s">"department"</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="s">"age"</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="s">"name"</span><span class="p">])</span> <span class="p">{</span>
+<span class="k">case</span> <span class="k">let</span> <span class="p">(</span><span class="nv">sys</span> <span class="nv">as</span> <span class="nv">String</span><span class="p">,</span> <span class="nv">dep</span> <span class="nv">as</span> <span class="nv">String</span><span class="p">,</span> <span class="nv">age</span> <span class="nv">as</span> <span class="nv">Int</span><span class="p">,</span> <span class="nv">name</span> <span class="nv">as</span> <span class="err">[</span><span class="nv">String</span><span class="err">]</span><span class="p">)</span>
+    <span class="k">where</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">1980</span> <span class="o">&amp;&amp;</span> <span class="n">sys</span> <span class="o">==</span> <span class="s">"system"</span><span class="p">:</span>
+    <span class="nf">createSystemUser</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">count</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">?</span> <span class="n">name</span><span class="o">.</span><span class="n">last</span><span class="o">!</span> <span class="p">:</span> <span class="n">name</span><span class="o">.</span><span class="n">first</span><span class="o">!</span><span class="p">,</span> <span class="nv">dep</span><span class="p">:</span> <span class="n">dep</span><span class="o">.</span><span class="n">characters</span><span class="o">.</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">?</span> <span class="nv">dep</span> <span class="p">:</span> <span class="s">"Corp"</span><span class="p">)</span>
+<span class="k">default</span><span class="p">:()</span>
+<span class="p">}</span>
+<span class="c1">// returns ("voldemort", "Dark Arts")</span>
+</code></pre></div></div>
+
+<p>Обратите внимание, что приведенный выше код делает одно опасное предположение, которое заключается в том, что если массив <code class="language-plaintext highlighter-rouge">name</code> имеет не 2 значения, то он обязан иметь 4. Если это предположение не выполнится, мы получим крэш.</p>
+
+<p>Во всем остальном - это удачные пример того, как pattern matching может помочь вам писать элегантный код и упростить извлечение значений.</p>
+
+<p>И обратите внимание на то, что мы записали let только перед кортежом, дабы не повторять его для каждой из переменных.</p>
+
+<h2 id="паттерны-с-другими-конструкциями">Паттерны с другими конструкциями</h2>
+
+<p>Как указывает документация на swift, все обозначенные выше паттерны могут быть использованы также с конструкциями if, for и guard.</p>
+
+<p>Небольшой пример, связывание значений (value binding), кортеж и приведение типов в одном примере для всех трех конструкций:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// This is just a collection of keywords that compiles. This code makes no sense</span>
+<span class="kd">func</span> <span class="nf">valueTupleType</span><span class="p">(</span><span class="n">_</span> <span class="nv">a</span><span class="p">:</span> <span class="p">(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Any</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+    <span class="c1">// guard case Example</span>
+    <span class="k">guard</span> <span class="k">case</span> <span class="k">let</span> <span class="p">(</span><span class="nv">x</span><span class="p">,</span> <span class="nv">_</span> <span class="nv">as</span> <span class="nv">String</span><span class="p">)</span> <span class="o">=</span> <span class="n">a</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span><span class="p">}</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="c1">// for case example</span>
+    <span class="k">for</span> <span class="k">case</span> <span class="k">let</span> <span class="p">(</span><span class="nv">a</span><span class="p">,</span> <span class="nv">_</span> <span class="nv">as</span> <span class="nv">String</span><span class="p">)</span> <span class="k">in</span> <span class="p">[</span><span class="n">a</span><span class="p">]</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">// if case example</span>
+    <span class="k">if</span> <span class="k">case</span> <span class="k">let</span> <span class="p">(</span><span class="nv">x</span><span class="p">,</span> <span class="nv">_</span> <span class="nv">as</span> <span class="nv">String</span><span class="p">)</span> <span class="o">=</span> <span class="n">a</span> <span class="p">{</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"if"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1">// switch case example</span>
+    <span class="k">switch</span> <span class="n">a</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="k">let</span> <span class="p">(</span><span class="nv">a</span><span class="p">,</span> <span class="nv">_</span> <span class="nv">as</span> <span class="nv">String</span><span class="p">):</span>
+        <span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">true</span>
+    <span class="k">default</span><span class="p">:</span> <span class="k">return</span> <span class="kc">false</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">let</span> <span class="nv">u</span><span class="p">:</span> <span class="kt">Any</span> <span class="o">=</span> <span class="s">"a"</span>
+<span class="k">let</span> <span class="nv">b</span><span class="p">:</span> <span class="kt">Any</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">valueTupleType</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="n">u</span><span class="p">)))</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">valueTupleType</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="n">b</span><span class="p">)))</span>
+<span class="c1">// 5, 5, "if 5", 5, true, false</span>
+</code></pre></div></div>
+
+<p>Теперь давайте немножко рассмотрим каждую из конструкций более подробно.</p>
+
+<h3 id="используем-for-case">Используем for case</h3>
+
+<p>Pattern matching в swift стал настолько важен, что возможности конструкции switch распространили и на другие. Для примера, давайте напишем функцию обработки массива, которая возвращает все существующие (non-nil) элементы:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="n">nonnil</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">array</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">?])</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">T</span><span class="p">]</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">result</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="k">case</span> <span class="k">let</span> <span class="nv">x</span><span class="p">?</span> <span class="k">in</span> <span class="n">array</span> <span class="p">{</span>
+        <span class="n">result</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">result</span>
+<span class="p">}</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="nf">nonnil</span><span class="p">([</span><span class="s">"a"</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="s">"c"</span><span class="p">,</span> <span class="kc">nil</span><span class="p">]))</span>
+</code></pre></div></div>
+
+<p>Ключевое слово case может быть использовано в циклах for аналогично конструкции switch. Другой пример, помните игру, которую мы рассматривали ранее? Хорошо, после первого рефакторинга она выглядела так:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">enum</span> <span class="kt">Entity</span> <span class="p">{</span>
+    <span class="kd">enum</span> <span class="kt">EntityType</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="n">soldier</span>
+        <span class="k">case</span> <span class="n">player</span>
+    <span class="p">}</span>
+    <span class="k">case</span> <span class="kt">Entry</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="kt">EntityType</span><span class="p">,</span> <span class="nv">x</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">hp</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Теперь, мы можем нарисовать все элементы с меньшим количеством кода:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="k">case</span> <span class="k">let</span> <span class="nv">Entity</span><span class="o">.</span><span class="kt">Entry</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="k">in</span> <span class="nf">gameEntities</span><span class="p">()</span>
+    <span class="k">where</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+        <span class="nf">drawEntity</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Одной строчкой извлекаем все необходимые свойства, убеждаемся что не рисуем ниже и левее 0 и в конце-концов таки вызываем функцию рисования.</p>
+
+<p>Для того, чтобы убедиться что игрок выиграл игру, нам необходимо знать, остался ли в живых хотя бы один солдат (health &gt; 0).</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">gameOver</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="k">case</span> <span class="kt">Entity</span><span class="o">.</span><span class="kt">Entry</span><span class="p">(</span><span class="o">.</span><span class="n">soldier</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="k">let</span> <span class="nv">hp</span><span class="p">)</span> <span class="k">in</span> <span class="nf">gameEntities</span><span class="p">()</span>
+        <span class="k">where</span> <span class="n">hp</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">{</span><span class="k">return</span> <span class="kc">false</span><span class="p">}</span>
+    <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">gameOver</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>Хорошо то, что сопоставление с .soldier является частью запроса. Это больше напоминает SQL нежели императивный цикл. Кроме того, такая запись делает нашу задумку более явной для компилятора и открывает возможности для оптимизаций. И нам нет необходимости раскрывать полное имя типа (Entity.EntityType.soldier).</p>
+
+<h3 id="используем-guard-case">Используем guard case</h3>
+
+<p>Другое ключевое слово, которое поддерживает pattern matching - это новая конструкция guard. Вы наверняка уже использовали ее для привязки optional’ов к локальному scope без каскадный конструкций так:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">example</span><span class="p">(</span><span class="n">_</span> <span class="nv">a</span><span class="p">:</span> <span class="kt">String</span><span class="p">?)</span> <span class="p">{</span>
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">a</span> <span class="o">=</span> <span class="n">a</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="nf">example</span><span class="p">(</span><span class="s">"yes"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>guard let case позволяет использовать всю мощь pattern matching’а. Давайте снова взглянем на наших солдатиков. Нам необходимо посчитать требуемую HP до того, как игрок будет полностью здоров. Солдаты не могут восстанавливать HP, поэтому нам необходимо для них всегда возвращать 0.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">MAX_HP</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="kd">func</span> <span class="nf">healthHP</span><span class="p">(</span><span class="n">_</span> <span class="nv">entity</span><span class="p">:</span> <span class="kt">Entity</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="p">{</span>
+    <span class="k">guard</span> <span class="k">case</span> <span class="k">let</span> <span class="nv">Entity</span><span class="o">.</span><span class="kt">Entry</span><span class="p">(</span><span class="o">.</span><span class="n">player</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">hp</span><span class="p">)</span> <span class="o">=</span> <span class="n">entity</span><span class="p">,</span> <span class="n">hp</span> <span class="o">&lt;</span> <span class="kt">MAX_HP</span>
+        <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span> <span class="p">}</span>
+    <span class="k">return</span> <span class="kt">MAX_HP</span> <span class="o">-</span> <span class="n">hp</span>
+<span class="p">}</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="s">"Soldier"</span><span class="p">,</span> <span class="nf">healthHP</span><span class="p">(</span><span class="kt">Entity</span><span class="o">.</span><span class="kt">Entry</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">soldier</span><span class="p">,</span> <span class="nv">x</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nv">hp</span><span class="p">:</span> <span class="mi">79</span><span class="p">)))</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">"Player"</span><span class="p">,</span> <span class="nf">healthHP</span><span class="p">(</span><span class="kt">Entity</span><span class="o">.</span><span class="kt">Entry</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">player</span><span class="p">,</span> <span class="nv">x</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nv">hp</span><span class="p">:</span> <span class="mi">57</span><span class="p">)))</span>
+
+<span class="c1">// Prints:</span>
+<span class="s">"Soldier 0"</span>
+<span class="s">"Player 43"</span>
+</code></pre></div></div>
+
+<p>Замечательный пример рассмотренных нами возможностей.</p>
+
+<ul>
+  <li>Он просто и понятен, без каскадных конструкций</li>
+  <li>Логика и инициализация состояния обрабатывается в начале функции, что повышает читаемость</li>
+  <li>Лаконичный</li>
+</ul>
+
+<p>Можно совмещать с конструкций switch для совмещения сложных логических конструкций в легкую для прочтения форму. Конечно, сама логика от этого не станет легче в восприятии, но как минимум, она будет лаконичнее и короче. Особенно при использовании перечислений.</p>
+
+<h3 id="используем-if-case">Используем if case</h3>
+
+<p>if case можно испоьзовать в противовес guard case. Это замечательный способ извлечения и сопоставления данных в конкретной ветви условия. Продолжаем с нашими солдатиками - нам необходима функция перемещения. Так как наши сущности - это перечисления, нам необходимо вернуть измененную сущность.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">move</span><span class="p">(</span><span class="n">_</span> <span class="nv">entity</span><span class="p">:</span> <span class="kt">Entity</span><span class="p">,</span> <span class="nv">xd</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">yd</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Entity</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="k">case</span> <span class="kt">Entity</span><span class="o">.</span><span class="kt">Entry</span><span class="p">(</span><span class="k">let</span> <span class="nv">t</span><span class="p">,</span> <span class="k">let</span> <span class="nv">x</span><span class="p">,</span> <span class="k">let</span> <span class="nv">y</span><span class="p">,</span> <span class="k">let</span> <span class="nv">hp</span><span class="p">)</span> <span class="o">=</span> <span class="n">entity</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">xd</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1000</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">yd</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1000</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kt">Entity</span><span class="o">.</span><span class="kt">Entry</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="n">t</span><span class="p">,</span> <span class="nv">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">xd</span><span class="p">),</span> <span class="nv">y</span><span class="p">:</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">yd</span><span class="p">),</span> <span class="nv">hp</span><span class="p">:</span> <span class="n">hp</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">entity</span>
+<span class="p">}</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">move</span><span class="p">(</span><span class="kt">Entity</span><span class="o">.</span><span class="kt">Entry</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">soldier</span><span class="p">,</span> <span class="nv">x</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nv">hp</span><span class="p">:</span> <span class="mi">79</span><span class="p">),</span> <span class="nv">xd</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="nv">yd</span><span class="p">:</span> <span class="mi">500</span><span class="p">))</span>
+<span class="c1">// prints: Entry(main.Entity.EntityType.soldier, 40, 510, 79)</span>
+</code></pre></div></div>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2024/04/08/notes-on-di/">
+            Заметки о Dependency Injection
+            <small>08.04.2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2019/11/06/swift-dependency-injection/">
+            Внедрение зависимостей (dependency injection) в Swift 5.1
+            <small>06.11.2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2019/05/08/clang8-dev-vscode-ubuntu-docker/">
+            Разрабатываем и отлаживаем С++ в Docker с помощью VSCode (2019 edition - clang8 lldb)
+            <small>08.05.2019</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter13259782 = new Ya.Metrika({
+                    id:13259782,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/13259782" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16734363-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+    <script src="/public/js/tabs.js"></script>
+
+  </body>
+</html>

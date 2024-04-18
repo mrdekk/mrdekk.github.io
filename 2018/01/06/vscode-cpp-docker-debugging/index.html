@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name='yandex-verification' content='4a3e9fdb2ed97f52' />
+
+  <title>
+    
+      Разрабатываем и отлаживаем С++ в Docker с помощью VSCode &middot; MrDekk
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/mrdekk.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic'>
+  <link rel="stylesheet" href="/public/css/font-awesome.min.css" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="stylesheet" href="/public/css/tabs.css">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+	  <img class="profile" alt="my-profile" src="/media/images/brujo.jpg" width="120px">
+      <h1>MrDekk</h1>
+      <p class="description">Время - лучший учитель! Жаль, что оно убивает своих учеников...</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+        <a href="/"><i class="fa fa-home" ></i></a>
+      </li>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/about/">Кто здесь?</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/tags/">Метки</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/useful/">Полезное</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/awesome/">Awesome Stars</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </ul>
+
+	<p class="social-icons">
+		<!-- <a href="/search"><i class="fa fa-search fa-2x"></i></a> -->
+		<a href="https://github.com/mrdekk"><i class="fa fa-github fa-2x"></i></a>
+		<a href="https://twitter.com/mrdekk"><i class="fa fa-twitter fa-2x"></i></a>
+		<a href="/atom.xml"><i class="fa fa-rss fa-2x"></i></a>
+	</p>
+
+    <p>&copy; 2024. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="post">
+  <h1 class="post-title">Разрабатываем и отлаживаем С++ в Docker с помощью VSCode</h1>
+  <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">06.01.2018</span>
+  <i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+	
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#c%2B%2B" title="Pages tagged c++" rel="tag" class="text-success">c++</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#linux" title="Pages tagged linux" rel="tag" class="text-success">linux</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#ubuntu" title="Pages tagged ubuntu" rel="tag" class="text-success">ubuntu</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#gcc" title="Pages tagged gcc" rel="tag" class="text-success">gcc</a>
+      </div>
+      &nbsp;
+    
+	  <div class="label bg-success">
+	    <a href="http://mrdekk.ru/tags/#vscode" title="Pages tagged vscode" rel="tag" class="text-success">vscode</a>
+      </div>
+      
+    
+  </p>
+  <p>Продолжаем цикл статей “Как кодить на С++ под OSX для Ubuntu”. После сборки cross-toolchain’ов стояла задача научиться собирать, запускать и отлаживать С++ под OSX для Linux (Ubuntu в данном случае). Как оказалось cross-toolchain был не нужен :(. Но об этом позже.</p>
+
+<p>Для начала нужна была IDE, в которой можно было бы комфортно редактировать код и отлаживаться. Претенденты были такие: Xcode, Eclipse (CDT), CLion, чуть позже к ним добавился VSCode и впоследствии выиграл соревнование.</p>
+
+<p>Постановка задачи была такая: C++, CMake, Linux, при этом редактирование кода и отладка должна работать под OSX.</p>
+
+<p>Xcode поэтому выпал из этой гонки сразу, он есть очень удобная IDE для C++, но в целом в основном для OSX. CMake наверное завести можно, но это будет большое количество сторонних средств.</p>
+
+<p>CLion выпал из этой же гонки примерно по тем же причинам (хотя он вроде умеет в CMake). Плюс я не смог в нем нормально подружиться с Docker.</p>
+
+<p>Остался Eclipse CDT, в нем получилось практически все что требовалось (с cross-toolchain), завелась даже отладка через cross-gdb, однако были странные махинации чтобы нормально работать с CMake и контейнером он управлял относительно сам (не совсем прозрачно), хотя надо отметить что поддержка Docker в Eclipse плюс-минус хорошая.</p>
+
+<p>После этого я пошел посерфить интеренет в поисках каких-нибудь идей, как нормально подружить Eclipse и CMake, и тут я наткнулся на VSCode. Которые не позиционирует себя как IDE, но умеет в дебаг и всякие user-defined task’и. Несмотря на мое некоторое отношение к продуктам Microsoft, я решил дать этому редактору шанс и попробовал его… и надо признать, это очень хороший инструмент.</p>
+
+<p>Теперь же собственно, как завести, чтобы все работало.</p>
+
+<p>Для начала нам понадобится собственно VSCode, настроенный так, как вам наиболее удобно. Можно сразу поставить расширения для работы с C++ (C/C++, Native Debug), CMake (CMake, CMake Tools), Docker.</p>
+
+<p>Далее нам потребуется такая структура проекта (в принципе вы можете выбрать такую структуру, какая вам больше нравится, это скажем так рабочий пример):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.vscode
+  tasks.json
+  launch.json
+build
+CMakeLists.txt
+dbuild.sh
+ddebugger.sh
+dmaker.sh
+Dockerfile
+main.cpp
+</code></pre></div></div>
+
+<p>Начнем с С++, пример простой, однако чтобы понять что мы действительно работаем для Linux я добавил несколько linux’овых вещей.</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
+#include</span> <span class="cpf">&lt;limits.h&gt;</span><span class="cp">
+</span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kt">char</span> <span class="n">hostname</span><span class="p">[</span><span class="n">HOST_NAME_MAX</span><span class="p">];</span>
+	<span class="kt">char</span> <span class="n">username</span><span class="p">[</span><span class="n">LOGIN_NAME_MAX</span><span class="p">];</span>
+	<span class="n">gethostname</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="n">HOST_NAME_MAX</span><span class="p">);</span>
+	<span class="n">getlogin_r</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">LOGIN_NAME_MAX</span><span class="p">);</span>
+
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"hostname: "</span> <span class="o">&lt;&lt;</span> <span class="n">hostname</span> <span class="o">&lt;&lt;</span> <span class="s">", login: "</span> <span class="o">&lt;&lt;</span> <span class="n">username</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// prints Hello World!</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Этот код мы будем собирать, запускать и отлаживать.</p>
+
+<p>Далее CMakeLists.txt, который тоже простой и относительно шаблонный:</p>
+
+<div class="language-cmake highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cmake_minimum_required</span><span class="p">(</span>VERSION 3.5<span class="p">)</span>
+
+<span class="nb">project</span><span class="p">(</span>HWord<span class="p">)</span>
+
+<span class="nb">set</span><span class="p">(</span>HWORD_VERSION_MAJOR 1<span class="p">)</span>
+<span class="nb">set</span><span class="p">(</span>HWORD_VERSION_MINOR 0<span class="p">)</span>
+
+<span class="nb">set</span><span class="p">(</span>SOURCE <span class="si">${</span><span class="nv">PROJECT_SOURCE_DIR</span><span class="si">}</span>/main.cpp<span class="p">)</span>
+
+<span class="nb">add_executable</span><span class="p">(</span><span class="si">${</span><span class="nv">PROJECT_NAME</span><span class="si">}</span> <span class="si">${</span><span class="nv">SOURCE</span><span class="si">}</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="собираем">Собираем</h2>
+
+<p>Как я уже выше писал сначала я пытался собрать все это безобразие под OSX с помощью cross-toolchain. Это плюс-минус работало, но часто приходилось пересобирать toolchain с еще каким-нибудь волшебным флагом, а на моем машине это делается примерно 3 часа. В одну из таких пересборок мне пришла мысль, а почему бы не собирать docker’ом, т.е. gcc который в контейнере и в требуемой системе (linux).</p>
+
+<p>Таким образом собираем такой контейнер:</p>
+
+<p>Dockerfile</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FROM ubuntu:16.04
+
+RUN apt-get update 
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y gcc g++ gdb cmake
+
+WORKDIR /opt/build
+VOLUME ["/opt"]
+</code></pre></div></div>
+
+<p>Для упрощения работы с командной строкой docker’а заведем пару скриптов:</p>
+
+<p><strong>Скрипт сборки образа:</strong></p>
+
+<p>dbuild.sh</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nv">cwd</span><span class="o">=</span><span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span>
+
+docker build <span class="se">\</span>
+    <span class="nt">-t</span> mrdekk/maker <span class="se">\</span>
+    <span class="nb">.</span>
+</code></pre></div></div>
+
+<p>Ничего сверхординарного, но возможно вам лучше поставить свой тег, вместо <code class="language-plaintext highlighter-rouge">mrdekk/maker</code> сделать <code class="language-plaintext highlighter-rouge">%username%/maker</code></p>
+
+<p><strong>Скрипт запуска сборок:</strong></p>
+
+<p>dmaker.sh</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nv">cwd</span><span class="o">=</span><span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span>
+
+docker stop maker
+docker <span class="nb">rm </span>maker
+docker run <span class="se">\</span>
+	<span class="nt">-it</span> <span class="se">\</span>
+	<span class="nt">--name</span> maker <span class="se">\</span>
+	<span class="nt">-p</span> 6666:6666 <span class="se">\</span>
+	<span class="nt">-v</span> <span class="k">${</span><span class="nv">cwd</span><span class="k">}</span>:/opt <span class="se">\</span>
+	<span class="nt">--privileged</span> <span class="se">\</span>
+	mrdekk/maker <span class="se">\</span>
+    <span class="s2">"</span><span class="k">${</span><span class="p">@</span><span class="k">}</span><span class="s2">"</span> 
+</code></pre></div></div>
+
+<p><strong>Скрипт запуска контейнера для отладки:</strong></p>
+
+<p>ddebugger.sh</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
+
+<span class="nv">cwd</span><span class="o">=</span><span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span>
+
+docker stop maker
+docker <span class="nb">rm </span>maker
+docker run <span class="se">\</span>
+	<span class="nt">-dt</span> <span class="se">\</span>
+	<span class="nt">--name</span> maker <span class="se">\</span>
+	<span class="nt">-p</span> 6666:6666 <span class="se">\</span>
+	<span class="nt">-v</span> <span class="k">${</span><span class="nv">cwd</span><span class="k">}</span>:/opt <span class="se">\</span>
+	<span class="nt">--privileged</span> <span class="se">\</span>
+	mrdekk/maker <span class="se">\</span>
+    <span class="s2">"</span><span class="k">${</span><span class="p">@</span><span class="k">}</span><span class="s2">"</span> 
+</code></pre></div></div>
+
+<p>Скрипты запуска сборки и дебаггера в общем отличаются только ключами -it и -dt.</p>
+
+<p>Теперь сделаем несколько задач (tasks) для VSCode</p>
+
+<p><strong>Задача сборки контейнера:</strong></p>
+
+<p>Ничего особенного, вызываем скрипт dbuild.sh</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Docker: Build Containers"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}/dbuild.sh"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
+
+<p>И заодно выполняем ее, после этого можете сделать <code class="language-plaintext highlighter-rouge">docker images</code> и проверить, что образ mrdekk/maker появился</p>
+
+<p><strong>Задача для CMake:</strong></p>
+
+<p>Теперь с помощью CMake сгенерим Makefile’ы для сборки проекта. Здесь мы воспользуемся скриптом dmaker.sh, но будем вызывать его с набором ключей:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CMake: Initialize"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}/dmaker.sh"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"cmake"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-G"</span><span class="p">,</span><span class="w"> </span><span class="s2">"'Unix Makefiles'"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-DCMAKE_BUILD_TYPE=Debug"</span><span class="p">,</span><span class="w"> </span><span class="s2">"/opt"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"cwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">/opt</code> это путь до Volume’а в контейнере в который мы будем проецировать текущую папку с исходниками проекта - это в общем часть магии.</p>
+
+<p>После этого в подпапке build вы должны увидеть сгенерированные cmake’ом файлы.</p>
+
+<p><strong>Задача для сборки бинарника:</strong></p>
+
+<p>Здесь снова используем скрипт dmaker.sh но с другими ключами</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Make: Build Project"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}/dmaker.sh"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"make"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-j"</span><span class="p">,</span><span class="w"> </span><span class="s2">"8"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"cwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"group"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"build"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"isDefault"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
+
+<p>После того, как собереться можете попробовать сделать так <code class="language-plaintext highlighter-rouge">./build/HWord</code> на OSX, и вы должны получить примерно такое:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exec format error: ./build/HWord
+</code></pre></div></div>
+
+<p>Это правильно, наш бинарник собран для linux и на OSX запускаться не должен. Если же вы увидите вывод программы, это значит что что-то пошло не так (вы собрали OSX’овым компилятором).</p>
+
+<h2 id="запускаем-без-отладки">Запускаем без отладки</h2>
+
+<p>Теперь у нас есть бинарник, надо проверить что он запускается. Для этого снова воспользуемся скриптом dmaker.sh и такой задачей:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Docker: Run Containers"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}/dmaker.sh"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"/opt/build/HWord"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
+
+<p>После этого вы должны увидеть в <code class="language-plaintext highlighter-rouge">docker logs maker</code> и терминале VSCode примерно такое</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hostname: 03a3a4dee13f, login:
+</code></pre></div></div>
+
+<p>Это хорошо, наш бинарник на linux работает хорошо.</p>
+
+<h2 id="отлаживаемся">Отлаживаемся</h2>
+
+<p>С помощью VSCode поставьте breakpoint куда-нибудь в коде. Нам будет необходим запущенный в фоне контейнер, внутри которого мы через <code class="language-plaintext highlighter-rouge">docker exec</code> будем запускать gdb. Увы, завести VSCode так, чтобы он смог нормально в интерактивном режиме (dmaker.sh и -it) запускать debugger у меня не получилось (видимо механизм запуска дебаггера в VSCode как-то так хитро устроен), поэтому я воспользовался pipeTransport и все заработало.</p>
+
+<p>Таким образом задача для предварительного запуска контейнера:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Docker: Run Debugging Container"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}/ddebugger.sh"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"bash"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>а launch.json выглядит так</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"configurations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Container Debug"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cppdbg"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="s2">"launch"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"program"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/opt/build/HWord"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"cwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/opt"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"linux"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"MIMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gdb"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"setupCommands"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Enable pretty-printing for gdb"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-enable-pretty-printing"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"ignoreFailures"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"osx"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"MIMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"gdb"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"setupCommands"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Enable pretty-printing for gdb"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-enable-pretty-printing"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"ignoreFailures"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+                    </span><span class="p">}</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="err">//</span><span class="w"> </span><span class="nl">"preLaunchTask"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Docker: Run Debugging Container"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"pipeTransport"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"pipeProgram"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docker"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"pipeCwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceRoot}"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"pipeArgs"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                    </span><span class="s2">"exec"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-i"</span><span class="p">,</span><span class="w"> </span><span class="s2">"maker"</span><span class="p">,</span><span class="w"> </span><span class="s2">"sh"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-c"</span><span class="w">
+                </span><span class="p">],</span><span class="w">
+                </span><span class="nl">"quoteArgs"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"debuggerPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/usr/bin/gdb"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"sourceFileMap"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"/opt"</span><span class="p">:</span><span class="s2">"${workspaceFolder}"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Внимательно ко всем параметрам, они все имеют значение.</p>
+
+<p>После этого жмем F5 (или в меню выбираем Start Debugging) и… отлаживаемся. Дебаггер должен остановить выполнение в установленном вами breakpoint’е.</p>
+
+<p>Примеры кода и исходники к статье лежат тут <a href="https://github.com/mrdekk/viscose-cpp-docker">mrdekk/viscose-cpp-docker</a>.</p>
+
+<p>P.S. Да, я тоже ненавижу автокомплит, когда он что-то исправляет. В названии репозитория должно было быть vscode-cpp-docker, а получилось viscose-cpp-docker. Но, ладно! Так тому и быть.</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2024/04/08/notes-on-di/">
+            Заметки о Dependency Injection
+            <small>08.04.2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2019/11/06/swift-dependency-injection/">
+            Внедрение зависимостей (dependency injection) в Swift 5.1
+            <small>06.11.2019</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2019/05/08/clang8-dev-vscode-ubuntu-docker/">
+            Разрабатываем и отлаживаем С++ в Docker с помощью VSCode (2019 edition - clang8 lldb)
+            <small>08.05.2019</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+    </div>
+
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter13259782 = new Ya.Metrika({
+                    id:13259782,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/13259782" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16734363-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+    <script src="/public/js/tabs.js"></script>
+
+  </body>
+</html>
