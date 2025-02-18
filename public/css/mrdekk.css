@@ -1,0 +1,88 @@
+html {
+  font-family: "Noto Serif", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
+@media (min-width: 48rem) {
+  html {
+    font-size: 14px;
+  }
+
+  .content {
+    max-width: none;
+  }
+
+  .container {
+    max-width: none;
+  }
+}
+@media (min-width: 58rem) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.pagination {
+  font-family: "Noto Serif", Helvetica, Arial, sans-serif;
+}
+
+code {
+  font-size: 0.8rem;
+}
+pre {
+  font-size: 0.8rem;
+}
+pre code {
+  font-size: 0.8rem;
+}
+
+.post-date {
+  display: inline;
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+.icon {
+  margin: 0 0.5rem 0 0;;
+  padding: 0px;
+  display: inline;
+}
+
+.entry-tags {
+  display: inline;
+}
+
+.label {
+  padding: 2px 4px;
+  border-radius: 3px;
+  display: inline;
+  font-size: 12px;
+  margin: 2px 0px;
+}
+
+.space{
+  margin: 2px 2px;
+}
+
+/** bootstrap **/
+.text-danger {
+  color: #a94442;
+}
+a.text-danger:hover,
+a.text-danger:focus {
+  color: #843534;
+}
+
+.text-success {
+  color: #3c763d;
+}
+a.text-success:hover,
+a.text-success:focus {
+  color: #2b542c;
+}
+
+.bg-success {
+  background-color: #dff0d8;
+}
+a.bg-success:hover,
+a.bg-success:focus {
+  background-color: #c1e2b3;
+}

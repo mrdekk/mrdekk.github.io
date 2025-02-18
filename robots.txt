@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /construction
+Host: mrdekk.ru
