@@ -37,8 +37,8 @@ jobs:
           mkdir tmp
           cd tmp
           git init
-          git config user.name "${GIT_NAME}"
-          git config user.email "${GIT_EMAIL}"
+          git config user.name "MrDekk"
+          git config user.email "mrdekk@yandex.ru"
           cp -R ../_site/* .
           git add -A .
           git commit -m "Generated Jekyll Site by GitHub Actions - ${GITHUB_RUN_NUMBER}"
