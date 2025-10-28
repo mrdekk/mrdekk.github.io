@@ -37,9 +37,10 @@ jobs:
           mkdir tmp
           cd tmp
           git init
+          git checkout -b master
           git config user.name "MrDekk"
           git config user.email "mrdekk@yandex.ru"
           cp -R ../_site/* .
           git add -A .
           git commit -m "Generated Jekyll Site by GitHub Actions"
-          git push --force --quiet "https://github.com/mrdekk/mrdekk.github.io.git" master:master
+          git push --force --quiet "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/mrdekk/mrdekk.github.io.git" master:master
