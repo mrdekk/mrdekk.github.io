@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name='yandex-verification' content='4a3e9fdb2ed97f52' />
+
+  <title>
+    
+      Главная &middot; MrDekk
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/mrdekk.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,latin-ext,cyrillic'>
+  <link rel="stylesheet" href="/public/css/font-awesome.min.css" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="stylesheet" href="/public/css/tabs.css">
+</head>
+
+
+  <body>
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+	  <img class="profile" alt="my-profile" src="/media/images/brujo.jpg" width="120px">
+      <h1>MrDekk</h1>
+      <p class="description">Время - лучший учитель! Жаль, что оно убивает своих учеников...</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+        <a href="/"><i class="fa fa-home" ></i></a>
+      </li>
+
+      
+
+      
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/about/">Кто здесь?</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/tags/">Метки</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/useful/">Полезное</a>
+            </li>
+          
+        
+      
+        
+      
+        
+          
+        
+      
+        
+          
+            <li class="sidebar-nav-item">
+              <a href="/awesome/">Awesome Stars</a>
+            </li>
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+        
+          
+        
+      
+    </ul>
+
+	<p class="social-icons">
+		<!-- <a href="/search"><i class="fa fa-search fa-2x"></i></a> -->
+		<a href="https://github.com/mrdekk"><i class="fa fa-github fa-2x"></i></a>
+		<a href="https://twitter.com/mrdekk"><i class="fa fa-twitter fa-2x"></i></a>
+		<a href="/atom.xml"><i class="fa fa-rss fa-2x"></i></a>
+	</p>
+
+    <p>&copy; 2025. All rights reserved.</p>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2016/05/11/symbolicate-crash-log/">
+        Символификация crash-дампа iOS
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">11.05.2016</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#ios" title="Pages tagged ios" rel="tag" class="text-success">ios</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#osx" title="Pages tagged osx" rel="tag" class="text-success">osx</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#xcode" title="Pages tagged xcode" rel="tag" class="text-success">xcode</a>
+        </div>
+        
+      
+    </p>
+
+    <p>Допустим вам надо понять что случилось с приложением и у Вас есть крэш-дамп, однако на телефоне стоит iOS 6.1 которую xCode 7.3.1
+принципиально знать не хочет и крэш-дампы с этого устройства не забирает. А смотреть надо. Для этого включаем iTunes и синхронизируем устройство,
+тогда по пути</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">~/Library/Logs/CrashReporter/MobileDevice/</code></pre></figure>
+
+<p>вы сможете найти крэш-дампы. После этого идем по пути</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">/Applications/Xcode.app/Contents/SharedFrameworks/DTDeviceKitBase.framework/Versions/A/Resources</code></pre></figure>
+
+<p>Для xCode 7.3 путь меняется</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">/Applications/Xcode7.3.1.app/Contents/SharedFrameworks/DVTFoundation.framework/Versions/A/Resources</code></pre></figure>
+
+<p>где лежит symbolicatecrash. Берем его и копируем вместе с *.crash файлом и *.ipa файлом (предварительно выключив опцию Strip Debug Symbols During Copy) после этого выполняем нехитрый скрипт</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">export </span><span class="nv">DEVELOPER_DIR</span><span class="o">=</span>/Applications/xCode6.4/Xcode6.4.app/Contents/Developer
+<span class="nv">$ </span>./symbolicatecrash <span class="nt">-v</span> superapp_2016-05-11-211803_superphone.crash superapp.ipa</code></pre></figure>
+
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2016/04/30/cocoapods-static-transitive-binary-dependencies/">
+        Боремся с The ‘Pods...’ target has transitive dependencies that include static binaries
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">30.04.2016</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#ios" title="Pages tagged ios" rel="tag" class="text-success">ios</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#osx" title="Pages tagged osx" rel="tag" class="text-success">osx</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#cocoapods" title="Pages tagged cocoapods" rel="tag" class="text-success">cocoapods</a>
+        </div>
+        
+      
+    </p>
+
+    <p>Суть проблемы следующаяя</p>
+
+<ol>
+  <li>Используем CocoaPods (про Carthage знаю, по некоторым причинам не хочу использовать)</li>
+  <li>Проект на Swift</li>
+  <li>Имеет swift’овые зависимости, поэтому use_frameworks!</li>
+  <li>Имеет старые Objective-C’шные зависимости, в которых есть транзитивные зависимости в которых есть статические либы (something.a, можно в vendored_libraries)</li>
+</ol>
+
+<p>При попытке сделать pod install получаем</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The ‘Pods-...’ target has transitive dependencies that include static binaries
+</code></pre></div></div>
+
+<p>Сие подробно дискутируется <a href="https://github.com/CocoaPods/CocoaPods/issues/2926">тут</a> и <a href="https://github.com/CocoaPods/CocoaPods/issues/3289">тут</a></p>
+
+<p>Внятного решения даже разработчики cocoapods судя по всему пока придумать не могут, но зато предлагают такой вот хак</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pre_install</span> <span class="k">do</span> <span class="o">|</span><span class="n">installer</span><span class="o">|</span>
+    <span class="k">def</span> <span class="nc">installer</span><span class="o">.</span><span class="nf">verify_no_static_framework_transitive_dependencies</span><span class="p">;</span> <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Который просто напросто отключает проверку.</p>
+
+<p>P.S. Правда сий хак не всегда помогает :( и вы можете получить unresolved symbols</p>
+
+<p>P.P.S. Если же вы все-таки хотите transitive static binaries и use_frameworks! то решение существует - необходимо этот transitive static binary обернуть руками в framework а в под зашить vendored_frameworks примерно следующим образом</p>
+
+<p>Нам нужен скрипт создания фреймворка (будем показывать на примере OpenSSL for iPhone)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create-openssl-framework.sh
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/sh</span>
+
+<span class="nv">FWNAME</span><span class="o">=</span>openssl
+
+<span class="k">if</span> <span class="o">[</span> <span class="o">!</span> <span class="nt">-d</span> lib <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"Please run build-libssl.sh first!"</span>
+    <span class="nb">exit </span>1
+<span class="k">fi
+
+if</span> <span class="o">[</span> <span class="nt">-d</span> <span class="nv">$FWNAME</span>.framework <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"Removing previous </span><span class="nv">$FWNAME</span><span class="s2">.framework copy"</span>
+    <span class="nb">rm</span> <span class="nt">-rf</span> <span class="nv">$FWNAME</span>.framework
+<span class="k">fi
+
+if</span> <span class="o">[</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="o">==</span> <span class="s2">"dynamic"</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nv">LIBTOOL_FLAGS</span><span class="o">=</span><span class="s2">"-dynamic -undefined dynamic_lookup"</span>
+<span class="k">else
+    </span><span class="nv">LIBTOOL_FLAGS</span><span class="o">=</span><span class="s2">"-static"</span>
+<span class="k">fi
+
+</span><span class="nb">echo</span> <span class="s2">"Creating </span><span class="nv">$FWNAME</span><span class="s2">.framework"</span>
+<span class="nb">mkdir</span> <span class="nt">-p</span> <span class="nv">$FWNAME</span>.framework/Headers
+libtool <span class="nt">-no_warning_for_no_symbols</span> <span class="nv">$LIBTOOL_FLAGS</span> <span class="nt">-o</span> <span class="nv">$FWNAME</span>.framework/<span class="nv">$FWNAME</span> <span class="nt">-install_name</span> @rpath/<span class="nv">$FWNAME</span>.framework/<span class="nv">$FWNAME</span> lib/libcrypto.a lib/libssl.a
+<span class="nb">cp</span> <span class="nt">-r</span> include/<span class="nv">$FWNAME</span>/<span class="k">*</span> <span class="nv">$FWNAME</span>.framework/Headers/
+<span class="nb">echo</span> <span class="s2">"Created </span><span class="nv">$FWNAME</span><span class="s2">.framework"</span>
+</code></pre></div></div>
+
+<p><strong>ВАЖНО:</strong> чтобы имелся параметр -install_name … так как без него у вас все соберется, но при запуске будет Library not loaded: Image not found</p>
+
+<p>Сам же podspec файл будет выглядеть примерно следующим образом</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="dl">"</span><span class="s2">name</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">OpenSSL-for-iOS</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">...</span>
+  <span class="dl">"</span><span class="s2">prepare_command</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">./build-libssl.sh</span><span class="se">\n</span><span class="s2">./create-openssl-framework.sh</span><span class="se">\n</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">ios</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">vendored_frameworks</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">openssl.framework</span><span class="dl">"</span>
+  <span class="p">},</span>
+  <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>И далее цепляете под себе в Podfile обычным образом</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pod</span> <span class="s1">'OpenSSL-for-iOS'</span>
+</code></pre></div></div>
+
+<p>С включенным use_frameworks!</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2016/03/24/xcode-build-dir/">
+        Путь до сборочной директории xCode
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">24.03.2016</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#xcode" title="Pages tagged xcode" rel="tag" class="text-success">xcode</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#osx" title="Pages tagged osx" rel="tag" class="text-success">osx</a>
+        </div>
+        
+      
+    </p>
+
+    <p>Тут:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/Library/Developer/Xcode/DerivedData
+</code></pre></div></div>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2016/02/07/git-for-svn-users/">
+        GIT для пользователей SVN
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">07.02.2016</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#git" title="Pages tagged git" rel="tag" class="text-success">git</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#svn" title="Pages tagged svn" rel="tag" class="text-success">svn</a>
+        </div>
+        
+      
+    </p>
+
+    <p>Записал слайдкаст с краткими замечаниями по GIT’у для пользователей SVN</p>
+
+<iframe src="http://files.slidesnack.com/iframe/embed.html?hash=b7umykjt&#038;wmode=transparent&#038;bgcolor=EEEEEE&#038;t=1454798716&#038;type=slidecast" width="854" height="480" frameborder="0" allowtransparency="true"></iframe>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/2015/12/16/new-svn-branch-on-gitsvn/">
+        Создание новых веток в SVN при работе с GIT-SVN
+      </a>
+    </h1>
+
+    <i class="icon fa fa-calendar-o text-danger"></i><span class="post-date">16.12.2015</span>
+	<i class="icon fa fa-tags text-success"></i><p class="entry-tags">
+  	
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#git" title="Pages tagged git" rel="tag" class="text-success">git</a>
+        </div>
+        &nbsp;
+      
+  	  <div class="label bg-success">
+  	    <a href="http://mrdekk.ru/tags/#svn" title="Pages tagged svn" rel="tag" class="text-success">svn</a>
+        </div>
+        
+      
+    </p>
+
+    <p>Если вам требуется создать ветку в SVN, но при этом вы работаете в GIT, то ситуация сначала может показаться странной, ведь если вы создали ветку от svn/trunk то svn dcommit будет отправлять изменения в svn/trunk а не в вашу ветку. Проблема решается достаточно просто, вот рецепт:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git svn branch foo
+<span class="nv">$ </span>git checkout <span class="nt">-b</span> foo <span class="nt">-t</span> svn/foo
+<span class="nv">$ </span>...
+<span class="nv">$ </span>git commit
+<span class="nv">$ </span>git svn dcommit
+</code></pre></div></div>
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/page9"><i class="fa fa-hand-o-left" ></i> назад</a>
+  
+  
+    
+      <a class="pagination-item newer" href="/page7">вперед <i class="fa fa-hand-o-right" ></i></a>
+    
+  
+</div>
+
+    </div>
+
+	<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter13259782 = new Ya.Metrika({
+                    id:13259782,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/13259782" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-16734363-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+    <script src="/public/js/tabs.js"></script>
+
+  </body>
+</html>
