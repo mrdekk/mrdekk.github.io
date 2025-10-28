@@ -21,13 +21,13 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.2
+          ruby-version: 2.7
           bundler-cache: true
 
       - name: Install dependencies
         run: |
-          gem install bundler
-          bundle install
+          gem install bundler -v 2.7.2
+          bundle install --jobs 4 --retry 3
 
       - name: Build site
         run: bundle exec jekyll build
