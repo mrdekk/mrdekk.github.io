@@ -34,6 +34,7 @@ gems:
 
 exclude:
   - vendor
+  - openspec
 
 plugins:
   - jekyll-tabs

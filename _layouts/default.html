@@ -14,9 +14,25 @@
 	{% include yandex-metrica.html %}
 	{% include google-analytics.html %}
     <script src="/public/js/tabs.js"></script>
-    {% if page.mermaid %}
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({ startOnLoad: true });</script>
+    {% comment %}
+      Check the rendered content, not just page.mermaid: index.html and the
+      paginated pages inline full post bodies, so they carry .mermaid blocks
+      without any front matter of their own. Missing the script there would
+      leave those blocks hidden forever by the anti-FOUC rule in mrdekk.css.
+    {% endcomment %}
+    {% if page.mermaid or content contains 'class="mermaid"' %}
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"
+            onerror="document.querySelectorAll('.mermaid').forEach(function (el) { el.setAttribute('data-processed', 'true'); });"></script>
+    <script>
+      // Do not use startOnLoad: it defers rendering to the window "load" event,
+      // which waits for every subresource (web fonts, analytics). If one of them
+      // hangs, load never fires and the diagrams stay hidden by the anti-FOUC rule.
+      // This script already sits at the end of body, so the .mermaid nodes exist.
+      if (window.mermaid) {
+        mermaid.initialize({ startOnLoad: false });
+        mermaid.run({ querySelector: '.mermaid' });
+      }
+    </script>
     {% endif %}
 
   </body>
