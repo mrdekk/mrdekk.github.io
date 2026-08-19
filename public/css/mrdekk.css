@@ -86,3 +86,10 @@ a.bg-success:hover,
 a.bg-success:focus {
   background-color: #c1e2b3;
 }
+
+/* Anti-FOUC: hide raw mermaid source text until the library renders the SVG.
+   Mermaid 11.x sets data-processed="true" on the element after rendering.
+   This rule is scoped strictly to .mermaid and does not affect other elements. */
+.mermaid:not([data-processed="true"]) {
+  visibility: hidden;
+}
